@@ -8,10 +8,10 @@
         "temperature": 28,
         "device_temperature": 30,
         "power_outage_count": 8,
-        "linkquality": 66
+        "linkquality": 75
     },
     "0x5c0272fffe03c72e": {
-        "linkquality": 81,
+        "linkquality": 72,
         "state_l2": "ON",
         "state_l3": "ON",
         "state_l1": "ON",

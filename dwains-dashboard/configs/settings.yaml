@@ -1,0 +1,6 @@
+disable_clock: false
+am_pm_clock: false
+disable_welcome_message: true
+v2_mode: false
+weather_entity: weather.yandex_weather
+alarm_entity: alarm_control_panel.alarmo

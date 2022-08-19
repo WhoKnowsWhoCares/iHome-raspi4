@@ -1,0 +1,21 @@
+col_span: '2'
+col_span_lg: '2'
+col_span_xl: '2'
+entities:
+- entity: sensor.zigbee_switch_linkquality
+- entity: switch.zigbee_switch_l1
+  icon: mdi:string-lights
+  name: Lights
+- entity: switch.zigbee_switch_l2
+  icon: mdi:coach-lamp
+  name: Bed Lights
+- entity: switch.zigbee_switch_l3
+- entity: switch.zigbee_switch_l4
+- entity: switch.zigbee_switch_l5
+position: bottom
+row_span: '2'
+row_span_lg: '2'
+row_span_xl: '2'
+state_color: true
+title: Switch
+type: entities

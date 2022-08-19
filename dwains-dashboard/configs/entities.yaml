@@ -1,0 +1,164 @@
+light.mi_philips_bulb:
+  custom_card: true
+  sort_order: 1
+  favorite: false
+  hidden: true
+sensor.mi_move_sensor_in_hall_device_temperature:
+  hidden: true
+sensor.mi_move_sensor_in_hall_power_outage_count:
+  hidden: true
+sensor.mi_move_sensor_in_hall_illuminance_lux:
+  hidden: true
+weather.yandex_weather:
+  custom_card: true
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '2'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: true
+  devices_grouped_sort_order: 1
+media_player.yandex_station_ff98f0294a56d19578794aff:
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: AliceRoom
+  col_span: '2'
+  row_span: '2'
+  col_span_lg: '2'
+  row_span_lg: '2'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+  favorite: true
+  sort_order: 1
+select.yandex_station_room_equalizer:
+  hidden: true
+switch.zigbee_switch_l1:
+  sort_order: 2
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: Lights
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+switch.zigbee_switch_l2:
+  sort_order: 1
+  hidden: true
+switch.zigbee_switch_l3:
+  sort_order: 2
+  hidden: true
+switch.zigbee_switch_l4:
+  sort_order: 3
+  hidden: true
+sensor.zigbee_switch_linkquality:
+  sort_order: 6
+  hidden: true
+switch.zigbee_switch_l5:
+  sort_order: 5
+  hidden: true
+light.mi_philips_bulb_room:
+  hidden: true
+light.mi_yeelink_bulb:
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+sensor.mi_move_sensor_in_hall_battery:
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+binary_sensor.mi_move_sensor_in_hall_occupancy:
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+sensor.mi_move_sensor_in_hall_illuminance:
+  sort_order: 1
+  hidden: true
+switch.socket_coffee:
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+person.alexander:
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+calendar.as_frantsev_gmail_com:
+  hidden: true
+sensor.yandex_weather_condition_yandex:
+  hidden: true
+sensor.yandex_weather_pressure_mmhg:
+  hidden: true
+sensor.yandex_weather_data_update_time:
+  hidden: true
+alarm_control_panel.alarmo:
+  hidden: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: true
+script.alarm_light_flash:
+  hidden: true

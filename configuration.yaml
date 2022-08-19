@@ -21,7 +21,6 @@ http:
   trusted_proxies:
     - !secret ip_proxy
 
-
 telegram_bot:
   - platform: polling
     api_key: !secret tg_api_key_bot
@@ -55,3 +54,6 @@ automation: !include_dir_merge_list includes/automation
 light: !include_dir_merge_list includes/light
 sensor: !include_dir_merge_list includes/sensor
 switch: !include_dir_merge_list includes/switches
+
+shell_command:
+  pushupdates_to_github: /bin/bash pushupdates.sh

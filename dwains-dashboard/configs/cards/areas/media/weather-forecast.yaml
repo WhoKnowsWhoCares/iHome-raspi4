@@ -1,0 +1,13 @@
+col_span: '1'
+col_span_lg: '1'
+col_span_xl: '1'
+entity: weather.yandex_weather
+name: Weather
+position: top
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+show_current: true
+show_forecast: true
+theme: ios-dark-mode-blue-red
+type: weather-forecast

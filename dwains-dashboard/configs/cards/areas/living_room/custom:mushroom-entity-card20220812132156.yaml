@@ -1,0 +1,15 @@
+col_span: '1'
+col_span_lg: '1'
+col_span_xl: '1'
+entity: switch.zigbee_switch_l2
+icon: mdi:coach-lamp
+icon_color: amber
+layout: horizontal
+name: Bed Lights
+position: top
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+tap_action:
+  action: toggle
+type: custom:mushroom-entity-card

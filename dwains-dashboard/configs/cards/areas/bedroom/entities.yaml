@@ -1,0 +1,19 @@
+col_span: '2'
+col_span_lg: '2'
+col_span_xl: '2'
+entities:
+- entity: light.mi_yeelink_bulb
+  name: "\u0421\u0432\u0435\u0442"
+  secondary_info: brightness
+- entity: binary_sensor.mi_move_sensor_in_hall_occupancy
+  name: "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435"
+  secondary_info: last-updated
+- entity: sensor.mi_move_sensor_in_hall_illuminance
+  name: "\u041E\u0441\u0432\u0435\u0449\u0435\u043D\u043D\u043E\u0441\u0442\u044C"
+  secondary_info: none
+position: top
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+title: Hall
+type: entities

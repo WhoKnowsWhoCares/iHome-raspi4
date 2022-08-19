@@ -1,0 +1,9 @@
+col_span: '2'
+col_span_lg: '2'
+col_span_xl: '2'
+entity: media_player.yandex_station_ff98f0294a56d19578794aff
+position: top
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+type: media-control

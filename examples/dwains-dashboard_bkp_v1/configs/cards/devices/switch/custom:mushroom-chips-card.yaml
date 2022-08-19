@@ -1,0 +1,50 @@
+chips:
+- content_info: none
+  entity: switch.zigbee_switch_l1
+  icon: mdi:string-lights
+  icon_color: amber
+  tap_action:
+    action: toggle
+  type: entity
+- content_info: none
+  entity: switch.zigbee_switch_l2
+  icon: mdi:coach-lamp
+  icon_color: amber
+  tap_action:
+    action: toggle
+  type: entity
+- content_info: none
+  entity: switch.zigbee_switch_l3
+  icon_color: amber
+  tap_action:
+    action: toggle
+  type: entity
+- content_info: none
+  entity: switch.zigbee_switch_l4
+  icon_color: amber
+  tap_action:
+    action: toggle
+  type: entity
+- content_info: none
+  entity: switch.zigbee_switch_l5
+  icon_color: amber
+  tap_action:
+    action: toggle
+  type: entity
+- content_info: state
+  entity: sensor.zigbee_switch_linkquality
+  type: entity
+- content_info: none
+  entity: script.toggle_switch
+  icon_color: orange
+  tap_action:
+    action: toggle
+  type: entity
+col_span: '2'
+col_span_lg: '2'
+col_span_xl: '2'
+position: top
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+type: custom:mushroom-chips-card

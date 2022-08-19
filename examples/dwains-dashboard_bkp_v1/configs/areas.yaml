@@ -1,0 +1,24 @@
+bedroom:
+  icon: mdi:door-open
+  floor: ''
+  disabled: false
+  sort_order: 3
+kitchen:
+  icon: mdi:countertop
+  floor: ''
+  disabled: false
+  sort_order: 4
+living_room:
+  icon: mdi:sofa
+  floor: ''
+  disabled: false
+  sort_order: 2
+10ti:
+  sort_order: 1
+10tj:
+  sort_order: 1
+media:
+  sort_order: 1
+  icon: mdi:folder-home-outline
+  floor: ''
+  disabled: false

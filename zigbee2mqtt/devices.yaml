@@ -1,0 +1,8 @@
+'0x00158d00067c3026':
+  friendly_name: mi_move_sensor
+  occupancy_timeout: 60
+  no_occupancy_since:
+    - 30
+    - 0
+'0x5c0272fffe03c72e':
+  friendly_name: zigbee_switch

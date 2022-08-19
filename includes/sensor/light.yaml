@@ -1,0 +1,53 @@
+- platform: template
+  sensors:
+    lights_room:
+      friendly_name: "Всего светильников в комнате on/all: "
+      value_template: "{{ expand(states.light)
+        |selectattr('state', 'eq', 'on')
+        |selectattr('entity_id', 'in', area_entities('Room'))
+        |map(attribute='entity_id')
+        | list | length}} /
+        {{ expand(states.light)
+        |selectattr('entity_id', 'in', area_entities('Room'))
+        |map(attribute='entity_id')
+        | list | length}} "
+      icon_template: mdi:counter
+
+    lights_hall:
+      friendly_name: "Всего светильников в прихожей on/all: "
+      value_template: "{{ expand(states.light)
+        |selectattr('state', 'eq', 'on')
+        |selectattr('entity_id', 'in', area_entities('Hall'))
+        |map(attribute='entity_id')
+        | list | length}} /
+        {{ expand(states.light)
+        |selectattr('entity_id', 'in', area_entities('Hall'))
+        |map(attribute='entity_id')
+        | list | length}}"
+      icon_template: mdi:counter
+
+    switch_kitchen:
+      friendly_name: "Всего доступных переключателей на кухне on/all "
+      value_template: "{{ expand(states.switch)
+        |selectattr('state', 'eq', 'on')
+        |selectattr('entity_id', 'in', area_entities('Kitchen'))
+        |map(attribute='entity_id')
+        | list | length}} /
+        {{ expand(states.switch)
+        |selectattr('entity_id', 'in', area_entities('Kitchen'))
+        |map(attribute='entity_id')
+        | list | length}}"
+      icon_template: mdi:counter
+
+    switch_room:
+      friendly_name: "Всего доступных переключателей в комнате on/all "
+      value_template: "{{ expand(states.switch)
+        |selectattr('state', 'eq', 'on')
+        |selectattr('entity_id', 'in', area_entities('Room'))
+        |map(attribute='entity_id')
+        | list | length}} /
+        {{ expand(states.switch)
+        |selectattr('entity_id', 'in', area_entities('Room'))
+        |map(attribute='entity_id')
+        | list | length}}"
+      icon_template: mdi:counter

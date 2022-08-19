@@ -1,0 +1,17 @@
+col_span: '1'
+col_span_lg: '1'
+col_span_xl: '1'
+entity: switch.zigbee_switch_l1
+fill_container: true
+icon: mdi:string-lights
+icon_color: amber
+layout: horizontal
+name: Lights
+position: top
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+secondary_info: none
+tap_action:
+  action: toggle
+type: custom:mushroom-entity-card

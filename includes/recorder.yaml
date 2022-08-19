@@ -1,0 +1,14 @@
+# db_url: mysql://hass:hass@core-mariadb/homeassistant?charset=utf8
+# include:
+#   domains:
+#     - switch
+#     - light
+#   entities:
+#Объем БД
+# - sensor.maria_db_size
+#Сенсоры температуры и влажности
+# Сенсоры мощности
+# exclude:
+#   entities:
+# Светильники шлюзов
+# - light.philips_bulb

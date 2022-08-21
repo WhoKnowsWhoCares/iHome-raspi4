@@ -17,7 +17,6 @@ alarm_light_flash:
               milliseconds: 500
   mode: single
   icon: mdi:alarm-light-outline
-
 toggle_switch:
   alias: Toggle_switch
   sequence:
@@ -39,3 +38,39 @@ toggle_switch:
             device_id: 77e1896af65516a68096c8cc777f8bea
   mode: single
   icon: mdi:toggle-switch-outline
+yandex_tts_morning_hello:
+  alias: yandex_tts_morning_hello
+  sequence:
+    - service: media_player.play_media
+      data:
+        media_content_id: С добрым утром! Пора вставать!
+        media_content_type: text
+        extra:
+          volume_level: 0.3
+      target:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+  mode: single
+yandex_tts_morning_alarm:
+  alias: yandex_tts_morning_alarm
+  sequence:
+    - service: media_player.play_media
+      data:
+        media_content_id: https://music.yandex.ru/album/5307396/track/38633762
+        media_content_type: xxx
+        extra:
+          volume_level: 0.3
+      target:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+  mode: single
+yandex_tts_start_show:
+  alias: yandex_tts_start_show
+  sequence:
+    - service: media_player.play_media
+      data:
+        media_content_id: Включи шоу
+        media_content_type: command
+        extra:
+          volume_level: 0.3
+      target:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+  mode: single

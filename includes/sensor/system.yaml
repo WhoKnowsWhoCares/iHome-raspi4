@@ -17,6 +17,12 @@
     - type: disk_free
       arg: /
 
+- platform: command_line
+  name: CPU_temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: "{{ value | multiply(0.001) | round(2)  }}"
+
 # - platform: sql
 #   db_url: mysql://hass:hass@core-mariadb/homeassistant?charset=utf8
 #   queries:

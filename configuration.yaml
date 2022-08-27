@@ -44,6 +44,11 @@ frontend:
   themes: !include_dir_merge_named themes
 
 # Внешние папки
+input_boolean: !include includes/input/input_boolean.yaml
+input_number: !include includes/input/input_number.yaml
+input_select: !include includes/input/input_select.yaml
+input_datetime: !include includes/input/input_datetime.yaml
+
 group: !include includes/groups.yaml
 recorder: !include includes/recorder.yaml
 scene: !include includes/scenes.yaml

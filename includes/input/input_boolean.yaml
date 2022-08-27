@@ -1,0 +1,11 @@
+dark_outside:
+  name: Social Hours
+  icon: mdi:theme-light-dark
+
+sleeping:
+  name: Sleeping
+  icon: mdi:sleep
+
+alarm:
+  name: Alarm
+  icon: mdi:alarm

@@ -6,6 +6,8 @@ entities:
 - entity: sensor.disk_use_percent
 - entity: sensor.memory_use_percent
 - entity: sensor.processor_use_percent
+- entity: sensor.processor_temperature
+- entity: sensor.cpu_temperature
 - entity: sensor.snapshot_backup
 - entity: sensor.last_google_backup
 - entity: sensor.maria_db_size

@@ -1,0 +1,8 @@
+home_come_leave:
+  name: Home leave state
+  options:
+    - Leaving
+    - Coming
+    - Other
+  initial: Other
+  icon: mdi:home

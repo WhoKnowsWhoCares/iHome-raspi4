@@ -47,7 +47,7 @@ yandex_tts_morning_hello:
       data:
         media_content_id: С добрым утром! Пора вставать!
         media_content_type: text
-        extra:
+        options:
           volume_level: 0.3
       target:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
@@ -61,7 +61,7 @@ yandex_tts_morning_alarm:
       data:
         media_content_id: https://music.yandex.ru/album/5307396/track/38633762
         media_content_type: xxx
-        extra:
+        options:
           volume_level: 0.3
   mode: single
 
@@ -72,20 +72,29 @@ yandex_tts_start_show:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Включи шоу
-        media_content_type: command
-        extra:
+        media_content_type: command:asFrants iHome:шоу
+        options:
           volume_level: 0.3
   mode: single
 
 alice_morning_dialog:
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.3
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Вот уже и утро, пора вставать!
-        media_content_type: dialog:умный дом:утро
-        extra:
-          volume_level: 0.3
+        media_content_type: dialog:asFrants iHome:утро
+        # options:
+        #   volume_level: 0.3
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: https://music.yandex.ru/users/as.frantsev/playlists/1005
+        media_content_type: playlist
     - wait_for_trigger:
         platform: event
         event_type: yandex_intent
@@ -107,7 +116,7 @@ alice_morning_dialog:
                 event_data:
                   session: { dialog: утро2 }
               timeout:
-                seconds: 15
+                seconds: 5
             - choose:
                 - conditions: "{{ wait.trigger.event.data.text in ['да','конечно','давай'] }}"
                   sequence:
@@ -118,11 +127,16 @@ alice_morning_dialog:
                       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
                       data:
                         media_content_id: Включи шоу
-                        media_content_type: command
+                        media_content_type: command:asFrants iHome
               default:
                 - event: yandex_intent_response
                   event_data:
                     text: Ну нет, так нет
+                - service: media_player.play_media
+                  entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+                  data:
+                    media_content_id: Включи шоу {{ states('input_datetime.alice_timer')[:5] }}
+                    media_content_type: command:asFrants iHome
       default:
         - event: yandex_intent_response
           event_data:
@@ -130,25 +144,29 @@ alice_morning_dialog:
         - service: media_player.play_media
           entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
           data:
-            media_content_id: https://music.yandex.ru/album/5307396/track/38633762
-            media_content_type: xxx
+            media_content_id: https://music.yandex.ru/users/as.frantsev/playlists/1005
+            media_content_type: playlist
 
 alice_leaving_dialog:
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.5
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Вы уходите?
-        media_content_type: dialog:умный дом:прощание
-        extra:
-          volume_level: 0.5
+        media_content_type: dialog:asFrants iHome:прощание
+        # options:
+        #   volume_level: 0.5
     - wait_for_trigger:
         platform: event
         event_type: yandex_intent
         event_data:
           session: { dialog: прощание }
       timeout:
-        seconds: 15
+        seconds: 5
     - choose:
         - conditions: "{{ wait.trigger.event.data.text in ['да','пока'] }}"
           sequence:
@@ -159,7 +177,7 @@ alice_leaving_dialog:
               entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
               data:
                 media_content_id: Прогноз погоды
-                media_content_type: command
+                media_content_type: command:asFrants iHome
       default:
         - event: yandex_intent_response
           event_data:
@@ -167,20 +185,24 @@ alice_leaving_dialog:
 
 alice_coming_dialog:
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.5
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Добро пожаловать! Включить музыку?
-        media_content_type: dialog:умный дом:приветствие
-        extra:
-          volume_level: 0.5
+        media_content_type: dialog:asFrants iHome:приветствие
+        # options:
+        #   volume_level: 0.5
     - wait_for_trigger:
         platform: event
         event_type: yandex_intent
         event_data:
           session: { dialog: приветствие }
       timeout:
-        seconds: 15
+        seconds: 5
     - choose:
         - conditions: "{{ wait.trigger.event.data.text in ['да','давай','хорошо','врубай','жги'] }}"
           sequence:
@@ -192,8 +214,12 @@ alice_coming_dialog:
               data:
                 media_content_id: Включи музыку
                 media_content_type: command
-                extra:
-                  volume_level: 0.3
+                # options:
+                #   volume_level: 0.3
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+                volume_level: 0.3
       default:
         - event: yandex_intent_response
           event_data:
@@ -201,20 +227,24 @@ alice_coming_dialog:
 
 alice_evening_coming_dialog:
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.5
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: С возвращением! Включить вечернее настроение?
-        media_content_type: dialog:умный дом:приветствие вечер
-        extra:
-          volume_level: 0.5
+        media_content_id: '{{["С возвращением!","Добро пожаловать!"]|random }} Включить вечернее настроение?'
+        media_content_type: dialog:asFrants iHome:приветствие вечер
+        # options:
+        #   volume_level: 0.5
     - wait_for_trigger:
         platform: event
         event_type: yandex_intent
         event_data:
           session: { dialog: приветствие вечер }
       timeout:
-        seconds: 15
+        seconds: 5
     - choose:
         - conditions: "{{ wait.trigger.event.data.text in ['да','давай','хорошо','врубай','жги'] }}"
           sequence:

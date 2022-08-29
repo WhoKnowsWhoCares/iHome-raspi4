@@ -85,3 +85,27 @@ telegramm:
           data:
             message: "Свет в прихожей - {{ states('light.mi_yeelink_bulb') }} "
 
+    - id: Ответ Алисы
+      aliase: alice_telegramm_response
+      trigger:
+        platform: event
+        event_type: yandex_station_response
+      action:
+        service: notify.telegram_id
+        data_template:
+          target: "{{ trigger.event.data.request_id }}"
+          message: "{{ trigger.event.data.text }}"
+
+    - id: Вопрос Алисе
+      aliase: alice_telegramm_question
+      trigger:
+        platform: event
+        event_type: telegram_command
+        event_data:
+          command: "/alice"
+      action:
+        service: media_player.play_media
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        data_template:
+          media_content_id: "{{ trigger.event.data['args']|join(' ') }}"
+          media_content_type: "question:{{ trigger.event.data.chat_id }}"

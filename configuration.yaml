@@ -13,6 +13,10 @@ yandex_smart_home:
       skill_id: !secret yandex_skill_id
       user_id: !secret yandex_user_id
 
+yandex_station:
+  recognition_lang: ru-RU
+  tts_service_name: alice_say
+
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -61,4 +65,4 @@ sensor: !include_dir_merge_list includes/sensor
 switch: !include_dir_merge_list includes/switches
 
 shell_command:
-  pushupdates_to_github: /bin/bash pushupdates.sh
+  pushupdates_to_github: sh pushupdates.sh

@@ -1,5 +1,5 @@
 - id: Database zip
-  alias: database_zip
+  # alias: database_zip
   initial_state: true
   trigger:
     - platform: time
@@ -11,7 +11,7 @@
         repack: true
 
 - id: Morning Alarm On
-  alias: morning_alarm_on
+  # alias: morning_alarm_on
   # initial_state: false
   trigger:
     - platform: time

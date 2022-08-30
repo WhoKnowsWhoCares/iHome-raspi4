@@ -1,5 +1,5 @@
 - id: Set theme
-  alias: Set_theme_at_startup
+  # alias: Set_theme_at_startup
   trigger:
     platform: homeassistant
     event: start

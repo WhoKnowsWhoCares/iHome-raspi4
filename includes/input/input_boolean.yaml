@@ -9,3 +9,13 @@ sleeping:
 alarm:
   name: Alarm
   icon: mdi:alarm
+
+leaving:
+  name: Leaving_state
+  icon: mdi:motion-sensor
+  initial: false
+
+nfc_phone_charge_scanned:
+  name: NFC PhoneCharge Scanned
+  icon: mdi:nfc
+  initial: false

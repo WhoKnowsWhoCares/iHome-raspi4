@@ -1,4 +1,5 @@
 - id: Alice leaving
+  alias: alice_leaving_automation
   trigger:
     platform: event
     event_type: yandex_intent

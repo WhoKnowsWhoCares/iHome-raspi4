@@ -1,0 +1,13 @@
+- id: NFC PhoneCharge
+  alias: nfc_phone_charge_scanned
+  description: ""
+  trigger:
+    - platform: tag
+      tag_id: 28a20900-9be1-4e79-9b67-7a36c4dd3f21
+  condition: []
+  action:
+    - service: input_boolean.turn_on
+      data: {}
+      target:
+        entity_id: input_boolean.nfc_phone_charge_scanned
+  mode: single

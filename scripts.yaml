@@ -15,9 +15,24 @@ alarm_light_flash:
               minutes: 0
               seconds: 0
               milliseconds: 500
+    - repeat:
+        count: 10
+        sequence:
+          - service: light.toggle
+            data:
+              flash: short
+              brightness_pct: 100
+            target:
+              entity_id: light.mi_philips_bulb_room
+          - delay:
+              hours: 0
+              minutes: 0
+              seconds: 0
+              milliseconds: 500
   mode: single
   icon: mdi:alarm-light-outline
 
+#Переключает все розетки тройника в комнате в одно состояние
 toggle_switch:
   alias: Toggle_switch
   sequence:
@@ -39,6 +54,16 @@ toggle_switch:
             device_id: 77e1896af65516a68096c8cc777f8bea
   mode: single
   icon: mdi:toggle-switch-outline
+
+turn_on_bedside_light:
+  alias: turn_on_bedside_light
+  sequence:
+    type: turn_on
+    device_id: 77e1896af65516a68096c8cc777f8bea
+    entity_id: switch.zigbee_switch_l2
+    domain: switch
+  mode: single
+  icon: mdi:coach-lamp
 
 yandex_tts_morning_hello:
   alias: yandex_tts_morning_hello
@@ -71,10 +96,8 @@ yandex_tts_start_show:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: Включи шоу
-        media_content_type: command:asFrants iHome:шоу
-        options:
-          volume_level: 0.3
+        media_content_id: Шоу
+        media_content_type: command:умный дом:шоу
   mode: single
 
 alice_morning_dialog:
@@ -87,7 +110,7 @@ alice_morning_dialog:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Вот уже и утро, пора вставать!
-        media_content_type: dialog:asFrants iHome:утро
+        media_content_type: dialog:умный дом:утро
         # options:
         #   volume_level: 0.3
     - service: media_player.play_media
@@ -152,34 +175,36 @@ alice_leaving_dialog:
     - service: media_player.volume_set
       data:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.2
+        volume_level: 0.3
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Вы уходите?
-        media_content_type: dialog
+        media_content_type: dialog:умный дом:прощание
     - wait_for_trigger:
         platform: event
         event_type: yandex_intent
         event_data:
-          session: { dialog: прощание }
-#   timeout:
-#     seconds: 5
-# - choose:
-#     - conditions: "{{ wait.trigger.event.data.text in ['да','пока'] }}"
-#       sequence:
-#         - event: yandex_intent_response
-#           event_data:
-#             text: Прогноз погоды на дорожку
-#         - service: media_player.play_media
-#           entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-#           data:
-#             media_content_id: Прогноз погоды
-#             media_content_type: command:asFrants iHome
-#   default:
-#     - event: yandex_intent_response
-#       event_data:
-#         text: Ну нет, так нет
+          session:
+            dialog: прощание
+      timeout:
+        seconds: 5
+      continue_on_timeout: false
+    - choose:
+        - conditions: "{{ wait.trigger.event.data.text in ['да','пока'] }}"
+          sequence:
+            - event: yandex_intent_response
+              event_data:
+                text: Прогноз погоды на дорожку
+            - service: media_player.play_media
+              entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+              data:
+                media_content_id: Прогноз погоды
+                media_content_type: text
+      default:
+        - event: yandex_intent_response
+          event_data:
+            text: Ну нет, так нет
 
 alice_coming_dialog:
   sequence:

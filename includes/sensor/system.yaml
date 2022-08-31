@@ -35,14 +35,11 @@
   sensors:
     last_boot_custom:
       friendly_name: "last reboot"
-      # entity_id:
-      #   - sensor.time
       value_template: >
         {% set uptime = as_timestamp (now()) -as_timestamp(states.sensor.last_boot.state) | int %}
         {% set minutes = (( uptime % 3600) / 60) | int %}
         {% set hours = ((uptime % 86400) / 3600) | int %}
         {% set days = (uptime / 86400) | int %}
-
           {% if uptime < 1 %}
             less than minute
           {% else %}
@@ -64,22 +61,15 @@
           {% endif %}
       icon_template: mdi:clock
 
-# - platform: uptime
-#   name: online
-#   unit_of_measurement: minutes
-
 - platform: template
   sensors:
     online_custom:
       friendly_name: "Home Assistant online - "
-      # entity_id:
-      #   - sensor.time
       value_template: >
         {% set uptime = as_timestamp(states.sensor.online.state) | int %}
         {% set minutes = (( uptime % 3600) / 60) | int %}
         {% set hours = ((uptime % 86400) / 3600) | int %}
         {% set days = (uptime / 86400) | int %}
-
           {% if uptime < 1 %}
             less than minute
           {% else %}

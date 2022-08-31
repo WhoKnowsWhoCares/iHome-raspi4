@@ -1,6 +1,6 @@
-alarm_time:
-  name: Alarm Time
-  has_date: false
+time_alarm:
+  name: Time Alarm
+  has_date: true
   has_time: true
 
 alice_timer:

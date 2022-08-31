@@ -33,7 +33,7 @@ telegramm:
             message: |
               {{"\U0001F4AC"}} Основной сервер Raspberry Pi 
               {{"\U0001F567"}} Зафиксирован запуск в {{ states('sensor.time_date') }} 
-              {{"\U0001F4C3"}} Отчет о состоянии будет через 2 минуты
+              {{"\U0001F4C3"}} Отчет о состоянии будет через 1 минуту
         - delay: 00:01:00
         - service: script.turn_on
           entity_id: script.system_report
@@ -85,6 +85,35 @@ telegramm:
           data:
             message: "Свет в прихожей - {{ states('light.mi_yeelink_bulb') }} "
 
+    - id: Вызов Алисы
+      aliase: alice_call
+      trigger:
+        platform: event
+        event_type: telegram_command
+        event_data:
+          command: "/alice"
+      action:
+        - service: media_player.play_media
+          entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+          data_template:
+            media_content_id: "Чем могу помочь?"
+            media_content_type: text
+        - service: notify.telegram_id
+          data:
+            message: "Чем могу помочь?"
+
+    - id: Вопрос Алисе
+      aliase: alice_telegramm_question
+      trigger:
+        platform: event
+        event_type: telegram_text
+      action:
+        service: media_player.play_media
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        data_template:
+          media_content_id: "{{ trigger.event.data.text }}"
+          media_content_type: "question:{{ trigger.event.data.chat_id }}"
+
     - id: Ответ Алисы
       aliase: alice_telegramm_response
       trigger:
@@ -95,17 +124,3 @@ telegramm:
         data_template:
           target: "{{ trigger.event.data.request_id }}"
           message: "{{ trigger.event.data.text }}"
-
-    - id: Вопрос Алисе
-      aliase: alice_telegramm_question
-      trigger:
-        platform: event
-        event_type: telegram_command
-        event_data:
-          command: "/alice"
-      action:
-        service: media_player.play_media
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        data_template:
-          media_content_id: "{{ trigger.event.data['args']|join(' ') }}"
-          media_content_type: "question:{{ trigger.event.data.chat_id }}"

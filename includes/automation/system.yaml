@@ -10,16 +10,27 @@
         keep_days: 3
         repack: true
 
-# - id: Set Time Alarm On
-#   alias: set_time_alarm_on
+- id: Ok to Alarm
+  alias: alarm_allowed
   # initial_state: true
-  # trigger:
-  #   - platform: time
-  #     at: input_datetime.alarm_time
-  # action:
-  #   - service: input_boolean.turn_on
-  #     target:
-  #       entity_id: input_boolean.alarm
+  trigger:
+    - platform: time
+      at: "05:00:00"
+  action:
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.alarm
+
+- id: Not ok to Alarm
+  alias: alarm_forbidden
+  # initial_state: true
+  trigger:
+    - platform: time
+      at: "12:00:00"
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.alarm
 
 - id: Dark Outside
   alias: dark_outside

@@ -3,9 +3,12 @@
     time_alarm_state:
       friendly_name: "time_alarm_state"
       value_template: >
-        {% set timeto = (as_timestamp(states.input_datetime.time_alarm.state) - as_timestamp(now())) | int %}
-        {% set minutes = ( (timeto % 3500) / 60) | int %}
+        {% set timeto = (as_timestamp(now()) - as_timestamp(states.input_datetime.time_alarm.state)) | int %}
+        {% set minutes = ( (timeto % 3600) / 60) | int %}
         {% set hours_total = ( timeto / 3600) | int %}
-          {% if hours_total = 3 %}
-          {{minutes}}
+          {% if (hours_total == 3) and (minutes == 0) %}
+            on
+          {% else %}
+            off
+          {% endif %}
       icon_template: mdi:alarm

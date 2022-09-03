@@ -70,9 +70,9 @@ yandex_tts_morning_hello:
   sequence:
     - service: media_player.play_media
       data:
-        media_content_id: С добрым утром! Пора вставать!
+        media_content_id: C добрым утром! Пора вставать!
         media_content_type: text
-        options:
+        extra:
           volume_level: 0.3
       target:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
@@ -86,7 +86,7 @@ yandex_tts_morning_alarm:
       data:
         media_content_id: https://music.yandex.ru/album/5307396/track/38633762
         media_content_type: xxx
-        options:
+        extra:
           volume_level: 0.3
   mode: single
 
@@ -97,116 +97,35 @@ yandex_tts_start_show:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Шоу
-        media_content_type: command:умный дом:шоу
+        media_content_type: command
   mode: single
 
-alice_morning_dialog:
+yandex_tts_coming:
   sequence:
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.3
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: Вот уже и утро, пора вставать!
-        media_content_type: dialog:умный дом:утро
-        # options:
-        #   volume_level: 0.3
-    - service: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      data:
-        media_content_id: https://music.yandex.ru/users/as.frantsev/playlists/1005
-        media_content_type: playlist
-    - wait_for_trigger:
-        platform: event
-        event_type: yandex_intent
-        event_data:
-          session: { dialog: утро }
-      timeout:
-        seconds: 15
-    - choose:
-        - conditions: "{{ wait.trigger.event.data.text in ['хорошо','конечно','уже встаю'] }}"
-          sequence:
-            - event: yandex_intent_response
-              event_data:
-                text: Включить вам шоу?
-                # session: { dialog: утро2 }
-                end_session: False
-            - wait_for_trigger:
-                platform: event
-                event_type: yandex_intent
-                event_data:
-                  session: { dialog: утро2 }
-              timeout:
-                seconds: 5
-            - choose:
-                - conditions: "{{ wait.trigger.event.data.text in ['да','конечно','давай'] }}"
-                  sequence:
-                    - event: yandex_intent_response
-                      event_data:
-                        text: Запускаю
-                    - service: media_player.play_media
-                      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-                      data:
-                        media_content_id: Включи шоу
-                        media_content_type: command:asFrants iHome
-              default:
-                - event: yandex_intent_response
-                  event_data:
-                    text: Ну нет, так нет
-                - service: media_player.play_media
-                  entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-                  data:
-                    media_content_id: Включи шоу {{ states('input_datetime.alice_timer')[:5] }}
-                    media_content_type: command:asFrants iHome
-      default:
-        - event: yandex_intent_response
-          event_data:
-            text: Пора вставать!
-        - service: media_player.play_media
-          entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-          data:
-            media_content_id: https://music.yandex.ru/users/as.frantsev/playlists/1005
-            media_content_type: playlist
+        media_content_id: '{{["C возвращением!","Добро пожаловать!"]|random }} '
+        media_content_type: text
+        extra:
+          volume_level: 0.5
 
-alice_leaving_dialog:
+yandex_tts_evening_coming:
   sequence:
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.3
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: Вы уходите?
-        media_content_type: dialog:умный дом:прощание
-    - wait_for_trigger:
-        platform: event
-        event_type: yandex_intent
-        event_data:
-          session:
-            dialog: прощание
-      timeout:
-        seconds: 5
-      continue_on_timeout: false
-    - choose:
-        - conditions: "{{ wait.trigger.event.data.text in ['да','пока'] }}"
-          sequence:
-            - event: yandex_intent_response
-              event_data:
-                text: Прогноз погоды на дорожку
-            - service: media_player.play_media
-              entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-              data:
-                media_content_id: Прогноз погоды
-                media_content_type: text
-      default:
-        - event: yandex_intent_response
-          event_data:
-            text: Ну нет, так нет
+        media_content_id: '{{["C возвращением!","Добро пожаловать!"]|random }} '
+        media_content_type: text
+        extra:
+          volume_level: 0.5
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: я дома
+        media_content_type: command
 
-alice_coming_dialog:
+yandex_tts_leaving:
   sequence:
     - service: media_player.volume_set
       data:
@@ -215,71 +134,117 @@ alice_coming_dialog:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: Добро пожаловать! Включить музыку?
-        media_content_type: dialog:asFrants iHome:приветствие
-        # options:
-        #   volume_level: 0.5
-    - wait_for_trigger:
-        platform: event
-        event_type: yandex_intent
-        event_data:
-          session: { dialog: приветствие }
-      timeout:
-        seconds: 5
-    - choose:
-        - conditions: "{{ wait.trigger.event.data.text in ['да','давай','хорошо','врубай','жги'] }}"
-          sequence:
-            - event: yandex_intent_response
-              event_data:
-                text: Сейчас будет
-            - service: media_player.play_media
-              entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-              data:
-                media_content_id: Включи музыку
-                media_content_type: command
-                # options:
-                #   volume_level: 0.3
-            - service: media_player.volume_set
-              data:
-                entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-                volume_level: 0.3
-      default:
-        - event: yandex_intent_response
-          event_data:
-            text: Ну нет, так нет
-
-alice_evening_coming_dialog:
-  sequence:
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.5
+        media_content_id: '{{["Вы уходите?",""]|random }} На всякий случай прогноз погоды.'
+        media_content_type: text
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: '{{["С возвращением!","Добро пожаловать!"]|random }} Включить вечернее настроение?'
-        media_content_type: dialog:asFrants iHome:приветствие вечер
-        # options:
-        #   volume_level: 0.5
-    - wait_for_trigger:
-        platform: event
-        event_type: yandex_intent
-        event_data:
-          session: { dialog: приветствие вечер }
-      timeout:
-        seconds: 5
-    - choose:
-        - conditions: "{{ wait.trigger.event.data.text in ['да','давай','хорошо','врубай','жги'] }}"
-          sequence:
-            - event: yandex_intent_response
-              event_data:
-                text: Сейчас будет
-            - service: media_player.play_media
-              entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-              data:
-                media_content_id: Вечернее настроение
-                media_content_type: command:asFrants iHome
-      default:
-        - event: yandex_intent_response
-          event_data:
-            text: Ну нет, так нет
+        media_content_id: погода
+        media_content_type: command
+        
+# alice_morning_dialog:
+#   sequence:
+#     - service: media_player.volume_set
+#       data:
+#         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#         volume_level: 0.3
+#     - service: media_player.play_media
+#       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#       data:
+#         media_content_id: Вот уже и утро, пора вставать!
+#         media_content_type: dialog:умный дом:утро
+# options:
+#   volume_level: 0.3
+# - service: media_player.play_media
+#   entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#   data:
+#     media_content_id: https://music.yandex.ru/users/as.frantsev/playlists/1005
+#     media_content_type: playlist
+# - wait_for_trigger:
+#     platform: event
+#     event_type: yandex_intent
+#     event_data:
+#       session: { dialog: утро }
+#   timeout:
+#     seconds: 15
+# - choose:
+#     - conditions: "{{ wait.trigger.event.data.text in ['хорошо','конечно','уже встаю'] }}"
+#       sequence:
+#         - event: yandex_intent_response
+#           event_data:
+#             text: Включить вам шоу?
+# session: { dialog: утро2 }
+#           end_session: False
+#       - wait_for_trigger:
+#           platform: event
+#           event_type: yandex_intent
+#           event_data:
+#             session: { dialog: утро2 }
+#         timeout:
+#           seconds: 5
+#       - choose:
+#           - conditions: "{{ wait.trigger.event.data.text in ['да','конечно','давай'] }}"
+#             sequence:
+#               - event: yandex_intent_response
+#                 event_data:
+#                   text: Запускаю
+#               - service: media_player.play_media
+#                 entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#                 data:
+#                   media_content_id: Включи шоу
+#                   media_content_type: command:asFrants iHome
+#         default:
+#           - event: yandex_intent_response
+#             event_data:
+#               text: Ну нет, так нет
+#           - service: media_player.play_media
+#             entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#             data:
+#               media_content_id: Включи шоу {{ states('input_datetime.alice_timer')[:5] }}
+#               media_content_type: command:asFrants iHome
+# default:
+#   - event: yandex_intent_response
+#     event_data:
+#       text: Пора вставать!
+#   - service: media_player.play_media
+#     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#     data:
+#       media_content_id: https://music.yandex.ru/users/as.frantsev/playlists/1005
+#       media_content_type: playlist
+
+# alice_leaving_dialog:
+#   sequence:
+#     - service: media_player.volume_set
+#       data:
+#         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#         volume_level: 0.3
+#     - service: media_player.play_media
+#       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#       data:
+#         media_content_id: Вы уходите?
+#         media_content_type: dialog:умный дом:прощание
+#     - wait_for_trigger:
+#         platform: event
+#         event_type: yandex_intent
+#         event_data:
+#           session:
+#             dialog: прощание
+#       timeout:
+#         seconds: 5
+#       continue_on_timeout: false
+#     - choose:
+#         - conditions: "{{ wait.trigger.event.data.text in ['да','пока'] }}"
+#           sequence:
+#             - event: yandex_intent_response
+#               event_data:
+#                 text: Прогноз погоды на дорожку
+#             - service: media_player.play_media
+#               entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#               data:
+#                 media_content_id: Прогноз погоды
+#                 media_content_type: text
+#       default:
+#         - event: yandex_intent_response
+#           event_data:
+#             text: Ну нет, так нет
+

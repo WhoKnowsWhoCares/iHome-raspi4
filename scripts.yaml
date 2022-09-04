@@ -69,26 +69,38 @@ yandex_tts_morning_hello:
   alias: yandex_tts_morning_hello
   sequence:
     - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: C добрым утром! Пора вставать!
+        media_content_id: '{{["Доброе утро! Пора вставать!","Пора вставать! Дела сами себя не сделают!"]|random }} '
         media_content_type: text
         extra:
-          volume_level: 0.3
-      target:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-  mode: single
+          volume_level: 0.2
 
 yandex_tts_morning_alarm:
   alias: yandex_tts_morning_alarm
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.1
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: https://music.yandex.ru/album/5307396/track/38633762
+        media_content_id: "https://music.yandex.ru/album/19738332/track/{{[96361671,96361670,96361672,96361673,96361676,96361677]|random }} "
         media_content_type: xxx
-        extra:
-          volume_level: 0.3
-  mode: single
+
+# https://music.yandex.ru/album/19738332/track/96361671
+# https://music.yandex.ru/album/19738332/track/96361670
+# https://music.yandex.ru/album/19738332/track/96361672
+# https://music.yandex.ru/album/19738332/track/96361673
+# https://music.yandex.ru/album/19738332/track/96361676
+# https://music.yandex.ru/album/19738332/track/96361677
+# https://music.yandex.ru/album/19738332/track/96361680
+# https://music.yandex.ru/album/19738332/track/96361681
+# https://music.yandex.ru/album/19738332/track/96361682
+# https://music.yandex.ru/album/19738332/track/96361687
+# https://music.yandex.ru/album/19738332/track/96361688
+# https://music.yandex.ru/album/19738332/track/96361696
 
 yandex_tts_start_show:
   alias: yandex_tts_start_show
@@ -100,25 +112,31 @@ yandex_tts_start_show:
         media_content_type: command
   mode: single
 
+yandex_tts_coffee_ready:
+  alias: yandex_tts_coffee_ready
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: Кофе готов! Пейте пока горячий!
+        media_content_type: text
+        extra:
+          volume_level: 0.3
+  mode: single
+
 yandex_tts_coming:
   sequence:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: '{{["C возвращением!","Добро пожаловать!"]|random }} '
+        media_content_id: '{{["С возвращением!","Добро пожаловать!"]|random }} '
         media_content_type: text
         extra:
           volume_level: 0.5
+  mode: single
 
 yandex_tts_evening_coming:
   sequence:
-    - service: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      data:
-        media_content_id: '{{["C возвращением!","Добро пожаловать!"]|random }} '
-        media_content_type: text
-        extra:
-          volume_level: 0.5
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
@@ -127,27 +145,35 @@ yandex_tts_evening_coming:
 
 yandex_tts_leaving:
   sequence:
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.5
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Вы уходите?",""]|random }} На всякий случай прогноз погоды.'
         media_content_type: text
+        extra:
+          volume_level: 0.5
+
+yandex_tts_weather:
+  sequence:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: погода
         media_content_type: command
-        
+
+yandex_tts_lowder:
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: громче
+        media_content_type: command
 # alice_morning_dialog:
 #   sequence:
-#     - service: media_player.volume_set
-#       data:
-#         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-#         volume_level: 0.3
+# - service: media_player.volume_set
+#   data:
+#     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#     volume_level: 0.3
 #     - service: media_player.play_media
 #       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
 #       data:

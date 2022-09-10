@@ -11,6 +11,10 @@ entities:
 - entity: sensor.mi_move_sensor_in_hall_illuminance
   name: "\u041E\u0441\u0432\u0435\u0449\u0435\u043D\u043D\u043E\u0441\u0442\u044C"
   secondary_info: none
+- entity: binary_sensor.mi_door_sensor_contact
+  icon: mdi:door-open
+  name: "\u0414\u0432\u0435\u0440\u044C"
+  secondary_info: none
 position: top
 row_span: '1'
 row_span_lg: '1'

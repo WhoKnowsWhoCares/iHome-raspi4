@@ -1,2 +1,0 @@
-error 2022-08-07 01:57:09: Request 'zigbee2mqtt/bridge/request/device/rename' failed with error: 'friendly_name 'mi_move_sensor' is already in use'
-error 2022-08-09 18:28:49: Not connected to MQTT server!

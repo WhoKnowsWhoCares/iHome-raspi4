@@ -162,3 +162,8 @@ alarm_control_panel.alarmo:
   custom_popup: true
 script.alarm_light_flash:
   hidden: true
+sensor.mi_door_sensor_battery:
+  hidden: true
+binary_sensor.mi_door_sensor_contact:
+  custom_popup: true
+  hidden: true

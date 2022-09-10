@@ -1,0 +1,1 @@
+error 2022-09-10 11:34:00: Not connected to MQTT server!

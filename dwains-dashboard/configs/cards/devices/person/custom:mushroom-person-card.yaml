@@ -8,7 +8,7 @@ position: top
 row_span: '1'
 row_span_lg: '1'
 row_span_xl: '1'
-secondary_info: last-changed
+secondary_info: state
 tap_action:
   action: more-info
 type: custom:mushroom-person-card

@@ -1,8 +1,8 @@
-alarm_light_flash:
-  alias: alarm_light_flash
+alarm_hall_light_flash:
+  alias: alarm_hall_light_flash
   sequence:
     - repeat:
-        count: 10
+        count: 20
         sequence:
           - service: light.toggle
             data:
@@ -15,6 +15,12 @@ alarm_light_flash:
               minutes: 0
               seconds: 0
               milliseconds: 500
+  mode: single
+  icon: mdi:alarm-light-outline
+
+alarm_room_light_flash:
+  alias: alarm_room_light_flash
+  sequence:
     - repeat:
         count: 10
         sequence:
@@ -168,6 +174,18 @@ yandex_tts_lowder:
       data:
         media_content_id: громче
         media_content_type: command
+
+yandex_tts_alarm_warning:
+  alias: yandex_tts_coffee_ready
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: Внимание! Постороннее присутствие! Ваше фото отправлено владельцам!
+        media_content_type: text
+        extra:
+          volume_level: 0.6
+  mode: single
 # alice_morning_dialog:
 #   sequence:
 # - service: media_player.volume_set

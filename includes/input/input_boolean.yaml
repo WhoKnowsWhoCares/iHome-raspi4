@@ -10,6 +10,10 @@ alarm:
   name: Alarm
   icon: mdi:alarm
 
+light_hall_const:
+  name: Light_hall
+  icon: mdi:lightbulb
+
 leaving:
   name: Leaving_state
   icon: mdi:motion-sensor

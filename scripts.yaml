@@ -176,7 +176,7 @@ yandex_tts_lowder:
         media_content_type: command
 
 yandex_tts_alarm_warning:
-  alias: yandex_tts_coffee_ready
+  alias: yandex_tts_alarm_warning
   sequence:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff

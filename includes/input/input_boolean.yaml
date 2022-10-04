@@ -6,8 +6,8 @@ sleeping:
   name: Sleeping
   icon: mdi:sleep
 
-alarm:
-  name: Alarm
+morning_alarm:
+  name: Morning Alarm
   icon: mdi:alarm
 
 light_hall_const:

@@ -1,4 +1,4 @@
-time_alarm:
+morning_alarm_time:
   name: Time Alarm
   has_date: true
   has_time: true

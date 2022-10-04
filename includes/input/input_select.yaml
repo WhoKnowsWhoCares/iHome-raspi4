@@ -3,6 +3,8 @@ home_come_leave:
   options:
     - Leaving
     - Coming
+    - Home
+    - Away
     - Other
   initial: Other
   icon: mdi:home

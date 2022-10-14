@@ -1,9 +1,9 @@
 - platform: template
   sensors:
-    time_alarm_state:
-      friendly_name: "time_alarm_state"
+    morning_alarm_state:
+      friendly_name: "morning_alarm_state"
       value_template: >
-        {% set timeto = (as_timestamp(now()) - as_timestamp(states.input_datetime.time_alarm.state)) | int %}
+        {% set timeto = (as_timestamp(now()) - as_timestamp(states.input_datetime.morning_alarm_time.state)) | int %}
         {% set minutes = ( (timeto % 3600) / 60) | int %}
         {% set hours_total = ( timeto / 3600) | int %}
           {% if (hours_total == 3) and (minutes == 0) %}

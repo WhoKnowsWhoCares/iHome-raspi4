@@ -1,6 +1,6 @@
-col_span: '2'
-col_span_lg: '2'
-col_span_xl: '2'
+col_span: '1'
+col_span_lg: '1'
+col_span_xl: '1'
 collapsible_controls: true
 entity: light.mi_philips_bulb_room
 fill_container: true

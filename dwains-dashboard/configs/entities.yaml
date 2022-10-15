@@ -167,3 +167,5 @@ sensor.mi_door_sensor_battery:
 binary_sensor.mi_door_sensor_contact:
   custom_popup: true
   hidden: true
+cover.curtain:
+  hidden: true

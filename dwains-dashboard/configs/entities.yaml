@@ -169,3 +169,13 @@ binary_sensor.mi_door_sensor_contact:
   hidden: true
 cover.curtain:
   hidden: true
+camera.chuangmi_021a04_c49c_camera_control:
+  hidden: true
+camera.chuangmi_021a04_c49c_motion_event:
+  hidden: true
+sensor.chuangmi_021a04_c49c_motion_detection:
+  hidden: true
+switch.chuangmi_021a04_c49c_switch_status:
+  hidden: true
+light.chuangmi_021a04_c49c_indicator_light:
+  hidden: true

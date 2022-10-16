@@ -6,6 +6,12 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Moscow
   packages: !include_dir_merge_named includes/packages
+  customize: !include includes/customize.yaml
+
+logger:
+  default: warning
+  logs:
+    custom_components.xiaomi_miot: debug
 
 yandex_smart_home:
   notifier:
@@ -52,6 +58,18 @@ device_tracker:
 
 frontend:
   themes: !include_dir_merge_named themes
+
+xiaomi_miot:
+  username: !secret xiaomi_miot_login
+  password: !secret xiaomi_miot_pwd
+  server_country: ru
+  device_customizes:
+    chuangmi.camera.012a04:
+      miot_local: true
+  exclude_state_attributes:
+    - miot_type
+    - stream_address
+    - motion_video_latest
 
 # Внешние папки
 input_boolean: !include includes/input/input_boolean.yaml

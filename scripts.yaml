@@ -114,7 +114,7 @@ yandex_tts_start_show:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: Шоу
+        media_content_id: шоу
         media_content_type: command
   mode: single
 
@@ -135,7 +135,7 @@ yandex_tts_coming:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: '{{["С возвращением!","Добро пожаловать!"]|random }} '
+        media_content_id: '{{["Свозвращением!","Добро пожаловать!"]|random }} '
         media_content_type: text
         extra:
           volume_level: 0.5

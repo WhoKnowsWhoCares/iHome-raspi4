@@ -4,17 +4,17 @@ devices:
 groups:
   - groups.yaml
 homeassistant: true
-permit_join: false
+permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
   user: mqtt
   password: mqtt
   server: mqtt://core-mosquitto:1883
 serial:
-  port: /dev/ttyUSB0
+  port: /dev/ttyAMA0
 advanced:
   log_level: warn
-  pan_id: 6754
+  pan_id: 6755
   channel: 11
   network_key:
     - 1

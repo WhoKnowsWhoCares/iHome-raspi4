@@ -11,7 +11,7 @@ mqtt:
   password: mqtt
   server: mqtt://core-mosquitto:1883
 serial:
-  port: /dev/ttyAMA0
+  port: /dev/ttyUSB0
 advanced:
   log_level: warn
   pan_id: 6755

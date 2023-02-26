@@ -1,2 +1,2 @@
 # iHome-raspi4
-Home Assistant settings backup
+Home Assistant settings backup. 

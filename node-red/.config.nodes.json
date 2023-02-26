@@ -418,7 +418,7 @@
     },
     "node-red-contrib-bigtimer": {
         "name": "node-red-contrib-bigtimer",
-        "version": "2.8.3",
+        "version": "2.8.5",
         "local": false,
         "user": false,
         "nodes": {
@@ -475,7 +475,11 @@
     },
     "node-red-contrib-home-assistant-websocket": {
         "name": "node-red-contrib-home-assistant-websocket",
+<<<<<<< HEAD
         "version": "0.47.0",
+=======
+        "version": "0.48.1",
+>>>>>>> 11ff886 (update files)
         "local": false,
         "user": false,
         "nodes": {
@@ -561,7 +565,11 @@
     },
     "node-red-contrib-modbus": {
         "name": "node-red-contrib-modbus",
+<<<<<<< HEAD
         "version": "5.23.3",
+=======
+        "version": "5.25.0",
+>>>>>>> 11ff886 (update files)
         "local": false,
         "user": false,
         "nodes": {
@@ -753,7 +761,7 @@
     },
     "node-red-contrib-persistent-fsm": {
         "name": "node-red-contrib-persistent-fsm",
-        "version": "1.2.0",
+        "version": "1.2.1",
         "local": false,
         "user": false,
         "nodes": {
@@ -772,7 +780,7 @@
     },
     "node-red-contrib-sunevents": {
         "name": "node-red-contrib-sunevents",
-        "version": "3.0.3",
+        "version": "3.1.1",
         "local": false,
         "user": false,
         "nodes": {
@@ -791,7 +799,7 @@
     },
     "node-red-contrib-time-range-switch": {
         "name": "node-red-contrib-time-range-switch",
-        "version": "1.1.3",
+        "version": "1.2.0",
         "local": false,
         "user": false,
         "nodes": {
@@ -810,7 +818,7 @@
     },
     "node-red-dashboard": {
         "name": "node-red-dashboard",
-        "version": "3.2.0",
+        "version": "3.3.1",
         "local": false,
         "user": false,
         "nodes": {
@@ -1068,7 +1076,11 @@
     },
     "node-red-node-email": {
         "name": "node-red-node-email",
+<<<<<<< HEAD
         "version": "1.18.2",
+=======
+        "version": "1.18.4",
+>>>>>>> 11ff886 (update files)
         "local": false,
         "user": false,
         "nodes": {
@@ -1146,7 +1158,7 @@
     },
     "node-red-node-serialport": {
         "name": "node-red-node-serialport",
-        "version": "1.0.1",
+        "version": "1.0.3",
         "local": false,
         "user": false,
         "nodes": {

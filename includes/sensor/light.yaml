@@ -51,3 +51,17 @@
         |map(attribute='entity_id')
         | list | length}}"
       icon_template: mdi:counter
+
+- platform: template
+  sensors:
+    light_hall_brightness:
+      friendly_name: "Яркость света в коридоре"
+      value_template:
+        '{% if is_state_attr("light.mi_yeelink_bulb", "power", "on") and is_state_attr("light.mi_yeelink_bulb", "bright", "100") %}
+        full_brightness
+        {% elif is_state_attr("light.mi_yeelink_bulb", "power", "on") %}
+        half_brightness
+        {% else %}
+        off
+        {% endif %}'
+      icon_template: mdi:lightbulb

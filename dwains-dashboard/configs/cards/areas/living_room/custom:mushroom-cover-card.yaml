@@ -1,6 +1,6 @@
 col_span: '2'
-col_span_lg: '1'
-col_span_xl: '1'
+col_span_lg: '2'
+col_span_xl: '2'
 double_tap_action:
   action: none
 entity: cover.curtain

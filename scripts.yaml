@@ -85,15 +85,17 @@ yandex_tts_morning_hello:
 yandex_tts_morning_alarm:
   alias: yandex_tts_morning_alarm
   sequence:
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.1
+    # - service: media_player.volume_set
+    #   data:
+    #     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+    #     volume_level: 0.1
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: "https://music.yandex.ru/album/19738332/track/{{[96361671,96361670,96361672,96361673,96361676,96361677]|random }} "
         media_content_type: xxx
+        extra:
+          volume_level: 0.1
 
 # https://music.yandex.ru/album/19738332/track/96361671
 # https://music.yandex.ru/album/19738332/track/96361670
@@ -111,11 +113,17 @@ yandex_tts_morning_alarm:
 yandex_tts_start_show:
   alias: yandex_tts_start_show
   sequence:
+    # - service: media_player.volume_set
+    #   data:
+    #     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+    #     volume_level: 0.2
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: шоу
         media_content_type: command
+        extra:
+          volume_level: 0.2
   mode: single
 
 yandex_tts_coffee_ready:
@@ -147,6 +155,14 @@ yandex_tts_evening_coming:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: я дома
+        media_content_type: command
+
+yandex_turn_off_all:
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: отключение всего
         media_content_type: command
 
 yandex_tts_leaving:

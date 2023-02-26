@@ -15,10 +15,16 @@ secrets.yaml
 known_devices.yaml
 
 .ssh/
+ssh/
 .storage/
 .cloud/
 
 home-assistant.log*
 home-assistant_v2.db*
 
+ihome_github
+ihome_github.pub
+
+zigbee2mqtt/log/
+zigbee2mqtt/database.db.backup
 

@@ -475,11 +475,7 @@
     },
     "node-red-contrib-home-assistant-websocket": {
         "name": "node-red-contrib-home-assistant-websocket",
-<<<<<<< HEAD
-        "version": "0.47.0",
-=======
         "version": "0.48.1",
->>>>>>> 11ff886 (update files)
         "local": false,
         "user": false,
         "nodes": {
@@ -565,11 +561,7 @@
     },
     "node-red-contrib-modbus": {
         "name": "node-red-contrib-modbus",
-<<<<<<< HEAD
-        "version": "5.23.3",
-=======
         "version": "5.25.0",
->>>>>>> 11ff886 (update files)
         "local": false,
         "user": false,
         "nodes": {
@@ -1076,11 +1068,7 @@
     },
     "node-red-node-email": {
         "name": "node-red-node-email",
-<<<<<<< HEAD
-        "version": "1.18.2",
-=======
         "version": "1.18.4",
->>>>>>> 11ff886 (update files)
         "local": false,
         "user": false,
         "nodes": {

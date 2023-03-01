@@ -418,7 +418,7 @@
     },
     "node-red-contrib-bigtimer": {
         "name": "node-red-contrib-bigtimer",
-        "version": "2.8.3",
+        "version": "2.8.5",
         "local": false,
         "user": false,
         "nodes": {
@@ -476,7 +476,7 @@
     "node-red-contrib-home-assistant-websocket": {
         "name": "node-red-contrib-home-assistant-websocket",
 <<<<<<< HEAD
-        "version": "0.46.2",
+        "version": "0.47.0",
 =======
         "version": "0.48.1",
 >>>>>>> 11ff886 (update files)
@@ -566,7 +566,7 @@
     "node-red-contrib-modbus": {
         "name": "node-red-contrib-modbus",
 <<<<<<< HEAD
-        "version": "5.23.2",
+        "version": "5.23.3",
 =======
         "version": "5.25.0",
 >>>>>>> 11ff886 (update files)
@@ -1077,7 +1077,7 @@
     "node-red-node-email": {
         "name": "node-red-node-email",
 <<<<<<< HEAD
-        "version": "1.18.1",
+        "version": "1.18.2",
 =======
         "version": "1.18.4",
 >>>>>>> 11ff886 (update files)
@@ -1158,7 +1158,7 @@
     },
     "node-red-node-serialport": {
         "name": "node-red-node-serialport",
-        "version": "1.0.1",
+        "version": "1.0.3",
         "local": false,
         "user": false,
         "nodes": {

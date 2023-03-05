@@ -23,7 +23,7 @@ yandex_smart_home:
 yandex_station:
   devices:
     media_player.yandex_station_ff98f0294a56d19578794aff: # device_id
-      host: 192.168.1.65
+      host: !secret yandex_mini_ip
       name: Alice
   recognition_lang: ru-RU
   tts_service_name: alice_say

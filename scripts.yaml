@@ -74,28 +74,34 @@ turn_on_bedside_light:
 yandex_tts_morning_hello:
   alias: yandex_tts_morning_hello
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.1
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Доброе утро! Пора вставать!","Пора вставать! Дела сами себя не сделают!"]|random }} '
         media_content_type: text
-        extra:
-          volume_level: 0.2
-
 yandex_tts_morning_alarm:
   alias: yandex_tts_morning_alarm
   sequence:
-    # - service: media_player.volume_set
-    #   data:
-    #     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-    #     volume_level: 0.1
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.1
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: "https://music.yandex.ru/album/19738332/track/{{[96361671,96361670,96361672,96361673,96361676,96361677]|random }} "
+        media_content_id: "https://music.yandex.ru/album/{{[
+          23691813/track/107789868,
+          5307396/track/38633762,
+          2230585/track/19798656,
+          15279121/track/44524619,
+          8242618/track/55967111,
+          8562547/track/57171194,
+          ]|random }}"
         media_content_type: xxx
-        extra:
-          volume_level: 0.1
 
 # https://music.yandex.ru/album/19738332/track/96361671
 # https://music.yandex.ru/album/19738332/track/96361670
@@ -109,21 +115,26 @@ yandex_tts_morning_alarm:
 # https://music.yandex.ru/album/19738332/track/96361687
 # https://music.yandex.ru/album/19738332/track/96361688
 # https://music.yandex.ru/album/19738332/track/96361696
+# https://music.yandex.ru/album/23691813/track/107789868 # проснись и пой
+# https://music.yandex.ru/album/5307396/track/38633762 # муравейник
+# https://music.yandex.ru/album/710200/track/6581583 # the sore feet song
+# https://music.yandex.ru/album/2230585/track/19798656 # halellujah
+# https://music.yandex.ru/album/15279121/track/44524619 # nature 1
+# https://music.yandex.ru/album/8242618/track/55967111 # nature 2
+# https://music.yandex.ru/album/8562547/track/57171194 # nature 3
 
 yandex_tts_start_show:
   alias: yandex_tts_start_show
   sequence:
-    # - service: media_player.volume_set
-    #   data:
-    #     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-    #     volume_level: 0.2
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.2
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: шоу
         media_content_type: command
-        extra:
-          volume_level: 0.2
   mode: single
 
 yandex_tts_coffee_ready:
@@ -132,7 +143,7 @@ yandex_tts_coffee_ready:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: Кофе готов! Пейте пока горячий!
+        media_content_id: Кофе готов! Пейте, пока горячий!
         media_content_type: text
         extra:
           volume_level: 0.3
@@ -202,6 +213,17 @@ yandex_tts_alarm_warning:
         extra:
           volume_level: 0.6
   mode: single
+
+yandex_tts_other_voice:
+  alias: yandex_tts_test
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff # замените на вашу колонку
+      data:
+        media_content_id: <speaker voice="madirus"> ЧЁ!?
+        media_content_type: dialog # работает только на локальной колонке
+        extra:
+          volume_level: 0.5
 # alice_morning_dialog:
 #   sequence:
 # - service: media_player.volume_set

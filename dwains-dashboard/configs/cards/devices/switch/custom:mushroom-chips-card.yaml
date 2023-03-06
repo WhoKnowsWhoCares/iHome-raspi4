@@ -29,7 +29,7 @@ chips:
   type: entity
 - content_info: none
   entity: switch.zigbee_switch_l5
-  icon: mdi:power-socket-eu
+  icon: mdi:usb-port
   icon_color: amber
   tap_action:
     action: toggle

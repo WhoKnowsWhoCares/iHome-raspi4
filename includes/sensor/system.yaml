@@ -61,8 +61,6 @@
           {% endif %}
       icon_template: mdi:clock
 
-- platform: template
-  sensors:
     online_custom:
       friendly_name: "Home Assistant online - "
       value_template: >

@@ -179,3 +179,5 @@ switch.chuangmi_021a04_c49c_switch_status:
   hidden: true
 light.chuangmi_021a04_c49c_indicator_light:
   hidden: true
+sensor.yandex_weather_condition_yandex_2:
+  hidden: true

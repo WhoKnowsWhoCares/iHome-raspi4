@@ -9,7 +9,9 @@ entities:
   icon: mdi:coach-lamp
   name: Bed Lights
 - entity: switch.zigbee_switch_l3
+  icon: mdi:power-socket-eu
 - entity: switch.zigbee_switch_l4
+  icon: mdi:power-socket-eu
 - entity: switch.zigbee_switch_l5
 position: bottom
 row_span: '2'

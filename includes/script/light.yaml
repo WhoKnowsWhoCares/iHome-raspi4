@@ -1,0 +1,72 @@
+alarm_hall_light_flash:
+  alias: alarm_hall_light_flash
+  sequence:
+    - repeat:
+        count: 20
+        sequence:
+          - service: light.toggle
+            data:
+              flash: short
+              brightness_pct: 100
+            target:
+              entity_id: light.mi_yeelink_bulb
+          - delay:
+              hours: 0
+              minutes: 0
+              seconds: 0
+              milliseconds: 500
+  mode: single
+  icon: mdi:alarm-light-outline
+
+alarm_room_light_flash:
+  alias: alarm_room_light_flash
+  sequence:
+    - repeat:
+        count: 10
+        sequence:
+          - service: light.toggle
+            data:
+              flash: short
+              brightness_pct: 100
+            target:
+              entity_id: light.mi_philips_bulb_room
+          - delay:
+              hours: 0
+              minutes: 0
+              seconds: 0
+              milliseconds: 500
+  mode: single
+  icon: mdi:alarm-light-outline
+
+#Переключает все розетки тройника в комнате в одно состояние
+toggle_switch:
+  alias: Toggle_switch
+  sequence:
+    - if:
+        - condition: device
+          type: is_on
+          device_id: 77e1896af65516a68096c8cc777f8bea
+          entity_id: switch.zigbee_switch_l1
+          domain: switch
+      then:
+        - service: switch.turn_off
+          data: {}
+          target:
+            device_id: 77e1896af65516a68096c8cc777f8bea
+      else:
+        - service: switch.turn_on
+          data: {}
+          target:
+            device_id: 77e1896af65516a68096c8cc777f8bea
+  mode: single
+  icon: mdi:toggle-switch-outline
+
+turn_on_bedside_light:
+  alias: turn_on_bedside_light
+  sequence:
+    type: turn_on
+    device_id: 77e1896af65516a68096c8cc777f8bea
+    entity_id: switch.zigbee_switch_l2
+    domain: switch
+  mode: single
+  icon: mdi:coach-lamp

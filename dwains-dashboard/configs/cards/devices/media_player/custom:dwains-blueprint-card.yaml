@@ -17,7 +17,7 @@ col_span_lg: '2'
 col_span_xl: '2'
 data:
   calendar_entity: calendar.as_frantsev_gmail_com
-  heading_title: heading_title
+  heading_title: Calendar
 position: top
 row_span: '1'
 row_span_lg: '1'

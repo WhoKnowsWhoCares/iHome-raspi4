@@ -45,7 +45,7 @@ telegram_bot:
       - !secret tg_user_id
 
 notify:
-  - name: telegram_id
+  - name: telegram
     platform: telegram
     chat_id: !secret tg_user_id
 
@@ -81,13 +81,14 @@ input_datetime: !include includes/input/input_datetime.yaml
 group: !include includes/groups.yaml
 recorder: !include includes/recorder.yaml
 scene: !include includes/scenes.yaml
-script: !include scripts.yaml
+alert: !include includes/alert.yaml
 
 # Внешние папки
 automation: !include_dir_merge_list includes/automation
 light: !include_dir_merge_list includes/light
 sensor: !include_dir_merge_list includes/sensor
-switch: !include_dir_merge_list includes/switche
+switch: !include_dir_merge_list includes/switches
+script: !include_dir_merge_named includes/script
 
 shell_command:
   pushupdates_to_github: ./pushupdates.sh

@@ -1,0 +1,51 @@
+- platform: template
+  sensors:
+    cpu_temp_high:
+      friendly_name: "cpu_temp_high"
+      value_template: >
+        {% if (sensor.cpu_temperature >= 70) %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      icon_template: mdi:alert
+
+    processor_temp_high:
+      friendly_name: "processor_temp_high"
+      value_template: >
+        {% if (sensor.processor_temperature >= 70) %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      icon_template: mdi:alert
+
+    disk_usage_high:
+      friendly_name: "disk_usage_high"
+      value_template: >
+        {% if (sensor.disk_use_percent >= 80) %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      icon_template: mdi:alert
+
+    memory_usage_high:
+      friendly_name: "memory_usage_high"
+      value_template: >
+        {% if (sensor.memory_use_percent >= 80) %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      icon_template: mdi:alert
+
+    processor_usage_high:
+      friendly_name: "processor_usage_high"
+      value_template: >
+        {% if (sensor.processor_use_percent >= 80) %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      icon_template: mdi:alert

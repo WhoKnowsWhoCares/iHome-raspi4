@@ -52,8 +52,6 @@
         | list | length}}"
       icon_template: mdi:counter
 
-- platform: template
-  sensors:
     light_hall_brightness:
       friendly_name: "Яркость света в коридоре"
       value_template:

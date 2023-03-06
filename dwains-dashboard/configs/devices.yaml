@@ -6,3 +6,6 @@ select:
   hidden: true
 script:
   hidden: true
+person:
+  icon: mdi:chart-timeline-variant-shimmer
+  show_in_navbar: false

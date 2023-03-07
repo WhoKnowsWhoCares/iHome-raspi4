@@ -19,7 +19,7 @@
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {
-        "linkquality": 80,
+        "linkquality": 105,
         "contact": true,
         "voltage": 3015,
         "battery": 100,

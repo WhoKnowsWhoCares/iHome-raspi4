@@ -1,0 +1,54 @@
+- id: Process use High
+  alias: process_use_high
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.processor_use_percent
+      above: 80
+  action:
+    - service: notify.telegram
+      data:
+        message: "ALERT: Processor usage on raspi4 is high"
+
+- id: Disk use High
+  alias: disk_use_high
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.disk_use_percent
+      above: 80
+  action:
+    - service: notify.telegram
+      data:
+        message: "ALERT: Disk usage on raspi4 is high"
+
+- id: Memory use High
+  alias: memory_use_high
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.memory_use_percent
+      above: 80
+  action:
+    - service: notify.telegram
+      data:
+        message: "ALERT: Memory usage on raspi4 is high"
+
+- id: Processor temperature High
+  alias: processor_temp_high
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.processor_temperature
+      above: 70
+  action:
+    - service: notify.telegram
+      data:
+        message: "ALERT: Processor temperature on raspi4 is high"
+
+- id: CPU temperature High
+  alias: cpu_temp_high
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.cpu_temperature
+      above: 70
+  action:
+    - service: notify.telegram
+      data:
+        message: "ALERT: CPU temperature on raspi4 is high"

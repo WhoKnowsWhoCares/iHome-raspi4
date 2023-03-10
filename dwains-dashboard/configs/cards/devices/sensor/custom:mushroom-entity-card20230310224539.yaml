@@ -1,0 +1,13 @@
+col_span: '1'
+col_span_lg: '1'
+col_span_xl: '1'
+entity: binary_sensor.mi_move_sensor_occupancy
+layout: horizontal
+name: Hall Movement
+position: top
+primary_info: name
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+secondary_info: state
+type: custom:mushroom-entity-card

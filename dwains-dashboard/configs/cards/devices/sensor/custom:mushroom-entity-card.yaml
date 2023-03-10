@@ -1,0 +1,12 @@
+col_span: '1'
+col_span_lg: '1'
+col_span_xl: '1'
+entity: binary_sensor.mi_door_sensor_contact
+fill_container: false
+layout: horizontal
+name: Hall Door
+position: top
+row_span: '1'
+row_span_lg: '1'
+row_span_xl: '1'
+type: custom:mushroom-entity-card

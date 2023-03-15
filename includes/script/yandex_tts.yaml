@@ -1,17 +1,13 @@
 yandex_tts_morning_hello:
   alias: yandex_tts_morning_hello
   sequence:
-    # - service: media_player.volume_set
-    #   data:
-    #     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-    #     volume_level: 0.2
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Доброе утро! Пора вставать!","Пора вставать! Дела сами себя не сделают!"]|random }} '
         media_content_type: text
         extra:
-          volume_level: 0.2
+          volume_level: 0.3
 
 yandex_tts_morning_alarm:
   alias: yandex_tts_morning_alarm
@@ -19,7 +15,7 @@ yandex_tts_morning_alarm:
     - service: media_player.volume_set
       data:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.1
+        volume_level: 0.2
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:

@@ -62,6 +62,16 @@ yandex_tts_start_show:
         media_content_type: command
   mode: single
 
+yandex_tts_sunset:
+  alias: yandex_tts_sunset
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: закат
+        media_content_type: command
+  mode: single
+
 yandex_tts_coffee_ready:
   alias: yandex_tts_coffee_ready
   sequence:

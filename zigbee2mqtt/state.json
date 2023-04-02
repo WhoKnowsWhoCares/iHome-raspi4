@@ -1,12 +1,12 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 26,
-        "illuminance_lux": 26,
+        "illuminance": 6,
+        "illuminance_lux": 6,
         "voltage": 3075,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 29,
+        "device_temperature": 30,
         "power_outage_count": 11,
         "linkquality": 109
     },

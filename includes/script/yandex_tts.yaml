@@ -48,6 +48,25 @@ yandex_tts_morning_alarm:
 # https://music.yandex.ru/album/8242618/track/55967111 # nature 2
 # https://music.yandex.ru/album/8562547/track/57171194 # nature 3
 
+yandex_tts_podcast:
+  alias: yandex_tts_podcast
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.3
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: 'https://music.yandex.ru/album/9286142/track/{{ [
+          "112942478","112787580","112606263","112431108","112244116","112059101",
+          "111839646","111632737","111481550","111260862","111078613","110930948",
+          "110773950","110540183","110411611","110351672","110254684","110086971",
+          "109906809","109547755","109316718","109044470","108845294","108645747",
+          "108449636","108271005","108095356","107934338","107800083","107693024",
+          "107467675","107259398" ] | random }}'
+        media_content_type: xxx
+
 yandex_tts_start_show:
   alias: yandex_tts_start_show
   sequence:
@@ -62,15 +81,15 @@ yandex_tts_start_show:
         media_content_type: command
   mode: single
 
-yandex_tts_sunset:
-  alias: yandex_tts_sunset
-  sequence:
-    - service: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      data:
-        media_content_id: закат
-        media_content_type: command
-  mode: single
+# yandex_tts_sunset:
+#   alias: yandex_tts_sunset
+#   sequence:
+#     - service: media_player.play_media
+#       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#       data:
+#         media_content_id: закат
+#         media_content_type: command
+#   mode: single
 
 yandex_tts_coffee_ready:
   alias: yandex_tts_coffee_ready
@@ -111,15 +130,15 @@ yandex_turn_off_all:
         media_content_id: отключение всего
         media_content_type: command
 
-yandex_tts_leaving:
-  sequence:
-    - service: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      data:
-        media_content_id: '{{["Вы уходите?",""]|random }} На всякий случай прогноз погоды.'
-        media_content_type: text
-        extra:
-          volume_level: 0.5
+# yandex_tts_leaving:
+#   sequence:
+#     - service: media_player.play_media
+#       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+#       data:
+#         media_content_id: '{{["Вы уходите?",""]|random }} На всякий случай прогноз погоды.'
+#         media_content_type: text
+#         extra:
+#           volume_level: 0.5
 
 yandex_tts_weather:
   sequence:
@@ -127,6 +146,14 @@ yandex_tts_weather:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: погода
+        media_content_type: command
+
+yandex_tts_news:
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: новости
         media_content_type: command
 
 yandex_tts_lowder:
@@ -156,9 +183,9 @@ yandex_tts_other_voice:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff # замените на вашу колонку
       data:
         media_content_id: <speaker voice="madirus"> ЧЁ!?
-        media_content_type: dialog # работает только на локальной колонке
+        media_content_type: text # работает только на локальной колонке
         extra:
-          volume_level: 0.5
+          volume_level: 0.3
 # alice_morning_dialog:
 #   sequence:
 # - service: media_player.volume_set

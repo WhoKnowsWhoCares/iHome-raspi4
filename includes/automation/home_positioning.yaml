@@ -1,14 +1,14 @@
-# - id: Coming
-#   alias: enter_home_zone
-#   trigger:
-#     - platform: zone
-#       entity_id: device_tracker.asfrantsoneplus
-#       zone: zone.home
-#       event: enter
-#   action:
-#     - service: notify.telegram
-#       data:
-#         message: "Enter home zone"
+- id: Coming
+  alias: enter_home_zone
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.asfrantsoneplus
+      zone: zone.home
+      event: enter
+  action:
+    - service: notify.telegram
+      data:
+        message: "Enter home zone"
 
 - id: Leaving_automation
   alias: leaving_home_zone
@@ -23,5 +23,3 @@
       data:
         message: "Leave home zone"
   mode: single
-
-

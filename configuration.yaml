@@ -22,15 +22,12 @@ yandex_smart_home:
 
 yandex_station:
   devices:
-    media_player.yandex_station_ff98f0294a56d19578794aff: # device_id
+    media_player.yandex_station_ff98f0294a56d19578794aff:
       host: !secret yandex_mini_ip
       name: Alice
   recognition_lang: ru-RU
   tts_service_name: alice_say
-  # intents:
-  #   прощание:
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 http:

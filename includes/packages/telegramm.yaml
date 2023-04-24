@@ -78,42 +78,42 @@ telegramm:
           data:
             message: "Свет в прихожей - {{ states('light.mi_yeelink_bulb') }} "
 
-    - id: Вызов Алисы
-      aliase: alice_call
-      trigger:
-        platform: event
-        event_type: telegram_command
-        event_data:
-          command: "/alice"
-      action:
-        - service: media_player.play_media
-          entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-          data_template:
-            media_content_id: "Чем могу помочь?"
-            media_content_type: text
-        - service: notify.telegram
-          data:
-            message: "Чем могу помочь?"
+    # - id: Вызов Алисы
+    #   aliase: alice_call
+    #   trigger:
+    #     platform: event
+    #     event_type: telegram_command
+    #     event_data:
+    #       command: "/alice"
+    #   action:
+    #     - service: media_player.play_media
+    #       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+    #       data_template:
+    #         media_content_id: "Чем могу помочь?"
+    #         media_content_type: text
+    #     - service: notify.telegram
+    #       data:
+    #         message: "Чем могу помочь?"
 
-    - id: Вопрос Алисе
-      aliase: alice_telegramm_question
-      trigger:
-        platform: event
-        event_type: telegram_text
-      action:
-        service: media_player.play_media
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        data_template:
-          media_content_id: "{{ trigger.event.data.text }}"
-          media_content_type: "question:{{ trigger.event.data.chat_id }}"
+    # - id: Вопрос Алисе
+    #   aliase: alice_telegramm_question
+    #   trigger:
+    #     platform: event
+    #     event_type: telegram_text
+    #   action:
+    #     service: media_player.play_media
+    #     entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+    #     data_template:
+    #       media_content_id: "{{ trigger.event.data.text }}"
+    #       media_content_type: "question:{{ trigger.event.data.chat_id }}"
 
-    - id: Ответ Алисы
-      aliase: alice_telegramm_response
-      trigger:
-        platform: event
-        event_type: yandex_station_response
-      action:
-        service: notify.telegram
-        data_template:
-          target: "{{ trigger.event.data.request_id }}"
-          message: "{{ trigger.event.data.text }}"
+    # - id: Ответ Алисы
+    #   aliase: alice_telegramm_response
+    #   trigger:
+    #     platform: event
+    #     event_type: yandex_station_response
+    #   action:
+    #     service: notify.telegram
+    #     data_template:
+    #       target: "{{ trigger.event.data.request_id }}"
+    #       message: "{{ trigger.event.data.text }}"

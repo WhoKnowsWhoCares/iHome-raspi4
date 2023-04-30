@@ -54,7 +54,7 @@ yandex_tts_podcast:
     - service: media_player.volume_set
       data:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.3
+        volume_level: 0.2
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:

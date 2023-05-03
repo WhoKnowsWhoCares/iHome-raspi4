@@ -3,7 +3,7 @@
   trigger:
     - platform: zone
       entity_id: device_tracker.asfrantsoneplus
-      zone: zone.home
+      zone: zone.home_2
       event: enter
   action:
     - service: notify.telegram
@@ -15,11 +15,34 @@
   trigger:
     - platform: zone
       entity_id: device_tracker.asfrantsoneplus
-      zone: zone.home
+      zone: zone.home_2
       event: leave
-  condition: []
   action:
     - service: notify.telegram
       data:
         message: "Leave home zone"
   mode: single
+
+- id: In_Gym
+  alias: enter_gym_zone
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.asfrantsoneplus
+      zone: zone.gym
+      event: enter
+  action:
+    - service: notify.telegram
+      data:
+        message: "Enter gym zone"
+
+- id: Out_Gym
+  alias: leaving_gym_zone
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.asfrantsoneplus
+      zone: zone.gym
+      event: leave
+  action:
+    - service: notify.telegram
+      data:
+        message: "Leave gym zone"

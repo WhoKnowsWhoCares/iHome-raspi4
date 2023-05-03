@@ -55,9 +55,9 @@ notify:
 #       one_plus: !secret ip_phone2
 proximity:
   home:
-    zone: home
-    devices: device_tracker.asfrantsoneplus
-    tolerance: 50
+    zone: Home_wide
+    devices: person.alexander
+    tolerance: 200
     unit_of_measurement: m
 
 frontend:

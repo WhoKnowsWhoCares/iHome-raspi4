@@ -1,0 +1,25 @@
+- id: '1686835842854'
+  alias: Leave zone Home
+  description: test in automations
+  use_blueprint:
+    path: homeassistant/notify_leaving_zone.yaml
+    input:
+      person_entity: person.alexander
+      zone_entity: zone.home
+      notify_device: 588afa31c35eefb12d731e53f100cb46
+- id: '1686836176720'
+  alias: CalendarTest
+  description: ''
+  trigger:
+  - platform: calendar
+    event: start
+    offset: -0:30:0
+    entity_id: calendar.as_frantsev_gmail_com
+  condition: []
+  action:
+  - service: tts.speak
+    data:
+      cache: true
+      media_player_entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      message: Проверка события в календаре
+  mode: single

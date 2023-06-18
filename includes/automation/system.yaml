@@ -1,59 +1,24 @@
-- id: Database zip
-  alias: database_zip
-  initial_state: true
-  trigger:
-    - platform: time
-      at: "01:00:00"
-  action:
-    - service: recorder.purge
-      data:
-        keep_days: 3
-        repack: true
 
-- id: Ok to Alarm
-  alias: alarm_allowed
-  # initial_state: true
-  trigger:
-    - platform: time
-      at: "05:00:00"
-  action:
-    - service: input_boolean.turn_on
-      target:
-        entity_id: input_boolean.morning_alarm
+# - id: Dark Outside
+#   alias: dark_outside
+#   trigger:
+#     - platform: numeric_state
+#       entity_id: sun.sun
+#       attribute: elevation
+#       below: -4.0
+#   action:
+#     - service: input_boolean.turn_on
+#       target:
+#         entity_id: input_boolean.dark_outside
 
-- id: Not ok to Alarm
-  alias: alarm_forbidden
-  # initial_state: true
-  trigger:
-    - platform: time
-      at: "12:00:00"
-  action:
-    - service: input_boolean.turn_off
-      target:
-        entity_id: input_boolean.morning_alarm
-
-- id: Dark Outside
-  alias: dark_outside
-  trigger:
-    - platform: numeric_state
-      entity_id: sun.sun
-      attribute: elevation
-      # Can be a positive or negative number 0 to -6
-      below: -4.0
-  action:
-    - service: input_boolean.turn_on
-      target:
-        entity_id: input_boolean.dark_outside
-
-- id: Light Outside
-  alias: light_outside
-  trigger:
-    - platform: numeric_state
-      entity_id: sun.sun
-      attribute: elevation
-      # Can be a positive or negative number 0 to -6
-      above: 0.0
-  action:
-    - service: input_boolean.turn_off
-      target:
-        entity_id: input_boolean.dark_outside
+# - id: Light Outside
+#   alias: light_outside
+#   trigger:
+#     - platform: numeric_state
+#       entity_id: sun.sun
+#       attribute: elevation
+#       above: 0.0
+#   action:
+#     - service: input_boolean.turn_off
+#       target:
+#         entity_id: input_boolean.dark_outside

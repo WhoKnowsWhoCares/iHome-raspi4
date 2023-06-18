@@ -1,5 +1,5 @@
 - id: '1686835842854'
-  alias: Leave zone Home
+  alias: leave_home_zone
   description: test in automations
   use_blueprint:
     path: homeassistant/notify_leaving_zone.yaml
@@ -8,18 +8,162 @@
       zone_entity: zone.home
       notify_device: 588afa31c35eefb12d731e53f100cb46
 - id: '1686836176720'
-  alias: CalendarTest
+  alias: calendar_sport_event
+  description: ''
+  trigger:
+  - platform: calendar
+    event: start
+    offset: '-3:0:0'
+    entity_id: calendar.as_frantsev_gmail_com
+  condition:
+  - condition: state
+    entity_id: calendar.as_frantsev_gmail_com
+    attribute: description
+    state: sport
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_type: text
+      media_content_id: Через три часа запланирован {{ state_attr("calendar.as_frantsev_gmail_com",
+        "message") }}, не забудьте поесть
+      enqueue: play
+    target:
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+  mode: single
+- id: GitHub push updates
+  alias: github_push_updates
+  description: Push Updates
+  trigger:
+  - platform: time
+    at: 02:00:00
+  condition: []
+  action:
+  - service: shell_command.pushupdates_to_github
+    data: {}
+  mode: single
+- id: Set theme
+  alias: Set_theme_at_startup
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: ios-dark-mode-blue-red
+- id: Database zip
+  alias: database_zip
+  initial_state: true
+  trigger:
+  - platform: time
+    at: 01:00:00
+  action:
+  - service: recorder.purge
+    data:
+      keep_days: 3
+      repack: true
+- id: Ok to Alarm
+  alias: alarm_allowed
+  trigger:
+  - platform: time
+    at: 05:00:00
+  action:
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.morning_alarm
+- id: Not ok to Alarm
+  alias: alarm_forbidden
+  trigger:
+  - platform: time
+    at: '12:00:00'
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.morning_alarm
+- id: NFC PhoneCharge
+  alias: nfc_phone_charge_scanned
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 28a20900-9be1-4e79-9b67-7a36c4dd3f21
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.nfc_phone_charge_scanned
+  mode: single
+- id: Process use High
+  alias: process_use_high
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.processor_use_percent
+    above: 80
+  action:
+  - service: notify.telegram
+    data:
+      message: 'ALERT: Processor usage on raspi4 is high'
+- id: Disk use High
+  alias: disk_use_high
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.disk_use_percent
+    above: 80
+  action:
+  - service: notify.telegram
+    data:
+      message: 'ALERT: Disk usage on raspi4 is high'
+- id: Memory use High
+  alias: memory_use_high
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.memory_use_percent
+    above: 80
+  action:
+  - service: notify.telegram
+    data:
+      message: 'ALERT: Memory usage on raspi4 is high'
+- id: Processor temperature High
+  alias: processor_temp_high
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.processor_temperature
+    above: 70
+  action:
+  - service: notify.telegram
+    data:
+      message: 'ALERT: Processor temperature on raspi4 is high'
+- id: CPU temperature High
+  alias: cpu_temp_high
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.cpu_temperature
+    above: 70
+  action:
+  - service: notify.telegram
+    data:
+      message: 'ALERT: CPU temperature on raspi4 is high'
+- id: '1687085624939'
+  alias: calendar_event
   description: ''
   trigger:
   - platform: calendar
     event: start
     offset: -0:30:0
     entity_id: calendar.as_frantsev_gmail_com
-  condition: []
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: calendar.as_frantsev_gmail_com
+      attribute: description
+      state: sport
   action:
-  - service: tts.speak
+  - service: media_player.play_media
     data:
-      cache: true
-      media_player_entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      message: Проверка события в календаре
+      media_content_type: text
+      media_content_id: Через пол часа по плану {{ state_attr("calendar.as_frantsev_gmail_com",
+        "message") }}
+      enqueue: play
+    target:
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
   mode: single

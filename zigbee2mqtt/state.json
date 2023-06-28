@@ -13,9 +13,9 @@
     "0x5c0272fffe03c72e": {
         "linkquality": 87,
         "state_l2": "ON",
-        "state_l3": "ON",
+        "state_l3": "OFF",
         "state_l1": "OFF",
-        "state_l4": "ON",
+        "state_l4": "OFF",
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {

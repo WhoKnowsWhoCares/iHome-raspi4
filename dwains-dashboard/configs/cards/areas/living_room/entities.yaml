@@ -1,18 +1,21 @@
 col_span: '2'
-col_span_lg: '2'
-col_span_xl: '2'
+col_span_lg: '3'
+col_span_xl: '3'
 entities:
 - entity: switch.zigbee_switch_l1
+  icon: mdi:coach-lamp
+  name: Bed Light
+- entity: switch.zigbee_switch_l2
   icon: mdi:string-lights
   name: Lights
-- entity: switch.zigbee_switch_l2
-  icon: mdi:coach-lamp
-  name: Bed Lights
 - entity: switch.zigbee_switch_l3
-  icon: mdi:power-socket-eu
+  icon: mdi:fan
+  name: Fan
 - entity: switch.zigbee_switch_l4
-  icon: mdi:power-socket-eu
+  icon: mdi:heat-wave
+  name: Fumigator
 - entity: switch.zigbee_switch_l5
+  name: USB charger
 position: bottom
 row_span: '2'
 row_span_lg: '2'

@@ -9,3 +9,20 @@ script:
 person:
   icon: mdi:chart-timeline-variant-shimmer
   show_in_navbar: false
+  sort_order: 1
+light:
+  sort_order: 2
+alarm_control_panel:
+  sort_order: 4
+camera:
+  sort_order: 9
+switch:
+  sort_order: 3
+cover:
+  sort_order: 6
+sensor:
+  sort_order: 5
+media_player:
+  sort_order: 7
+weather:
+  sort_order: 8

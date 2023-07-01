@@ -1,28 +1,28 @@
 chips:
 - content_info: none
   entity: switch.zigbee_switch_l1
-  icon: mdi:string-lights
-  icon_color: amber
-  tap_action:
-    action: toggle
-  type: entity
-- content_info: none
-  entity: switch.zigbee_switch_l2
   icon: mdi:coach-lamp
   icon_color: amber
   tap_action:
     action: toggle
   type: entity
 - content_info: none
+  entity: switch.zigbee_switch_l2
+  icon: mdi:string-lights
+  icon_color: amber
+  tap_action:
+    action: toggle
+  type: entity
+- content_info: none
   entity: switch.zigbee_switch_l3
-  icon: mdi:power-socket-eu
+  icon: mdi:fan
   icon_color: amber
   tap_action:
     action: toggle
   type: entity
 - content_info: none
   entity: switch.zigbee_switch_l4
-  icon: mdi:power-socket-eu
+  icon: mdi:heat-wave
   icon_color: amber
   tap_action:
     action: toggle

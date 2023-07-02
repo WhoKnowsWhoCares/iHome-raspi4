@@ -1,12 +1,3 @@
-- id: '1686835842854'
-  alias: leave_home_zone
-  description: test in automations
-  use_blueprint:
-    path: homeassistant/notify_leaving_zone.yaml
-    input:
-      person_entity: person.alexander
-      zone_entity: zone.home
-      notify_device: 588afa31c35eefb12d731e53f100cb46
 - id: '1686836176720'
   alias: calendar_sport_event
   description: ''
@@ -166,4 +157,70 @@
       enqueue: play
     target:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+  mode: single
+- id: '1688286182390'
+  alias: coming_home
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: proximity.home
+    below: 100
+  condition:
+  - condition: state
+    entity_id: proximity.home
+    attribute: dir_of_travel
+    state: towards
+  action:
+  - service: notify.telegram
+    data:
+      message: Looks like you are almost at home
+  mode: single
+- id: '1688286258125'
+  alias: coming_gym
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: proximity.gym
+    below: 100
+  condition:
+  - condition: state
+    entity_id: zone.gym
+    state: towards
+  action:
+  - service: notify.telegram
+    data:
+      message: Looks like you are almost at Gym
+  mode: single
+- id: '1688286402353'
+  alias: leaving_home
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: proximity.home
+    above: 100
+  condition:
+  - condition: state
+    entity_id: proximity.home
+    attribute: dir_of_travel
+    state: away_from
+  action:
+  - service: notify.telegram
+    data:
+      message: Looks like you are leaving home
+  mode: single
+- id: '1688286484143'
+  alias: leaving_gym
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: proximity.gym
+    above: 100
+  condition:
+  - condition: state
+    entity_id: zone.gym
+    state: away_from
+  action:
+  - service: notify.telegram
+    data:
+      message: Looks like you are leaving Gym
   mode: single

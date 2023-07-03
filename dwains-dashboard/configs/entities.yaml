@@ -169,6 +169,7 @@ binary_sensor.mi_door_sensor_contact:
   hidden: true
 cover.curtain:
   hidden: true
+  sort_order: 1
 camera.chuangmi_021a04_c49c_camera_control:
   hidden: true
 camera.chuangmi_021a04_c49c_motion_event:
@@ -180,4 +181,10 @@ switch.chuangmi_021a04_c49c_switch_status:
 light.chuangmi_021a04_c49c_indicator_light:
   hidden: true
 sensor.yandex_weather_condition_yandex_2:
+  hidden: true
+update.dht11esp8266_firmware:
+  hidden: true
+sensor.dht11esp8266_room_humidity:
+  hidden: true
+sensor.dht11esp8266_room_temperature:
   hidden: true

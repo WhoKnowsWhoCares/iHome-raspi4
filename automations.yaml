@@ -93,6 +93,20 @@
   - service: notify.telegram
     data:
       message: 'ALERT: Processor usage on raspi4 is high'
+  - repeat:
+      until:
+      - condition: numeric_state
+        entity_id: sensor.processor_use_percent
+        below: 80
+      sequence:
+      - service: notify.telegram
+        data:
+          message: 'ALERT: Processor usage on raspi4 is high: {{states(''sensor.processor_use_percent'')|int}}%'
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 5
+          milliseconds: 0
 - id: Disk use High
   alias: disk_use_high
   trigger:
@@ -102,7 +116,7 @@
   action:
   - service: notify.telegram
     data:
-      message: 'ALERT: Disk usage on raspi4 is high'
+      message: 'ALERT: Disk usage on raspi4 is high: {{states(''sensor.disk_use_percent'')|int}}%'
 - id: Memory use High
   alias: memory_use_high
   trigger:
@@ -110,9 +124,20 @@
     entity_id: sensor.memory_use_percent
     above: 80
   action:
-  - service: notify.telegram
-    data:
-      message: 'ALERT: Memory usage on raspi4 is high'
+  - repeat:
+      until:
+      - condition: numeric_state
+        entity_id: sensor.memory_use_percent
+        below: 80
+      sequence:
+      - service: notify.telegram
+        data:
+          message: 'ALERT: Memory usage on raspi4 is high: {{states(''sensor.memory_use_percent'')|int}}%'
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 10
+          milliseconds: 0
 - id: Processor temperature High
   alias: processor_temp_high
   trigger:
@@ -120,19 +145,20 @@
     entity_id: sensor.processor_temperature
     above: 70
   action:
-  - service: notify.telegram
-    data:
-      message: 'ALERT: Processor temperature on raspi4 is high'
-- id: CPU temperature High
-  alias: cpu_temp_high
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.cpu_temperature
-    above: 70
-  action:
-  - service: notify.telegram
-    data:
-      message: 'ALERT: CPU temperature on raspi4 is high'
+  - repeat:
+      until:
+      - condition: numeric_state
+        entity_id: sensor.processor_temperature
+        below: 70
+      sequence:
+      - service: notify.telegram
+        data:
+          message: 'ALERT: Processor temperature on raspi4 is high: {{states(''sensor.processor_temperature'')|int}}C'
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 10
+          milliseconds: 0
 - id: '1687085624939'
   alias: calendar_event
   description: ''

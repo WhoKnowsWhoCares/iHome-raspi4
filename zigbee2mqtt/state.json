@@ -1,8 +1,8 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 3,
-        "illuminance_lux": 3,
+        "illuminance": 2,
+        "illuminance_lux": 2,
         "voltage": 3075,
         "battery": 100,
         "temperature": 28,

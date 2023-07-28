@@ -189,8 +189,9 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: proximity.home
-    below: 100
+    entity_id: zone.home
+    attribute: persons
+    above: 0
   condition:
   - condition: state
     entity_id: proximity.home
@@ -206,12 +207,14 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: proximity.gym
-    below: 100
+    entity_id: zone.gym
+    above: 0
+    attribute: persons
   condition:
   - condition: state
-    entity_id: zone.gym
+    entity_id: proximity.gym
     state: towards
+    attribute: dir_of_travel
   action:
   - service: notify.telegram
     data:
@@ -222,8 +225,9 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: proximity.home
-    above: 100
+    entity_id: zone.home
+    attribute: persons
+    below: 1
   condition:
   - condition: state
     entity_id: proximity.home
@@ -239,12 +243,14 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: proximity.gym
-    above: 100
+    entity_id: zone.gym
+    attribute: persons
+    below: 1
   condition:
   - condition: state
-    entity_id: zone.gym
+    entity_id: proximity.gym
     state: away_from
+    attribute: dir_of_travel
   action:
   - service: notify.telegram
     data:

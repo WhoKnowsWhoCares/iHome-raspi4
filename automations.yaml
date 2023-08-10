@@ -188,16 +188,11 @@
   alias: coming_home
   description: ''
   trigger:
-  - platform: numeric_state
-    entity_id: zone.home
-    attribute: persons
-    above: 0
-  condition:
-  - condition: state
-    entity_id: proximity.home
-    attribute: dir_of_travel
-    state: towards
-    enabled: false
+  - platform: zone
+    entity_id: person.alexander
+    zone: zone.home
+    event: enter
+  condition: []
   action:
   - service: notify.telegram
     data:
@@ -226,16 +221,11 @@
   alias: leaving_home
   description: ''
   trigger:
-  - platform: numeric_state
-    entity_id: zone.home
-    attribute: persons
-    below: 1
-  condition:
-  - condition: state
-    entity_id: proximity.home
-    attribute: dir_of_travel
-    state: away_from
-    enabled: false
+  - platform: zone
+    entity_id: person.alexander
+    zone: zone.home
+    event: leave
+  condition: []
   action:
   - service: notify.telegram
     data:

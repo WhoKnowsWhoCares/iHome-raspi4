@@ -15,7 +15,7 @@
   - service: media_player.play_media
     data:
       media_content_type: text
-      media_content_id: Через три часА запланирован {{ state_attr("calendar.as_frantsev_gmail_com",
+      media_content_id: Через три часа запланирован {{ state_attr("calendar.as_frantsev_gmail_com",
         "message") }}, не забудьте поесть
       enqueue: play
     target:
@@ -178,7 +178,7 @@
   - service: media_player.play_media
     data:
       media_content_type: text
-      media_content_id: Через полчасА по плану {{ state_attr("calendar.as_frantsev_gmail_com",
+      media_content_id: Через полчаса по плану {{ state_attr("calendar.as_frantsev_gmail_com",
         "message") }}
       enqueue: play
     target:

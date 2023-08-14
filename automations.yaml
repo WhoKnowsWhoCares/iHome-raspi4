@@ -78,10 +78,10 @@
     tag_id: 28a20900-9be1-4e79-9b67-7a36c4dd3f21
   condition: []
   action:
-  - service: input_boolean.turn_on
-    data: {}
-    target:
-      entity_id: input_boolean.nfc_phone_charge_scanned
+  - type: turn_on
+    device_id: 77e1896af65516a68096c8cc777f8bea
+    entity_id: 133c7fc6edf8770c9c265fc8f51e7484
+    domain: switch
   mode: single
 - id: Process use High
   alias: process_use_high
@@ -194,28 +194,26 @@
     event: enter
   condition: []
   action:
-  - service: notify.telegram
+  - service: input_select.select_option
     data:
-      message: Looks like you are almost at home
+      option: Coming
+    target:
+      entity_id: input_select.home_come_leave
   mode: single
 - id: '1688286258125'
   alias: coming_gym
   description: ''
   trigger:
-  - platform: numeric_state
-    entity_id: zone.gym
-    above: 0
-    attribute: persons
-  condition:
-  - condition: state
-    entity_id: proximity.gym
-    state: towards
-    attribute: dir_of_travel
-    enabled: false
+  - platform: zone
+    entity_id: person.alexander
+    zone: zone.gym
+    event: enter
+  condition: []
   action:
   - service: notify.telegram
     data:
       message: Looks like you are almost at Gym
+    enabled: false
   mode: single
 - id: '1688286402353'
   alias: leaving_home
@@ -227,26 +225,24 @@
     event: leave
   condition: []
   action:
-  - service: notify.telegram
+  - service: input_select.select_option
     data:
-      message: Looks like you are leaving home
+      option: Away
+    target:
+      entity_id: input_select.home_come_leave
   mode: single
 - id: '1688286484143'
   alias: leaving_gym
   description: ''
   trigger:
-  - platform: numeric_state
-    entity_id: zone.gym
-    attribute: persons
-    below: 1
-  condition:
-  - condition: state
-    entity_id: proximity.gym
-    state: away_from
-    attribute: dir_of_travel
-    enabled: false
+  - platform: zone
+    entity_id: person.alexander
+    zone: zone.gym
+    event: leave
+  condition: []
   action:
   - service: notify.telegram
     data:
       message: Looks like you are leaving Gym
+    enabled: false
   mode: single

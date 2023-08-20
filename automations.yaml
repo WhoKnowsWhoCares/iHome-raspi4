@@ -190,7 +190,7 @@
   trigger:
   - platform: zone
     entity_id: person.alexander
-    zone: zone.home
+    zone: zone.home_wide
     event: enter
   condition: []
   action:
@@ -199,6 +199,9 @@
       option: Coming
     target:
       entity_id: input_select.home_come_leave
+  - service: notify.telegram
+    data:
+      message: Looks like you are almost at home
   mode: single
 - id: '1688286258125'
   alias: coming_gym

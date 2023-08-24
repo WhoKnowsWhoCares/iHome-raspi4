@@ -55,36 +55,49 @@ notify:
 #     hosts:
 #       one_plus_5g: !secret ip_phone1
 #       one_plus: !secret ip_phone2
-proximity:
-  home:
-    zone: zone.home
-    devices:
-      - person.alexander
-      - device_tracker.asfrantsoneplus
-    tolerance: 50
-    unit_of_measurement: m
-  gym:
-    zone: zone.gym
-    devices:
-      - person.alexander
-      - device_tracker.asfrantsoneplus
-    tolerance: 50
-    unit_of_measurement: m
+
+# proximity:
+#   home:
+#     zone: zone.home
+#     devices:
+#       - person.alexander
+#       - device_tracker.asfrantsoneplus
+#     tolerance: 50
+#     unit_of_measurement: m
+#   gym:
+#     zone: zone.gym
+#     devices:
+#       - person.alexander
+#       - device_tracker.asfrantsoneplus
+#     tolerance: 50
+#     unit_of_measurement: m
 
 frontend:
   themes: !include_dir_merge_named themes
 
-xiaomi_miot:
-  username: !secret xiaomi_miot_login
-  password: !secret xiaomi_miot_pwd
-  server_country: ru
-  device_customizes:
-    chuangmi.camera.012a04:
-      miot_local: true
-  exclude_state_attributes:
-    - miot_type
-    - stream_address
-    - motion_video_latest
+# xiaomi_miot:
+#   username: !secret xiaomi_miot_login
+#   password: !secret xiaomi_miot_pwd
+#   server_country: ru
+#   device_customizes:
+#     chuangmi.camera.012a04:
+# video_attribute: 2
+# motion_stream_slice: -1
+# keep_streaming: true
+# miot_local: true
+# miot_cloud_action: true
+# use_rtsp_stream: true
+# use_motion_stream: true
+# sub_motion_stream: true
+# exclude_state_attributes:
+#   - miot_type
+#   - stream_address
+#   - motion_video_latest
+
+# stream:
+#   ll_hls: true
+#   part_duration: 1 # 0.2 - 1.5
+#   segment_duration: 10 # 2 - 10
 
 # Внешние папки
 input_boolean: !include includes/input/input_boolean.yaml

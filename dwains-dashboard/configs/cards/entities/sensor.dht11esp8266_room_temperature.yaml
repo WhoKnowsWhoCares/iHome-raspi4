@@ -1,0 +1,18 @@
+color_thresholds:
+- color: '#000026'
+  value: 15
+- color: '#00B25C'
+  value: 25
+- color: '#d35400'
+  value: 30
+- color: '#F10026'
+  value: 40
+entities:
+- sensor.dht11esp8266_room_temperature
+hours_to_show: 1
+name: Temperature
+points_per_hour: 30
+show:
+  labels: true
+type: custom:mini-graph-card
+update_interval: 60

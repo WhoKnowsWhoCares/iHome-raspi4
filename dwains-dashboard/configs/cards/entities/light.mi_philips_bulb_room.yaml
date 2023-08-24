@@ -1,0 +1,10 @@
+entity: light.mi_philips_bulb_room
+fill_container: true
+icon: mdi:desk-lamp
+layout: horizontal
+name: Desk Lamp
+show_brightness_control: true
+show_color_control: true
+show_color_temp_control: true
+type: custom:mushroom-light-card
+use_light_color: true

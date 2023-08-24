@@ -1,0 +1,6 @@
+entity: switch.socket_coffee
+fill_container: true
+icon: mdi:coffee-maker
+icon_color: primary
+layout: vertical
+type: custom:mushroom-entity-card

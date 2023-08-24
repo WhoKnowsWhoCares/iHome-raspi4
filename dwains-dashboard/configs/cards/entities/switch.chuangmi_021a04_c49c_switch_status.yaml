@@ -1,0 +1,6 @@
+entity: switch.chuangmi_021a04_c49c_switch_status
+fill_container: true
+icon_color: green
+layout: vertical
+name: Camera
+type: custom:mushroom-entity-card

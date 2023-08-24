@@ -1,6 +1,6 @@
 col_span: '2'
-col_span_lg: '3'
-col_span_xl: '3'
+col_span_lg: '2'
+col_span_xl: '2'
 entities:
 - entity: switch.zigbee_switch_l1
   icon: mdi:coach-lamp

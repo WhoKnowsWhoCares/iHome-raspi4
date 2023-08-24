@@ -70,7 +70,19 @@ switch.zigbee_switch_l5:
   sort_order: 5
   hidden: true
 light.mi_philips_bulb_room:
-  hidden: true
+  hidden: false
+  custom_card: true
+  sort_order: 3
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false
 light.mi_yeelink_bulb:
   hidden: true
   excluded: false
@@ -114,7 +126,7 @@ sensor.mi_move_sensor_in_hall_illuminance:
   sort_order: 1
   hidden: true
 switch.socket_coffee:
-  hidden: true
+  hidden: false
   excluded: false
   disabled: false
   friendly_name: ''
@@ -168,16 +180,41 @@ binary_sensor.mi_door_sensor_contact:
   custom_popup: true
   hidden: true
 cover.curtain:
-  hidden: true
-  sort_order: 1
+  hidden: false
+  sort_order: 4
+  custom_card: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false
 camera.chuangmi_021a04_c49c_camera_control:
-  hidden: true
+  hidden: false
+  custom_card: true
+  sort_order: 5
+  disabled: false
+  excluded: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false
 camera.chuangmi_021a04_c49c_motion_event:
   hidden: true
+  sort_order: 1
 sensor.chuangmi_021a04_c49c_motion_detection:
   hidden: true
 switch.chuangmi_021a04_c49c_switch_status:
-  hidden: true
+  hidden: false
+  custom_card: true
 light.chuangmi_021a04_c49c_indicator_light:
   hidden: true
 sensor.yandex_weather_condition_yandex_2:
@@ -185,6 +222,30 @@ sensor.yandex_weather_condition_yandex_2:
 update.dht11esp8266_firmware:
   hidden: true
 sensor.dht11esp8266_room_humidity:
-  hidden: true
+  hidden: false
+  custom_card: true
+  sort_order: 2
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false
 sensor.dht11esp8266_room_temperature:
-  hidden: true
+  hidden: false
+  custom_card: true
+  sort_order: 1
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false

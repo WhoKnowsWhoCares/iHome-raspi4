@@ -1,0 +1,8 @@
+entity: cover.curtain
+fill_container: true
+icon: mdi:curtains
+layout: horizontal
+show_buttons_control: true
+show_position_control: false
+show_tilt_position_control: false
+type: custom:mushroom-cover-card

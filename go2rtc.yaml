@@ -1,0 +1,21 @@
+# go2rtc version 1.6.2 linux/arm64
+# [api] listen addr=0.0.0.0:1984
+# [rtsp] listen addr=0.0.0.0:8554
+# [webrtc] listen addr=0.0.0.0:8555/tcp
+# [srtp] listen addr=0.0.0.0:8443
+
+api:
+  password: !secret go2rtc_pwd
+  username: !secret go2rtc_login
+rtsp:
+  password: !secret go2rtc_pwd
+  username: !secret go2rtc_login
+
+# streams:
+  # test1: ffmpeg:http://admin:pwd@192.168.1.71/media/?action=stream
+  # test1: hass:camera.chuangmi_021a04_c49c_camera_control
+  # test2: hass:{{state_attr("camera.chuangmi_021a04_c49c_camera_control","miot_action_result")['out'][0]}}
+  # test2: rtsp://rtsp:${CAMERA_PASSWORD}@192.168.1.123/av_stream/ch0
+  # test3: ffmpeg:https://.m3u8#video=copy&mp4
+  # test4: webrtc:http://192.168.1.123:5000/signaling/camera1?kvs#format=wyze
+  # "camera.room": ffmpeg:{input}#video=copy#audio=opus

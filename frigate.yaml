@@ -9,8 +9,11 @@ mqtt:
 database:
   path: /config/frigate.db
 
-# go2rtc:
-#   streams:
+go2rtc:
+  streams:
+    test1:
+      ffmpeg:https://de09.livestreaming.io.mi.com/hlstranscoder/GCBlMDAwOTcyYTk2ZGE0MjExOGMyOTBlZjc0YzVhYzE3ZBgKX191bnVzZWRfXwA_H265transH264/playlist.m3u8
+      # {{state_attr("camera.chuangmi_021a04_c49c_camera_control","miot_action_result")['out'][0]}}
 #     test1: ffmpeg:http://admin:pwd@192.168.1.71/media/?action=stream#video=copy#video=mjpeg
 # test1: hass:camera.chuangmi_021a04_c49c_camera_control
 # test2: hass:{{state_attr("camera.chuangmi_021a04_c49c_camera_control","miot_action_result")['out'][0]}}
@@ -19,10 +22,10 @@ database:
 # "camera.room": ffmpeg:{input}#video=copy#audio=opus#rotate=90
 
 cameras:
-  test_ipcam: # <------ Name the camera
+  test1: # <------ Name the camera
     ffmpeg:
       inputs:
-        - path: http://admin:pwd@192.168.1.71/media/?action=stream
+        - path: rtsp://0.0.0.0:8554/test1
           roles:
             - detect
     detect:

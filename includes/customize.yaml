@@ -1,4 +1,4 @@
-domain.chuangmi_021a04_c49c_camera_control:
+camera.chuangmi_021a04_c49c_camera_control:
   miot_local: true # Force to read and write data in LAN (integrate by account)
   miot_cloud: true # Enable miot cloud for entity (read, write, action)
   miot_cloud_write: true # Enable miot cloud (only write)
@@ -7,6 +7,5 @@ domain.chuangmi_021a04_c49c_camera_control:
   miio_properties: power,battery # Get miio properties to state attributes
   miio_cloud_props: prop.power,event.dev_online
 
-  camera.chuangmi_021a04_c49c_camera_control:
   video_attribute: 2 # https://github.com/al-one/hass-xiaomi-miot/issues/11#issuecomment-773054167
   keep_streaming: true # Continuously update stream address

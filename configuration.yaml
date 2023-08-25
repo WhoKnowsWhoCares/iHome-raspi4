@@ -9,7 +9,7 @@ homeassistant:
   external_url: https://ihome.frants.site
   internal_url: http://192.168.1.75:8123
   packages: !include_dir_merge_named includes/packages
-  customize: !include includes/customize.yaml
+  # customize: !include includes/customize.yaml
 
 logger:
   default: warning

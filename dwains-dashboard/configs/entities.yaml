@@ -76,9 +76,9 @@ light.mi_philips_bulb_room:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
-  col_span_lg: '1'
+  col_span_lg: '2'
   row_span_lg: '1'
   col_span_xl: '2'
   row_span_xl: '1'
@@ -186,9 +186,9 @@ cover.curtain:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
-  col_span_lg: '1'
+  col_span_lg: '2'
   row_span_lg: '1'
   col_span_xl: '2'
   row_span_xl: '1'
@@ -200,7 +200,7 @@ camera.chuangmi_021a04_c49c_camera_control:
   disabled: false
   excluded: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '2'
   row_span_lg: '1'

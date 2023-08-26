@@ -3,4 +3,6 @@ fill_container: true
 icon: mdi:coffee-maker
 icon_color: primary
 layout: vertical
+tap_action:
+  action: toggle
 type: custom:mushroom-entity-card

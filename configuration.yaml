@@ -48,32 +48,11 @@ notify:
     platform: telegram
     chat_id: !secret tg_user_id
 
-# device_tracker:
-#   - platform: ping
-#     interval_seconds: 60
-#     consider_home: 1000
-#     hosts:
-#       one_plus_5g: !secret ip_phone1
-#       one_plus: !secret ip_phone2
-
-# proximity:
-#   home:
-#     zone: zone.home
-#     devices:
-#       - person.alexander
-#       - device_tracker.asfrantsoneplus
-#     tolerance: 50
-#     unit_of_measurement: m
-#   gym:
-#     zone: zone.gym
-#     devices:
-#       - person.alexander
-#       - device_tracker.asfrantsoneplus
-#     tolerance: 50
-#     unit_of_measurement: m
-
 frontend:
   themes: !include_dir_merge_named themes
+
+shell_command:
+  pushupdates_to_github: ./pushupdates.sh
 
 # xiaomi_miot:
 #   username: !secret xiaomi_miot_login
@@ -94,12 +73,6 @@ frontend:
 #   - stream_address
 #   - motion_video_latest
 
-# stream:
-#   ll_hls: true
-#   part_duration: 1 # 0.2 - 1.5
-#   segment_duration: 10 # 2 - 10
-
-# Внешние папки
 input_boolean: !include includes/input/input_boolean.yaml
 input_number: !include includes/input/input_number.yaml
 input_select: !include includes/input/input_select.yaml
@@ -110,13 +83,9 @@ recorder: !include includes/recorder.yaml
 scene: !include includes/scenes.yaml
 alert: !include includes/alert.yaml
 
-# Внешние папки
-automation: !include automations.yaml
 # automation: !include_dir_merge_list includes/automation
+automation: !include automations.yaml
 light: !include_dir_merge_list includes/light
 sensor: !include_dir_merge_list includes/sensor
 switch: !include_dir_merge_list includes/switches
 script: !include_dir_merge_named includes/script
-
-shell_command:
-  pushupdates_to_github: ./pushupdates.sh

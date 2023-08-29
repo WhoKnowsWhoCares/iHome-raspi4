@@ -28,3 +28,5 @@ ihome_github.pub
 zigbee2mqtt/log/
 zigbee2mqtt/database.db.backup
 
+room_assistant/
+

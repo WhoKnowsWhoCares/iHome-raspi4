@@ -3,7 +3,7 @@ morning_alarm_time:
   has_date: true
   has_time: true
 
-alice_timer:
-  name: Время таймера
-  has_date: false
-  has_time: true
+# alice_timer:
+#   name: Время таймера
+#   has_date: false
+#   has_time: true

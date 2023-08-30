@@ -15,7 +15,7 @@ telegramm:
 
   automation:
     - id: Отчет при запуске системы
-      alias: start_message
+      alias: tg_server_start
       initial_state: true
       trigger:
         - platform: homeassistant
@@ -32,7 +32,7 @@ telegramm:
           entity_id: script.system_report
 
     - id: Запрос на отчет
-      alias: send_report
+      alias: tg_send_report
       initial_state: true
       trigger:
         - platform: event
@@ -44,39 +44,39 @@ telegramm:
           entity_id:
             - script.system_report
 
-    - id: Светильник
-      alias: toggle_light_room
-      initial_state: true
-      trigger:
-        - platform: event
-          event_type: telegram_command
-          event_data:
-            command: "/light_room"
-      action:
-        - service: light.toggle
-          data: {}
-          target:
-            entity_id: light.mi_philips_bulb_room
-        - service: notify.telegram
-          data:
-            message: "Светильник в комнате - {{ states('light.mi_philips_bulb_room') }} "
+    # - id: Светильник
+    #   alias: toggle_light_room
+    #   initial_state: true
+    #   trigger:
+    #     - platform: event
+    #       event_type: telegram_command
+    #       event_data:
+    #         command: "/light_room"
+    #   action:
+    #     - service: light.toggle
+    #       data: {}
+    #       target:
+    #         entity_id: light.mi_philips_bulb_room
+    #     - service: notify.telegram
+    #       data:
+    #         message: "Светильник в комнате - {{ states('light.mi_philips_bulb_room') }} "
 
-    - id: Свет в прихожей
-      alias: toggle_light_hall
-      initial_state: true
-      trigger:
-        - platform: event
-          event_type: telegram_command
-          event_data:
-            command: "/light_hall"
-      action:
-        - service: light.toggle
-          data: {}
-          target:
-            entity_id: light.mi_yeelink_bulb
-        - service: notify.telegram
-          data:
-            message: "Свет в прихожей - {{ states('light.mi_yeelink_bulb') }} "
+    # - id: Свет в прихожей
+    #   alias: toggle_light_hall
+    #   initial_state: true
+    #   trigger:
+    #     - platform: event
+    #       event_type: telegram_command
+    #       event_data:
+    #         command: "/light_hall"
+    #   action:
+    #     - service: light.toggle
+    #       data: {}
+    #       target:
+    #         entity_id: light.mi_yeelink_bulb
+    #     - service: notify.telegram
+    #       data:
+    #         message: "Свет в прихожей - {{ states('light.mi_yeelink_bulb') }} "
 
     # - id: Вызов Алисы
     #   aliase: alice_call

@@ -33,12 +33,13 @@
     data: {}
   mode: single
 - id: Set theme
-  alias: Set_theme_at_startup
+  alias: set_theme_at_startup
+  description: ''
   trigger:
-    platform: homeassistant
+  - platform: homeassistant
     event: start
   action:
-    service: frontend.set_theme
+  - service: frontend.set_theme
     data:
       name: ios-dark-mode-blue-red
 - id: Database zip
@@ -249,3 +250,42 @@
       message: Looks like you are leaving Gym
     enabled: false
   mode: single
+- id: '1693426774882'
+  alias: light_outside
+  description: when the sun is rising
+  trigger:
+  - platform: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    above: 5
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    data: {}
+  mode: single
+- id: '1693426907453'
+  alias: dark_outside
+  description: when the sun is falling
+  trigger:
+  - platform: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: 5
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.dark_outside
+  mode: single
+- id: '1693428056820'
+  alias: hall_motion_detected
+  description: ''
+  use_blueprint:
+    path: vorion/send-camera-snapshot-notification-on-motion.yaml
+    input:
+      motion_sensor: binary_sensor.mi_move_sensor_occupancy
+      camera: camera.chuangmi_021a04_c49c_camera_control
+      notify_device: 588afa31c35eefb12d731e53f100cb46
+      notification_title: Hall motion detected!
+      notification_message: ''

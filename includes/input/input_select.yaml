@@ -5,6 +5,13 @@ home_come_leave:
     - Coming
     - Home
     - Away
-    - Other
-  initial: Other
   icon: mdi:home
+
+day_part:
+  name: Day part
+  options:
+    - Morning
+    - Day
+    - Evening
+    - Night
+  icon: mdi:weather-night

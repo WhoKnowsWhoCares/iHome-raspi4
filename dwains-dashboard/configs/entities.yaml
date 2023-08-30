@@ -249,3 +249,9 @@ sensor.dht11esp8266_room_temperature:
   col_span_xl: '2'
   row_span_xl: '1'
   custom_popup: false
+sensor.mi_body_composition_scale_d8fb_mass_non_stabilized:
+  hidden: true
+sensor.mi_body_composition_scale_d8fb_mass:
+  hidden: true
+sensor.mi_body_composition_scale_d8fb_impedance:
+  hidden: true

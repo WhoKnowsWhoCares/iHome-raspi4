@@ -8,15 +8,15 @@ permit_join: false
 mqtt:
   base_topic: zigbee2mqtt
   user: mqtt_user
-  password: !secret mqtt_pwd
+  password: mqtt_pwd
   server: mqtt://core-mosquitto:1883
   keepalive: 60
-  reject_unauthorized: true
+  reject_unauthorized: false
   version: 4
 serial:
   port: /dev/ttyUSB0
 advanced:
-  log_level: warn
+  log_level: info
   pan_id: 6755
   channel: 11
   network_key:

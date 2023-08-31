@@ -1,24 +1,23 @@
+- id: Dark Outside
+  alias: dark_outside
+  trigger:
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 5.0
+  action:
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.dark_outside
 
-# - id: Dark Outside
-#   alias: dark_outside
-#   trigger:
-#     - platform: numeric_state
-#       entity_id: sun.sun
-#       attribute: elevation
-#       below: -4.0
-#   action:
-#     - service: input_boolean.turn_on
-#       target:
-#         entity_id: input_boolean.dark_outside
-
-# - id: Light Outside
-#   alias: light_outside
-#   trigger:
-#     - platform: numeric_state
-#       entity_id: sun.sun
-#       attribute: elevation
-#       above: 0.0
-#   action:
-#     - service: input_boolean.turn_off
-#       target:
-#         entity_id: input_boolean.dark_outside
+- id: Light Outside
+  alias: light_outside
+  trigger:
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      above: 5.0
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.dark_outside

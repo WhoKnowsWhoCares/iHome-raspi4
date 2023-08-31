@@ -2,22 +2,9 @@ dark_outside:
   name: Is it dark outside
   icon: mdi:theme-light-dark
 
-# sleeping:
-#   name: Sleeping
-#   icon: mdi:sleep
-
 morning_alarm:
   name: Morning Alarm
   icon: mdi:alarm
-
-# light_hall_const:
-#   name: Light_hall
-#   icon: mdi:lightbulb
-
-# leaving:
-#   name: Leaving_state
-#   icon: mdi:motion-sensor
-#   initial: false
 
 nfc_phone_charge_scanned:
   name: NFC PhoneCharge Scanned

@@ -3,8 +3,8 @@ mqtt:
   host: 192.168.1.75
   topic_prefix: frigate
   client_id: frigate
-  user: mqtt_user
-  password: pwd
+  user: !secret mqtt_user
+  password: !secret mqtt_pwd
 
 database:
   path: /config/frigate.db

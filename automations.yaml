@@ -186,14 +186,26 @@
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
   mode: single
 - id: '1688286182390'
-  alias: coming_home
+  alias: zone_home_coming
   description: ''
   trigger:
   - platform: zone
     entity_id: person.alexander
     zone: zone.home_wide
     event: enter
-  condition: []
+  condition:
+  - condition: or
+    conditions:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: device_tracker.asfrantsoneplus
+        state: home
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: input_select.home_come_leave
+        state: Home
   action:
   - service: input_select.select_option
     data:
@@ -205,7 +217,7 @@
       message: Looks like you are almost at home
   mode: single
 - id: '1688286258125'
-  alias: coming_gym
+  alias: zone_gym_coming
   description: ''
   trigger:
   - platform: zone
@@ -220,7 +232,7 @@
     enabled: false
   mode: single
 - id: '1688286402353'
-  alias: leaving_home
+  alias: zone_home_leaving
   description: ''
   trigger:
   - platform: zone
@@ -236,7 +248,7 @@
       entity_id: input_select.home_come_leave
   mode: single
 - id: '1688286484143'
-  alias: leaving_gym
+  alias: zone_gym_leaving
   description: ''
   trigger:
   - platform: zone
@@ -262,6 +274,8 @@
   action:
   - service: input_boolean.turn_off
     data: {}
+    target:
+      entity_id: input_boolean.dark_outside
   mode: single
 - id: '1693426907453'
   alias: dark_outside
@@ -289,3 +303,59 @@
       notify_device: 588afa31c35eefb12d731e53f100cb46
       notification_title: Hall motion detected!
       notification_message: ''
+- id: '1693473630257'
+  alias: time_period_night
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      option: Night
+    target:
+      entity_id: input_select.day_part
+  mode: single
+- id: '1693473743664'
+  alias: time_period_morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:00:00
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      option: Morning
+    target:
+      entity_id: input_select.day_part
+  mode: single
+- id: '1693473844722'
+  alias: time_period_day
+  description: ''
+  trigger:
+  - platform: time
+    at: '12:00:00'
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      option: Day
+    target:
+      entity_id: input_select.day_part
+  mode: single
+- id: '1693473941059'
+  alias: time_period_evening
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:00:00'
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      option: Evening
+    target:
+      entity_id: input_select.day_part
+  mode: single

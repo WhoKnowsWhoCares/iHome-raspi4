@@ -255,3 +255,7 @@ sensor.mi_body_composition_scale_d8fb_mass:
   hidden: true
 sensor.mi_body_composition_scale_d8fb_impedance:
   hidden: true
+select.zigbee_switch_power_outage_memory:
+  hidden: true
+lock.zigbee_switch_child_lock:
+  hidden: true

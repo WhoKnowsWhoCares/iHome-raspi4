@@ -1,6 +1,6 @@
 - platform: mqtt_room
   device_id: "e85c87786feb"
-  state_topic: "espresense/devices/MiBand7"
   name: "MiBand7"
+  state_topic: "espresense/devices/MiBand7"
   timeout: 10
   away_timeout: 120

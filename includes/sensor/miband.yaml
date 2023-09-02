@@ -1,5 +1,7 @@
 - platform: mqtt_room
-  device_id: "e85c87786feb"
+  # device_id: "e85c87786feb"
+  device_id: "mifit:e85c87786feb"
+  # device_id: "E85C87-FFFE-786FEB"
   name: "MiBand7"
   state_topic: "espresense/devices/MiBand7"
   timeout: 10

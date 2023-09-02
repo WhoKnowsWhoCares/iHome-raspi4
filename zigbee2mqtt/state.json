@@ -1,12 +1,12 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 4,
-        "illuminance_lux": 4,
+        "illuminance": 6,
+        "illuminance_lux": 6,
         "voltage": 3075,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 30,
+        "device_temperature": 29,
         "power_outage_count": 11,
         "linkquality": 80
     },
@@ -14,8 +14,8 @@
         "linkquality": 116,
         "state_l2": "OFF",
         "state_l3": "OFF",
-        "state_l1": "OFF",
-        "state_l4": "ON",
+        "state_l1": "ON",
+        "state_l4": "OFF",
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {

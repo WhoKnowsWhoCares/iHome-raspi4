@@ -259,3 +259,15 @@ select.zigbee_switch_power_outage_memory:
   hidden: true
 lock.zigbee_switch_child_lock:
   hidden: true
+binary_sensor.mi_move_sensor_occupancy:
+  hidden: true
+sensor.mi_move_sensor_device_temperature:
+  hidden: true
+sensor.mi_move_sensor_battery:
+  hidden: true
+sensor.mi_move_sensor_illuminance_lux:
+  hidden: true
+sensor.mi_move_sensor_power_outage_count:
+  hidden: true
+sensor.mi_door_sensor_power_outage_count:
+  hidden: true

@@ -1,0 +1,5 @@
+button_scale_actions: 1
+entity: alarm_control_panel.alarmo
+keep_keypad_visible: false
+type: custom:alarmo-card
+use_clear_icon: false

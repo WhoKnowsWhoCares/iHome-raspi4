@@ -1,0 +1,16 @@
+color_thresholds:
+- color: '#000026'
+  value: 60
+- color: '#00B25C'
+  value: 50
+- color: '#d35400'
+  value: 40
+entities:
+- sensor.espresense_room_humidity
+hours_to_show: 1
+name: Humidity
+points_per_hour: 30
+show:
+  labels: true
+type: custom:mini-graph-card
+update_interval: 60

@@ -11,11 +11,11 @@ sensor.mi_move_sensor_in_hall_illuminance_lux:
   hidden: true
 weather.yandex_weather:
   custom_card: true
-  hidden: true
+  hidden: false
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '2'
+  col_span: '1'
   row_span: '1'
   col_span_lg: '2'
   row_span_lg: '1'
@@ -24,11 +24,11 @@ weather.yandex_weather:
   custom_popup: true
   devices_grouped_sort_order: 1
 media_player.yandex_station_ff98f0294a56d19578794aff:
-  hidden: true
+  hidden: false
   excluded: false
   disabled: false
   friendly_name: AliceRoom
-  col_span: '2'
+  col_span: '1'
   row_span: '2'
   col_span_lg: '2'
   row_span_lg: '2'
@@ -72,7 +72,7 @@ switch.zigbee_switch_l5:
 light.mi_philips_bulb_room:
   hidden: false
   custom_card: true
-  sort_order: 3
+  sort_order: 4
   excluded: false
   disabled: false
   friendly_name: ''
@@ -160,15 +160,15 @@ sensor.yandex_weather_pressure_mmhg:
 sensor.yandex_weather_data_update_time:
   hidden: true
 alarm_control_panel.alarmo:
-  hidden: true
+  hidden: false
   excluded: false
   disabled: false
   friendly_name: ''
   col_span: '1'
   row_span: '1'
-  col_span_lg: '1'
+  col_span_lg: '2'
   row_span_lg: '1'
-  col_span_xl: '1'
+  col_span_xl: '2'
   row_span_xl: '1'
   custom_card: true
   custom_popup: true
@@ -181,7 +181,7 @@ binary_sensor.mi_door_sensor_contact:
   hidden: true
 cover.curtain:
   hidden: false
-  sort_order: 4
+  sort_order: 3
   custom_card: true
   excluded: false
   disabled: false
@@ -215,6 +215,7 @@ sensor.chuangmi_021a04_c49c_motion_detection:
 switch.chuangmi_021a04_c49c_switch_status:
   hidden: false
   custom_card: true
+  sort_order: 6
 light.chuangmi_021a04_c49c_indicator_light:
   hidden: true
 sensor.yandex_weather_condition_yandex_2:
@@ -222,7 +223,7 @@ sensor.yandex_weather_condition_yandex_2:
 update.dht11esp8266_firmware:
   hidden: true
 sensor.dht11esp8266_room_humidity:
-  hidden: false
+  hidden: true
   custom_card: true
   sort_order: 2
   excluded: false
@@ -236,7 +237,7 @@ sensor.dht11esp8266_room_humidity:
   row_span_xl: '1'
   custom_popup: false
 sensor.dht11esp8266_room_temperature:
-  hidden: false
+  hidden: true
   custom_card: true
   sort_order: 1
   excluded: false
@@ -271,3 +272,53 @@ sensor.mi_move_sensor_power_outage_count:
   hidden: true
 sensor.mi_door_sensor_power_outage_count:
   hidden: true
+binary_sensor.espresense_room:
+  hidden: true
+sensor.espresense_room_uptime:
+  hidden: true
+sensor.espresense_room_free_mem:
+  hidden: true
+button.espresense_room_restart:
+  hidden: true
+number.espresense_room_max_distance:
+  hidden: true
+number.espresense_room_absorption:
+  hidden: true
+switch.espresense_room_auto_update:
+  hidden: true
+switch.espresense_room_arduino_ota:
+  hidden: true
+switch.espresense_room_prerelease:
+  hidden: true
+button.espresense_room_update:
+  hidden: true
+button.espresense_room_enroll:
+  hidden: true
+sensor.espresense_room_temperature:
+  hidden: false
+  custom_card: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false
+  sort_order: 1
+sensor.espresense_room_humidity:
+  hidden: false
+  custom_card: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false
+  sort_order: 2

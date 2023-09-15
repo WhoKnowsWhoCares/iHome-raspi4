@@ -191,7 +191,7 @@
   trigger:
   - platform: zone
     entity_id: person.alexander
-    zone: zone.home_wide
+    zone: zone.home
     event: enter
   condition:
   - condition: or
@@ -292,17 +292,6 @@
     target:
       entity_id: input_boolean.dark_outside
   mode: single
-- id: '1693428056820'
-  alias: hall_motion_detected
-  description: ''
-  use_blueprint:
-    path: vorion/send-camera-snapshot-notification-on-motion.yaml
-    input:
-      motion_sensor: binary_sensor.mi_move_sensor_occupancy
-      camera: camera.chuangmi_021a04_c49c_camera_control
-      notify_device: 588afa31c35eefb12d731e53f100cb46
-      notification_title: Hall motion detected!
-      notification_message: ''
 - id: '1693473630257'
   alias: time_period_night
   description: ''
@@ -358,4 +347,41 @@
       option: Evening
     target:
       entity_id: input_select.day_part
+  mode: single
+- id: '1694814595846'
+  alias: home_leave
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - device_tracker.ble_tracker_miband
+    to: not_home
+  - platform: state
+    entity_id:
+    - sensor.miband7
+    to: not_home
+  - platform: state
+    entity_id:
+    - device_tracker.asfrantsoneplus
+    to: not_home
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: device_tracker.ble_tracker_miband
+      state: not_home
+    - condition: state
+      entity_id: sensor.miband7
+      state: not_home
+    - condition: state
+      entity_id: device_tracker.asfrantsoneplus
+      state: not_home
+  action:
+  - service: notify.telegram
+    data:
+      message: Looks like you left Home
+  - service: camera.turn_on
+    data: {}
+    target:
+      entity_id: camera.chuangmi_021a04_c49c_camera_control
   mode: single

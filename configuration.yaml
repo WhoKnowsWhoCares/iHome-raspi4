@@ -53,6 +53,7 @@ frontend:
 
 shell_command:
   pushupdates_to_github: ./pushupdates.sh
+  wake_pc: ./wake_pc.sh
 
 ble_monitor:
   bt_auto_restart: True

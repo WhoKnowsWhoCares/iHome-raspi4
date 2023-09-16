@@ -1,8 +1,8 @@
-!*.yaml
-!.gitignore
-!*.md
-!*.sh
-!*.js*
+*.yaml
+.gitignore
+*.md
+*.sh
+*.js*
 !node-red/
 custom_components/
 esphome/

@@ -193,28 +193,17 @@
     entity_id: person.alexander
     zone: zone.home
     event: enter
-  condition:
-  - condition: or
-    conditions:
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: device_tracker.asfrantsoneplus
-        state: home
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: input_select.home_come_leave
-        state: Home
+  condition: []
   action:
   - service: input_select.select_option
     data:
       option: Coming
     target:
       entity_id: input_select.home_come_leave
+    enabled: false
   - service: notify.telegram
     data:
-      message: Looks like you are almost at home
+      message: Coming state by home zone
   mode: single
 - id: '1688286258125'
   alias: zone_gym_coming
@@ -246,6 +235,10 @@
       option: Away
     target:
       entity_id: input_select.home_come_leave
+    enabled: false
+  - service: notify.telegram
+    data:
+      message: Leaving state by home zone
   mode: single
 - id: '1688286484143'
   alias: zone_gym_leaving
@@ -360,10 +353,6 @@
     entity_id:
     - sensor.miband7
     to: not_home
-  - platform: state
-    entity_id:
-    - device_tracker.asfrantsoneplus
-    to: not_home
   condition:
   - condition: and
     conditions:
@@ -373,9 +362,11 @@
     - condition: state
       entity_id: sensor.miband7
       state: not_home
-    - condition: state
-      entity_id: device_tracker.asfrantsoneplus
-      state: not_home
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: device_tracker.asfrantsoneplus
+        state: home
   action:
   - service: notify.telegram
     data:
@@ -384,4 +375,41 @@
     data: {}
     target:
       entity_id: camera.chuangmi_021a04_c49c_camera_control
+  - service: input_select.set_options
+    data:
+      options: Away
+    target:
+      entity_id: input_select.home_come_leave
+  mode: single
+- id: '1695065460408'
+  alias: home_come
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.miband7
+    to: Home
+  - platform: state
+    entity_id:
+    - device_tracker.ble_tracker_miband
+    to: home
+  condition:
+  - condition: state
+    entity_id: sensor.miband7
+    state: home
+  - condition: state
+    entity_id: device_tracker.ble_tracker_miband
+    state: home
+  - condition: state
+    entity_id: device_tracker.asfrantsoneplus
+    state: home
+  action:
+  - service: input_select.select_option
+    data:
+      option: Home
+    target:
+      entity_id: input_select.home_come_leave
+  - service: notify.telegram
+    data:
+      message: Looks like you are at home
   mode: single

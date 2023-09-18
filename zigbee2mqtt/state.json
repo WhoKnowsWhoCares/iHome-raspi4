@@ -15,7 +15,7 @@
         "state_l2": "OFF",
         "state_l3": "OFF",
         "state_l1": "OFF",
-        "state_l4": "OFF",
+        "state_l4": "ON",
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {

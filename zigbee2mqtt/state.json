@@ -20,7 +20,7 @@
     },
     "0x00158d00072b9520": {
         "linkquality": 102,
-        "contact": false,
+        "contact": true,
         "voltage": 3025,
         "battery": 100,
         "power_outage_count": 66

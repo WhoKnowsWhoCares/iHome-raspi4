@@ -362,11 +362,6 @@
     - condition: state
       entity_id: sensor.miband7
       state: not_home
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: device_tracker.asfrantsoneplus
-        state: home
   action:
   - service: notify.telegram
     data:
@@ -388,15 +383,19 @@
   - platform: state
     entity_id:
     - sensor.miband7
-    to: Home
+    to: room
   - platform: state
     entity_id:
     - device_tracker.ble_tracker_miband
     to: home
+  - platform: state
+    entity_id:
+    - device_tracker.asfrantsoneplus
+    to: home
   condition:
   - condition: state
     entity_id: sensor.miband7
-    state: home
+    state: room
   - condition: state
     entity_id: device_tracker.ble_tracker_miband
     state: home
@@ -412,4 +411,29 @@
   - service: notify.telegram
     data:
       message: Looks like you are at home
+  mode: single
+- id: '1695159432790'
+  alias: door_open
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.mi_door_sensor_contact
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sensor.miband7
+    state: not_home
+  - condition: state
+    entity_id: device_tracker.ble_tracker_miband
+    state: not_home
+  action:
+  - service: notify.telegram
+    data:
+      message: 'ALARM: Door is open!'
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+    target:
+      entity_id: light.mi_yeelink_bulb
   mode: single

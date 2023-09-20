@@ -354,14 +354,17 @@
     - sensor.miband7
     to: not_home
   condition:
-  - condition: and
+  - condition: state
+    entity_id: device_tracker.ble_tracker_miband
+    state: not_home
+  - condition: state
+    entity_id: sensor.miband7
+    state: not_home
+  - condition: not
     conditions:
     - condition: state
-      entity_id: device_tracker.ble_tracker_miband
-      state: not_home
-    - condition: state
-      entity_id: sensor.miband7
-      state: not_home
+      entity_id: input_select.home_come_leave
+      state: Away
   action:
   - service: notify.telegram
     data:
@@ -402,6 +405,11 @@
   - condition: state
     entity_id: device_tracker.asfrantsoneplus
     state: home
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.home_come_leave
+      state: Home
   action:
   - service: input_select.select_option
     data:

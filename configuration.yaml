@@ -27,8 +27,20 @@ yandex_station:
     media_player.yandex_station_ff98f0294a56d19578794aff:
       host: !secret yandex_mini_ip
       name: Alice
+  # intents:
+  #   Какая температура в комнате: сейчас посмотрю
   recognition_lang: ru-RU
   tts_service_name: alice_say
+
+# https://github.com/AlexxIT/YandexDialogs#настройка-интентов-в-яндексдиалогах
+# yandex_dialogs:
+
+# https://github.com/dext0r/ha-yandex-station-intents
+yandex_station_intents:
+  intents:
+    Температура в комнате:
+      say_phrase: "В комнате {{ states('sensor.espresense_room_temperature')|int }} градусов"
+      # execute_command: Включи свет на кухне
 
 default_config:
 

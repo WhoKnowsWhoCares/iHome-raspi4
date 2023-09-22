@@ -166,7 +166,7 @@
   trigger:
   - platform: calendar
     event: start
-    offset: -0:15:0
+    offset: -0:30:0
     entity_id: calendar.as_frantsev_gmail_com
   condition:
   - condition: not
@@ -444,21 +444,4 @@
       brightness_pct: 100
     target:
       entity_id: light.mi_yeelink_bulb
-  mode: single
-- id: '1695328706148'
-  alias: yandex_intent_check
-  description: ''
-  trigger:
-  - platform: event
-    event_type: yandex_intent
-    event_data:
-      text: Какая температура в комнате
-  condition: []
-  action:
-  - service: media_player.play_media
-    data:
-      media_content_type: text
-      media_content_id: Все еще смотрю
-    target:
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
   mode: single

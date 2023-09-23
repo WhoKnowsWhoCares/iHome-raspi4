@@ -421,7 +421,7 @@
       message: Looks like you are at home
   mode: single
 - id: '1695159432790'
-  alias: door_open
+  alias: ALARM_door_opened
   description: ''
   trigger:
   - platform: state
@@ -444,4 +444,25 @@
       brightness_pct: 100
     target:
       entity_id: light.mi_yeelink_bulb
+  mode: single
+- id: '1695468411896'
+  alias: irrigation_counter
+  description: Daily decreased counter and check if its time to refill water for plants
+  trigger:
+  - platform: time
+    at: '12:00:00'
+  condition: []
+  action:
+  - service: input_number.decrement
+    data: {}
+    target:
+      entity_id: input_number.irrigation_timer
+  - if:
+    - condition: numeric_state
+      entity_id: input_number.irrigation_timer
+      below: 10
+    then:
+    - service: notify.telegram
+      data:
+        message: Похоже пора обновить воду для полива растений
   mode: single

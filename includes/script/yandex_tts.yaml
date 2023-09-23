@@ -1,13 +1,30 @@
 yandex_tts_morning_hello:
   alias: yandex_tts_morning_hello
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        volume_level: 0.3
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Доброе утро! Пора вставать!","Пора вставать! Дела сами себя не сделают!"]|random }} '
         media_content_type: text
-        extra:
-          volume_level: 0.3
+
+yandex_tts_today_events:
+  alias: yandex_tts_today_events
+  sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: 
+          " Сегодня по планам: 
+          {% if states('sensor.today_events') == '' %}
+            Ничего
+          {% else %}
+            {{states('sensor.today_events')}}
+          {% endif %} "
+        media_content_type: text
 
 yandex_tts_morning_alarm:
   alias: yandex_tts_morning_alarm
@@ -51,10 +68,6 @@ yandex_tts_morning_alarm:
 yandex_tts_podcast:
   alias: yandex_tts_podcast
   sequence:
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.2
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
@@ -80,16 +93,6 @@ yandex_tts_start_show:
         media_content_id: шоу
         media_content_type: command
   mode: single
-
-# yandex_tts_sunset:
-#   alias: yandex_tts_sunset
-#   sequence:
-#     - service: media_player.play_media
-#       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-#       data:
-#         media_content_id: закат
-#         media_content_type: command
-#   mode: single
 
 yandex_tts_coffee_ready:
   alias: yandex_tts_coffee_ready
@@ -130,18 +133,13 @@ yandex_turn_off_all:
         media_content_id: отключение всего
         media_content_type: command
 
-# yandex_tts_leaving:
-#   sequence:
-#     - service: media_player.play_media
-#       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-#       data:
-#         media_content_id: '{{["Вы уходите?",""]|random }} На всякий случай прогноз погоды.'
-#         media_content_type: text
-#         extra:
-#           volume_level: 0.5
-
 yandex_tts_weather:
   sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: Прогноз погоды
+        media_content_type: text
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
@@ -150,6 +148,11 @@ yandex_tts_weather:
 
 yandex_tts_news:
   sequence:
+    - service: media_player.play_media
+      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      data:
+        media_content_id: Новости
+        media_content_type: text
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
@@ -186,6 +189,8 @@ yandex_tts_other_voice:
         media_content_type: text # работает только на локальной колонке
         extra:
           volume_level: 0.3
+
+
 # alice_morning_dialog:
 #   sequence:
 # - service: media_player.volume_set

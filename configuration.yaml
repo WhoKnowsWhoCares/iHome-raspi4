@@ -29,8 +29,8 @@ yandex_station:
       name: Alice
   # intents:
   #   Какая температура в комнате: сейчас посмотрю
-  recognition_lang: ru-RU
-  tts_service_name: alice_say
+  # recognition_lang: ru-RU
+  # tts_service_name: alice_say
 
 # https://github.com/AlexxIT/YandexDialogs#настройка-интентов-в-яндексдиалогах
 # yandex_dialogs:
@@ -41,6 +41,12 @@ yandex_station_intents:
     Температура в комнате:
       say_phrase: "В комнате {{ states('sensor.espresense_room_temperature')|int }} градусов"
       # execute_command: Включи свет на кухне
+
+# tts:
+#   - platform: yandextts
+#     api_key: THE_API_KEY
+#     language: ru-RU
+#     voice: oksana
 
 default_config:
 

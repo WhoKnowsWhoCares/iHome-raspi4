@@ -44,6 +44,24 @@ telegramm:
           entity_id:
             - script.system_report
 
+    - id: Обновить счетчик полива
+      alias: tg_refill_water
+      initial_state: true
+      trigger:
+        - platform: event
+          event_type: telegram_command
+          event_data:
+            command: "/refill_water"
+      action:
+        - service: input_number.set_value
+          target:
+            entity_id: input_number.irrigation_timer
+          data:
+            value: 50
+        - service: notify.telegram
+          data:
+            message: "Автополив обновлен"
+
     # - id: Светильник
     #   alias: toggle_light_room
     #   initial_state: true
@@ -52,14 +70,14 @@ telegramm:
     #       event_type: telegram_command
     #       event_data:
     #         command: "/light_room"
-    #   action:
-    #     - service: light.toggle
-    #       data: {}
-    #       target:
-    #         entity_id: light.mi_philips_bulb_room
-    #     - service: notify.telegram
-    #       data:
-    #         message: "Светильник в комнате - {{ states('light.mi_philips_bulb_room') }} "
+      # action:
+      #   - service: light.toggle
+      #     data: {}
+      #     target:
+      #       entity_id: light.mi_philips_bulb_room
+      #   - service: notify.telegram
+      #     data:
+      #       message: "Светильник в комнате - {{ states('light.mi_philips_bulb_room') }} "
 
     # - id: Свет в прихожей
     #   alias: toggle_light_hall

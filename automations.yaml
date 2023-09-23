@@ -195,9 +195,9 @@
     event: enter
   condition: []
   action:
-  - service: input_select.select_option
+  - service: input_select.set_options
     data:
-      option: Coming
+      options: Coming
     target:
       entity_id: input_select.home_come_leave
     enabled: false
@@ -230,9 +230,9 @@
     event: leave
   condition: []
   action:
-  - service: input_select.select_option
+  - service: input_select.set_options
     data:
-      option: Away
+      options: Leaving
     target:
       entity_id: input_select.home_come_leave
     enabled: false
@@ -366,9 +366,6 @@
       entity_id: input_select.home_come_leave
       state: Away
   action:
-  - service: notify.telegram
-    data:
-      message: Looks like you left Home
   - service: camera.turn_on
     data: {}
     target:
@@ -378,6 +375,9 @@
       options: Away
     target:
       entity_id: input_select.home_come_leave
+  - service: notify.telegram
+    data:
+      message: Looks like you left Home
   mode: single
 - id: '1695065460408'
   alias: home_come
@@ -411,9 +411,9 @@
       entity_id: input_select.home_come_leave
       state: Home
   action:
-  - service: input_select.select_option
+  - service: input_select.set_options
     data:
-      option: Home
+      options: Home
     target:
       entity_id: input_select.home_come_leave
   - service: notify.telegram

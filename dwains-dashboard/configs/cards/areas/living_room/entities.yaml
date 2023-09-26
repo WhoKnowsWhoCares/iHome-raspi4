@@ -9,11 +9,11 @@ entities:
   icon: mdi:string-lights
   name: Lights
 - entity: switch.zigbee_switch_l3
-  icon: mdi:fan
-  name: Fan
+  icon: mdi:power-socket-de
+  name: Socket
 - entity: switch.zigbee_switch_l4
-  icon: mdi:heat-wave
-  name: Fumigator
+  icon: mdi:power-socket-de
+  name: Socket
 - entity: switch.zigbee_switch_l5
   name: USB charger
 position: bottom

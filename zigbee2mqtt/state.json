@@ -1,8 +1,8 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 3,
-        "illuminance_lux": 3,
+        "illuminance": 2,
+        "illuminance_lux": 2,
         "voltage": 3065,
         "battery": 100,
         "temperature": 28,
@@ -13,9 +13,9 @@
     "0x5c0272fffe03c72e": {
         "linkquality": 65,
         "state_l2": "OFF",
-        "state_l3": "OFF",
+        "state_l3": "ON",
         "state_l1": "OFF",
-        "state_l4": "OFF",
+        "state_l4": "ON",
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {

@@ -185,26 +185,6 @@
     target:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
   mode: single
-- id: '1688286182390'
-  alias: zone_home_coming
-  description: ''
-  trigger:
-  - platform: zone
-    entity_id: person.alexander
-    zone: zone.home
-    event: enter
-  condition: []
-  action:
-  - service: input_select.set_options
-    data:
-      options: Coming
-    target:
-      entity_id: input_select.home_come_leave
-    enabled: false
-  - service: notify.telegram
-    data:
-      message: Coming state by home zone
-  mode: single
 - id: '1688286258125'
   alias: zone_gym_coming
   description: ''
@@ -219,26 +199,6 @@
     data:
       message: Looks like you are almost at Gym
     enabled: false
-  mode: single
-- id: '1688286402353'
-  alias: zone_home_leaving
-  description: ''
-  trigger:
-  - platform: zone
-    entity_id: person.alexander
-    zone: zone.home
-    event: leave
-  condition: []
-  action:
-  - service: input_select.set_options
-    data:
-      options: Leaving
-    target:
-      entity_id: input_select.home_come_leave
-    enabled: false
-  - service: notify.telegram
-    data:
-      message: Leaving state by home zone
   mode: single
 - id: '1688286484143'
   alias: zone_gym_leaving
@@ -386,7 +346,7 @@
   - platform: state
     entity_id:
     - sensor.miband7
-    to: room
+    to: hall
   - platform: state
     entity_id:
     - device_tracker.ble_tracker_miband
@@ -398,7 +358,7 @@
   condition:
   - condition: state
     entity_id: sensor.miband7
-    state: room
+    state: hall
   - condition: state
     entity_id: device_tracker.ble_tracker_miband
     state: home

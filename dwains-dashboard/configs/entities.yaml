@@ -223,7 +223,7 @@ sensor.yandex_weather_condition_yandex_2:
 update.dht11esp8266_firmware:
   hidden: true
 sensor.dht11esp8266_room_humidity:
-  hidden: true
+  hidden: false
   custom_card: true
   sort_order: 2
   excluded: false
@@ -237,7 +237,7 @@ sensor.dht11esp8266_room_humidity:
   row_span_xl: '1'
   custom_popup: false
 sensor.dht11esp8266_room_temperature:
-  hidden: true
+  hidden: false
   custom_card: true
   sort_order: 1
   excluded: false

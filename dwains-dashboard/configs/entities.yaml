@@ -28,7 +28,7 @@ media_player.yandex_station_ff98f0294a56d19578794aff:
   excluded: false
   disabled: false
   friendly_name: AliceRoom
-  col_span: '1'
+  col_span: '2'
   row_span: '2'
   col_span_lg: '2'
   row_span_lg: '2'

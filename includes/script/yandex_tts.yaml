@@ -32,17 +32,18 @@ yandex_tts_morning_alarm:
     - service: media_player.volume_set
       data:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-        volume_level: 0.2
+        volume_level: 0.1
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: 'https://music.yandex.ru/album/{{ [
-          "23691813/track/107789868",
-          "5307396/track/38633762"
-          "15279121/track/44524619",
-          "8242618/track/55967111",
-          "8562547/track/57171194"
-        ] | random}}'
+        media_content_id: 'https://music.yandex.ru/album/23691813/track/107789868'
+        # media_content_id: 'https://music.yandex.ru/album/{{ [
+        #   "23691813/track/107789868",
+        #   "5307396/track/38633762"
+        #   "15279121/track/44524619",
+        #   "8242618/track/55967111",
+        #   "8562547/track/57171194"
+        # ] | random}}'
         media_content_type: xxx
 
 # https://music.yandex.ru/album/19738332/track/96361671

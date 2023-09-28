@@ -324,3 +324,7 @@ sensor.espresense_room_humidity:
   sort_order: 2
 sensor.chuangmi_021a04_c49c_storage_free_space:
   hidden: true
+number.espresense_hall_pir_timeout:
+  hidden: true
+binary_sensor.espresense_hall_motion:
+  hidden: true

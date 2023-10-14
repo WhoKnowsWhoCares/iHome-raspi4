@@ -335,6 +335,8 @@
       options: Away
     target:
       entity_id: input_select.home_come_leave
+  - service: script.turn_off_everything
+    data: {}
   - service: notify.telegram
     data:
       message: Looks like you left Home

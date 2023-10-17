@@ -179,8 +179,11 @@
   - service: media_player.play_media
     data:
       media_content_type: text
-      media_content_id: Через полчаса по плану {{ state_attr("calendar.as_frantsev_gmail_com",
-        "message") }}
+      media_content_id: "Через полчаса начнется {%  if not is_state('sensor.ical_mycalendar_event_0','unavailable')
+        and  not state_attr('sensor.ical_mycalendar_event_0' ,'all_day') == true and
+        ((as_timestamp(state_attr('sensor.ical_mycalendar_event_0', \"start\")) -
+        as_timestamp(now()))%216000)/3600 | int == 0.5 %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
+        }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %}   "
       enqueue: play
     target:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff

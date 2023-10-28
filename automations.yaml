@@ -89,7 +89,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.processor_use_percent
-    above: 80
+    above: 90
   action:
   - service: notify.telegram
     data:
@@ -123,7 +123,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.memory_use_percent
-    above: 80
+    above: 90
   action:
   - repeat:
       until:

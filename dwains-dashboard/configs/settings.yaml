@@ -1,4 +1,4 @@
-disable_clock: false
+disable_clock: true
 am_pm_clock: false
 disable_welcome_message: true
 v2_mode: false

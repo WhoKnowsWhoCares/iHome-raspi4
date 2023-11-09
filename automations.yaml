@@ -179,10 +179,8 @@
   - service: media_player.play_media
     data:
       media_content_type: text
-      media_content_id: "Через полчаса начнется {%  if not is_state('sensor.ical_mycalendar_event_0','unavailable')
-        and  not state_attr('sensor.ical_mycalendar_event_0' ,'all_day') == true and
-        ((as_timestamp(state_attr('sensor.ical_mycalendar_event_0', \"start\")) -
-        as_timestamp(now()))%216000)/3600 | int == 0.5 %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
+      media_content_id: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
+        ,'all_day') == false %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
         }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %}   "
       enqueue: play
     target:

@@ -1,6 +1,5 @@
 irrigation_timer:
   name: Timer to refill water tank for plants
-  initial: 50
   min: 0
   max: 50
   step: 1

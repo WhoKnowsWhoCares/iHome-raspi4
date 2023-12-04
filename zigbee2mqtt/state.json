@@ -3,10 +3,10 @@
         "occupancy": false,
         "illuminance": 2,
         "illuminance_lux": 2,
-        "voltage": 3055,
+        "voltage": 3065,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 27,
+        "device_temperature": 28,
         "power_outage_count": 11,
         "linkquality": 80
     },

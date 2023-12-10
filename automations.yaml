@@ -310,6 +310,7 @@
     entity_id:
     - device_tracker.ble_tracker_miband
     to: not_home
+    enabled: false
   - platform: state
     entity_id:
     - sensor.miband7
@@ -318,6 +319,7 @@
   - condition: state
     entity_id: device_tracker.ble_tracker_miband
     state: not_home
+    enabled: false
   - condition: state
     entity_id: sensor.miband7
     state: not_home
@@ -354,6 +356,7 @@
     entity_id:
     - device_tracker.ble_tracker_miband
     to: home
+    enabled: false
   - platform: state
     entity_id:
     - device_tracker.asfrantsoneplus
@@ -365,6 +368,7 @@
   - condition: state
     entity_id: device_tracker.ble_tracker_miband
     state: home
+    enabled: false
   - condition: state
     entity_id: device_tracker.asfrantsoneplus
     state: home

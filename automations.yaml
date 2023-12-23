@@ -42,6 +42,7 @@
   - service: frontend.set_theme
     data:
       name: ios-dark-mode-blue-red
+      mode: dark
 - id: Database zip
   alias: database_zip
   initial_state: true

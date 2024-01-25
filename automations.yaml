@@ -15,8 +15,7 @@
   - service: media_player.play_media
     data:
       media_content_type: text
-      media_content_id: Через три часа запланирован {{ state_attr("calendar.as_frantsev_gmail_com",
-        "message") }}, не забудьте поесть
+      media_content_id: Через три часа запланирован спорт, не забудьте поесть
       enqueue: play
     target:
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff

@@ -6,16 +6,16 @@
     - "date"
     - "time_date"
 
-- platform: systemmonitor
-  resources:
-    - type: processor_use
-    - type: processor_temperature
-    - type: disk_use_percent
-      arg: /
-    - type: memory_use_percent
-    - type: last_boot
-    - type: disk_free
-      arg: /
+# - platform: systemmonitor
+#   resources:
+#     - type: processor_use
+#     - type: processor_temperature
+#     - type: disk_use_percent
+#       arg: /
+#     - type: memory_use_percent
+#     - type: last_boot
+#     - type: disk_free
+#       arg: /
 
 - platform: command_line
   name: CPU_temperature

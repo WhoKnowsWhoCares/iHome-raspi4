@@ -36,10 +36,10 @@ yandex_station:
 # yandex_dialogs:
 
 # https://github.com/dext0r/ha-yandex-station-intents
-yandex_station_intents:
-  intents:
-    Температура в комнате:
-      say_phrase: "В комнате {{ states('sensor.espresense_room_temperature')|int }} градусов"
+# yandex_station_intents:
+#   intents:
+#     Температура в комнате:
+#       say_phrase: "В комнате {{ states('sensor.espresense_room_temperature')|int }} градусов"
       # execute_command: Включи свет на кухне
 
 # tts:

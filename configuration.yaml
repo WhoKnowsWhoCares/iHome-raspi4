@@ -40,7 +40,7 @@ yandex_station:
 #   intents:
 #     Температура в комнате:
 #       say_phrase: "В комнате {{ states('sensor.espresense_room_temperature')|int }} градусов"
-      # execute_command: Включи свет на кухне
+# execute_command: Включи свет на кухне
 
 # tts:
 #   - platform: yandextts
@@ -73,6 +73,7 @@ shell_command:
   pushupdates_to_github: ./pushupdates.sh
   wake_pc: ./wake_pc.sh
   sleep_pc: ./sleep_pc.sh
+  reboot_pc: ./reboot_pc.sh
 
 ble_monitor:
   bt_auto_restart: True

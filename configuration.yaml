@@ -74,6 +74,7 @@ shell_command:
   wake_pc: ./wake_pc.sh
   sleep_pc: ./sleep_pc.sh
   reboot_pc: ./reboot_pc.sh
+  check: ./whoami.sh
 
 ble_monitor:
   bt_auto_restart: True

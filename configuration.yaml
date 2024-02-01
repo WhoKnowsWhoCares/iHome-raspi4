@@ -71,10 +71,10 @@ frontend:
 
 shell_command:
   pushupdates_to_github: ./pushupdates.sh
-  wake_pc: ./wake_pc.sh
-  sleep_pc: ./sleep_pc.sh
-  reboot_pc: ./reboot_pc.sh
-  check: ./whoami.sh
+  wake_pc: /bin/bash wake_pc.sh
+  sleep_pc: /bin/bash sleep_pc.sh
+  reboot_pc: /bin/bash reboot_pc.sh
+  check: /bin/bash whoami.sh
 
 ble_monitor:
   bt_auto_restart: True

@@ -69,13 +69,6 @@ notify:
 frontend:
   themes: !include_dir_merge_named themes
 
-shell_command:
-  pushupdates_to_github: ./pushupdates.sh
-  wake_pc: /bin/bash wake_pc.sh
-  sleep_pc: /bin/bash sleep_pc.sh
-  reboot_pc: /bin/bash reboot_pc.sh
-  check: /bin/bash whoami.sh
-
 ble_monitor:
   bt_auto_restart: True
   active_scan: True
@@ -112,6 +105,7 @@ input_boolean: !include includes/input/input_boolean.yaml
 input_number: !include includes/input/input_number.yaml
 input_select: !include includes/input/input_select.yaml
 input_datetime: !include includes/input/input_datetime.yaml
+shell_command: !include shell_commands.yaml
 
 group: !include includes/groups.yaml
 recorder: !include includes/recorder.yaml

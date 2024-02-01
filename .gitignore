@@ -32,4 +32,5 @@ zigbee2mqtt/database.db.backup
 .storage
 .cloud
 .google.token 
+.shell_commands.yaml
 home-assistant.log

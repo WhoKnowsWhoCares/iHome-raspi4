@@ -58,10 +58,26 @@ telegramm:
           target:
             entity_id: input_number.irrigation_timer
           data:
-            value: 50
+            value: 40
         - service: notify.telegram
           data:
             message: "Автополив обновлен"
+
+    - id: Запуск сервера
+      alias: tg_switch_pc
+      initial_state: false
+      trigger:
+        - platform: event
+          event_type: telegram_command
+          event_data:
+            command: "/switch_pc"
+      action:
+        - service: switch.toggle
+          target:
+            entity_id: switch.remote_pc
+        - service: notify.telegram
+          data:
+            message: "Готово"
 
     # - id: Светильник
     #   alias: toggle_light_room
@@ -71,14 +87,14 @@ telegramm:
     #       event_type: telegram_command
     #       event_data:
     #         command: "/light_room"
-      # action:
-      #   - service: light.toggle
-      #     data: {}
-      #     target:
-      #       entity_id: light.mi_philips_bulb_room
-      #   - service: notify.telegram
-      #     data:
-      #       message: "Светильник в комнате - {{ states('light.mi_philips_bulb_room') }} "
+    # action:
+    #   - service: light.toggle
+    #     data: {}
+    #     target:
+    #       entity_id: light.mi_philips_bulb_room
+    #   - service: notify.telegram
+    #     data:
+    #       message: "Светильник в комнате - {{ states('light.mi_philips_bulb_room') }} "
 
     # - id: Свет в прихожей
     #   alias: toggle_light_hall

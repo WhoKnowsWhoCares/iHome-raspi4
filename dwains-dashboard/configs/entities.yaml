@@ -72,7 +72,7 @@ switch.zigbee_switch_l5:
 light.mi_philips_bulb_room:
   hidden: false
   custom_card: true
-  sort_order: 4
+  sort_order: 3
   excluded: false
   disabled: false
   friendly_name: ''
@@ -181,23 +181,23 @@ binary_sensor.mi_door_sensor_contact:
   hidden: true
 cover.curtain:
   hidden: false
-  sort_order: 3
+  sort_order: 4
   custom_card: true
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '2'
+  col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: false
 camera.chuangmi_021a04_c49c_camera_control:
   hidden: false
   custom_card: true
   sort_order: 5
-  disabled: false
+  disabled: true
   excluded: false
   friendly_name: ''
   col_span: '2'
@@ -341,3 +341,4 @@ switch.remote_pc:
   col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: false
+  sort_order: 5

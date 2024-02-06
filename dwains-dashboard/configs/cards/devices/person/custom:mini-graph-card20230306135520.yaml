@@ -10,9 +10,9 @@ color_thresholds:
   value: 90
 entities:
 - sensor.processor_use_percent
-hours_to_show: 24
-name: Processor Use %
-points_per_hour: 4
+hours_to_show: 1
+name: Processor Use % last hour
+points_per_hour: 360
 position: bottom
 row_span: '1'
 row_span_lg: '1'
@@ -20,4 +20,4 @@ row_span_xl: '1'
 show:
   labels: true
 type: custom:mini-graph-card
-update_interval: 900
+update_interval: 10

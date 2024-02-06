@@ -3,8 +3,6 @@ col_span_lg: '2'
 col_span_xl: '2'
 entities:
 - entity: binary_sensor.snapshots_stale
-- entity: sensor.last_google_backup
-  name: Last Backup
 - entity: sensor.maria_db_size
 - entity: sensor.hacs
   name: HACS updates

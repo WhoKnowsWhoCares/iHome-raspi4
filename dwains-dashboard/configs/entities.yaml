@@ -186,7 +186,7 @@ cover.curtain:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '1'
   row_span_lg: '1'
@@ -342,3 +342,15 @@ switch.remote_pc:
   row_span_xl: '1'
   custom_popup: false
   sort_order: 5
+number.assist_microphone_mic_volume:
+  hidden: true
+binary_sensor.assist_microphone_assist_in_progress:
+  hidden: true
+number.assist_microphone_auto_gain:
+  hidden: true
+select.assist_microphone_assist_pipeline:
+  hidden: true
+select.assist_microphone_noise_suppression_level:
+  hidden: true
+switch.assist_microphone_mute:
+  hidden: true

@@ -1,8 +1,10 @@
 entity: switch.socket_coffee
 fill_container: true
-icon: mdi:coffee-maker
+icon: mdi:lightbulb-variant-outline
 icon_color: primary
 layout: vertical
+name: Kitchen Light
+secondary_info: none
 tap_action:
   action: toggle
 type: custom:mushroom-entity-card

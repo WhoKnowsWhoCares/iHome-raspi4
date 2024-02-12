@@ -114,7 +114,7 @@ yandex_tts_coming:
         media_content_id: '{{["Свозвращением!","Добро пожаловать!"]|random }} '
         media_content_type: text
         extra:
-          volume_level: 0.5
+          volume_level: 0.3
   mode: single
 
 yandex_tts_evening_coming:

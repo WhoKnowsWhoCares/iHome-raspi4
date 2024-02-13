@@ -22,3 +22,7 @@ media:
   icon: mdi:folder-home-outline
   floor: ''
   disabled: false
+monitoring:
+  icon: mdi:chart-bar
+  floor: ''
+  disabled: false

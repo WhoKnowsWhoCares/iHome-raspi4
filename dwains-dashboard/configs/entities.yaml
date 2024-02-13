@@ -354,3 +354,21 @@ select.assist_microphone_noise_suppression_level:
   hidden: true
 switch.assist_microphone_mute:
   hidden: true
+sensor.disk_use_percent:
+  custom_card: true
+sensor.memory_use_percent:
+  custom_card: true
+sensor.system_monitor_memory_use:
+  hidden: true
+sensor.processor_use_percent:
+  hidden: false
+  custom_card: true
+sensor.processor_temperature:
+  excluded: true
+  custom_card: true
+sensor.last_boot:
+  hidden: true
+sensor.system_monitor_disk_use:
+  disabled: true
+camera.hallcam:
+  hidden: true

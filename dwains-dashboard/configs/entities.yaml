@@ -372,3 +372,9 @@ sensor.system_monitor_disk_use:
   disabled: true
 camera.hallcam:
   hidden: true
+sensor.asfrants_ihome_nearest_device:
+  hidden: true
+sensor.asfrants_ihome_nearest_distance:
+  hidden: true
+sensor.asfrants_ihome_nearest_direction_of_travel:
+  hidden: true

@@ -433,3 +433,18 @@
       data:
         message: Похоже пора обновить воду для полива растений
   mode: single
+- id: '1708161500700'
+  alias: Enter Home Zone
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - zone.home
+    above: 0
+  condition: []
+  action:
+  - service: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: You are at home now
+  mode: single

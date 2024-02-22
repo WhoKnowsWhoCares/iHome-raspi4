@@ -35,7 +35,8 @@ yandex_tts_morning_alarm:
     - service: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
-        media_content_id: "https://music.yandex.ru/album/18318485/track/91784168"
+        media_content_id: "https://music.yandex.ru/album/27705008/track/118122082"
+        # media_content_id: "https://music.yandex.ru/album/18318485/track/91784168"
         # media_content_id: 'https://music.yandex.ru/album/{{ [
         #   "23691813/track/107789868",
         #   "5307396/track/38633762"

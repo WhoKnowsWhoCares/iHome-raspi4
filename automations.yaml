@@ -323,6 +323,7 @@
   - condition: state
     entity_id: sensor.miband7
     state: not_home
+    enabled: false
   - condition: not
     conditions:
     - condition: state
@@ -333,6 +334,7 @@
     data: {}
     target:
       entity_id: camera.chuangmi_021a04_c49c_camera_control
+    enabled: false
   - service: input_select.set_options
     data:
       options: Away
@@ -361,10 +363,12 @@
     entity_id:
     - device_tracker.asfrantsoneplus
     to: home
+    enabled: false
   condition:
   - condition: state
     entity_id: sensor.miband7
     state: hall
+    enabled: false
   - condition: state
     entity_id: device_tracker.ble_tracker_miband
     state: home
@@ -372,6 +376,7 @@
   - condition: state
     entity_id: device_tracker.asfrantsoneplus
     state: home
+    enabled: false
   - condition: not
     conditions:
     - condition: state
@@ -432,19 +437,4 @@
     - service: notify.telegram
       data:
         message: Похоже пора обновить воду для полива растений
-  mode: single
-- id: '1708161500700'
-  alias: Enter Home Zone
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - zone.home
-    above: 0
-  condition: []
-  action:
-  - service: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: You are at home now
   mode: single

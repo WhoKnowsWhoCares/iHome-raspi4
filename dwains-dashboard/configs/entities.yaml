@@ -378,3 +378,7 @@ sensor.asfrants_ihome_nearest_distance:
   hidden: true
 sensor.asfrants_ihome_nearest_direction_of_travel:
   hidden: true
+sensor.asfrants_ihome_alexander_direction_of_travel:
+  hidden: true
+sensor.asfrants_ihome_alexander_distance:
+  hidden: true

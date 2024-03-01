@@ -334,7 +334,7 @@ switch.remote_pc:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '1'
   row_span_lg: '1'

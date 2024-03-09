@@ -81,6 +81,8 @@ ble_monitor:
       consider_home: 120
     - mac: "5C:CA:D3:D7:D8:FB"
       name: "MiScale"
+    - mac: "D4:F0:EA:D9:4E:E8"
+      name: "LinpPresence"
 
 # xiaomi_miot:
 #   username: !secret xiaomi_miot_login

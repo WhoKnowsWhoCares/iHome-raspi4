@@ -69,18 +69,18 @@ notify:
 frontend:
   themes: !include_dir_merge_named themes
 
-ble_monitor:
-  bt_auto_restart: True
-  active_scan: True
-  discovery: False
-  devices:
-    - mac: "E8:5C:87:78:6F:EB"
-      name: "MiBand"
-      track_device: True
-      tracker_scan_interval: 20
-      consider_home: 120
-    - mac: "5C:CA:D3:D7:D8:FB"
-      name: "MiScale"
+# ble_monitor:
+#   bt_auto_restart: True
+#   active_scan: True
+#   discovery: False
+#   devices:
+#     - mac: "E8:5C:87:78:6F:EB"
+#       name: "MiBand"
+#       track_device: True
+#       tracker_scan_interval: 20
+#       consider_home: 120
+#     - mac: "5C:CA:D3:D7:D8:FB"
+#       name: "MiScale"
 
 # xiaomi_miot:
 #   username: !secret xiaomi_miot_login

@@ -8,6 +8,7 @@ custom_components/
 esphome/
 deps/
 image/
+tts/
 dwains-dashboard_old_v1/
 *.db
 

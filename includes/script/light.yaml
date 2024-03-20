@@ -9,7 +9,7 @@ alarm_hall_light_flash:
               flash: short
               brightness_pct: 100
             target:
-              entity_id: light.mi_yeelink_bulb
+              entity_id: light.yeelink_mono6_6fc9_light
           - delay:
               hours: 0
               minutes: 0
@@ -29,7 +29,7 @@ alarm_room_light_flash:
               flash: short
               brightness_pct: 100
             target:
-              entity_id: light.mi_philips_bulb_room
+              entity_id: light.philips_bulb_0ba9_light
           - delay:
               hours: 0
               minutes: 0

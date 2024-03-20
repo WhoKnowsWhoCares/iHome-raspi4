@@ -382,3 +382,22 @@ sensor.asfrants_ihome_alexander_direction_of_travel:
   hidden: true
 sensor.asfrants_ihome_alexander_distance:
   hidden: true
+sensor.linp_hb01_4ee8_occupancy_sensor:
+  hidden: true
+number.yeelink_mono6_6fc9_power_off_delay_time:
+  hidden: true
+light.yeelink_mono6_6fc9_light:
+  hidden: true
+light.philips_bulb_0ba9_light:
+  custom_card: true
+  hidden: false
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '2'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false

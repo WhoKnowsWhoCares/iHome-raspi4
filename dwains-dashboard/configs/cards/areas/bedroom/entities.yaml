@@ -2,7 +2,7 @@ col_span: '2'
 col_span_lg: '2'
 col_span_xl: '2'
 entities:
-- entity: light.mi_yeelink_bulb
+- entity: light.yeelink_mono6_6fc9_light
   name: "\u0421\u0432\u0435\u0442"
   secondary_info: brightness
 - entity: binary_sensor.espresense_hall_motion

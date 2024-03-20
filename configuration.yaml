@@ -71,7 +71,8 @@ frontend:
 
 media_player:
   - platform: mpd
-    name: mopidy
+    id: "16951583402934"
+    name: Mopidy
     host: 127.0.0.1
     port: 6600
 

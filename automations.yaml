@@ -330,11 +330,6 @@
       entity_id: input_select.home_come_leave
       state: Away
   action:
-  - service: camera.turn_on
-    data: {}
-    target:
-      entity_id: camera.chuangmi_021a04_c49c_camera_control
-    enabled: false
   - service: input_select.set_options
     data:
       options: Away

@@ -43,11 +43,11 @@ toggle_switch:
   alias: Toggle_switch
   sequence:
     - if:
-        - condition: device
-          type: is_on
-          device_id: 77e1896af65516a68096c8cc777f8bea
-          entity_id: switch.zigbee_switch_l1
-          domain: switch
+      - condition: device
+        type: is_on
+        device_id: 77e1896af65516a68096c8cc777f8bea
+        entity_id: switch.zigbee_switch_l1
+        domain: switch
       then:
         - service: switch.turn_off
           data: {}
@@ -64,10 +64,11 @@ toggle_switch:
 turn_on_bedside_light:
   alias: turn_on_bedside_light
   sequence:
-    type: turn_on
-    device_id: 77e1896af65516a68096c8cc777f8bea
-    entity_id: switch.zigbee_switch_l2
-    domain: switch
+    - service: switch.turn_on
+      data: {}
+      target:
+        entity_id:
+          - switch.zigbee_switch_l2
   mode: single
   icon: mdi:coach-lamp
 
@@ -78,15 +79,14 @@ turn_off_everything:
       data: {}
       target:
         device_id:
-          - 2db29168a85b796f03944aea991314a3
-          - 082a60f422440c2528c8c250f41236e0
+          - light.philips.light.bulb
+          - light.yeelink.light.mono6
     - service: switch.turn_off
       data: {}
       target:
-        device_id:
-          - 0d749be46f02a9d8b8928e396b3ca76e
         entity_id:
           - switch.zigbee_switch_l1
           - switch.zigbee_switch_l2
+          - switch.socket_coffee
   mode: single
   icon: mdi:light-switch-off

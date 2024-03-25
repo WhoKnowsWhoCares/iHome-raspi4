@@ -71,8 +71,8 @@ frontend:
 
 media_player:
   - platform: mpd
-    name: Mopidy
-    host: 127.0.0.1
+    name: MopidyRaspi4
+    host: !secret local_ip
     port: 6600
 
 # ble_monitor:

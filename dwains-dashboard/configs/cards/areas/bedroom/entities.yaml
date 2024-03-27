@@ -3,14 +3,14 @@ col_span_lg: '2'
 col_span_xl: '2'
 entities:
 - entity: light.yeelink_mono6_6fc9_light
-  name: "\u0421\u0432\u0435\u0442"
+  name: Light
   secondary_info: brightness
 - entity: binary_sensor.espresense_hall_motion
-  name: "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435"
+  name: Movement
   secondary_info: last-updated
 - entity: binary_sensor.mi_door_sensor_contact
   icon: mdi:door-open
-  name: "\u0414\u0432\u0435\u0440\u044C"
+  name: Door
   secondary_info: none
 position: top
 row_span: '1'

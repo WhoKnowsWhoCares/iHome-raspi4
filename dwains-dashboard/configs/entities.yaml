@@ -130,7 +130,7 @@ switch.socket_coffee:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '1'
   row_span_lg: '1'
@@ -401,3 +401,33 @@ light.philips_bulb_0ba9_light:
   col_span_xl: '2'
   row_span_xl: '1'
   custom_popup: false
+binary_sensor.ble_weight_removed_mi_scale:
+  hidden: true
+sensor.ble_impedance_mi_scale:
+  hidden: true
+sensor.ble_weight_mi_scale:
+  hidden: true
+sensor.ble_stabilized_weight_mi_scale:
+  hidden: true
+sensor.ble_rssi_mi_scale:
+  hidden: true
+sensor.ble_non_stabilized_weight_mi_scale:
+  hidden: true
+sensor.ble_rssi_esp32_ble:
+  hidden: true
+sensor.ble_minor_esp32_ble:
+  hidden: true
+sensor.ble_measured_power_esp32_ble:
+  hidden: true
+sensor.ble_major_esp32_ble:
+  hidden: true
+sensor.ble_mac_esp32_ble:
+  hidden: true
+device_tracker.ble_tracker_e85c87786feb:
+  hidden: true
+sensor.ble_steps_miband:
+  hidden: true
+sensor.ble_heart_rate_miband:
+  hidden: true
+sensor.ble_rssi_miband:
+  hidden: true

@@ -213,7 +213,7 @@ camera.chuangmi_021a04_c49c_motion_event:
 sensor.chuangmi_021a04_c49c_motion_detection:
   hidden: true
 switch.chuangmi_021a04_c49c_switch_status:
-  hidden: false
+  hidden: true
   custom_card: true
   sort_order: 6
 light.chuangmi_021a04_c49c_indicator_light:
@@ -430,4 +430,36 @@ sensor.ble_steps_miband:
 sensor.ble_heart_rate_miband:
   hidden: true
 sensor.ble_rssi_miband:
+  hidden: true
+light.linp_hb01_4ee8_indicator_light:
+  hidden: true
+light.yeelink_mono6_6fc9_light_2:
+  hidden: true
+number.yeelink_mono6_6fc9_power_off_delay_time_2:
+  hidden: true
+number.chuangmi_021a04_c49c_image_rollover:
+  hidden: true
+number.chuangmi_021a04_c49c_alarm_interval:
+  hidden: true
+select.chuangmi_021a04_c49c_night_shot:
+  hidden: true
+select.chuangmi_021a04_c49c_recording_mode:
+  hidden: true
+select.chuangmi_021a04_c49c_detection_sensitivity:
+  hidden: true
+sensor.chuangmi_021a04_c49c_status:
+  hidden: true
+sensor.chuangmi_021a04_c49c_storage_used_space:
+  hidden: true
+switch.chuangmi_021a04_c49c_wide_dynamic_range_mode:
+  hidden: true
+switch.chuangmi_021a04_c49c_glimmer_full_color:
+  hidden: true
+switch.chuangmi_021a04_c49c_motion_tracking:
+  hidden: true
+switch.chuangmi_021a04_c49c_time_watermark:
+  hidden: true
+switch.chuangmi_021a04_c49c_switch_status_2:
+  hidden: true
+switch.chuangmi_021a04_c49c_motion_detection:
   hidden: true

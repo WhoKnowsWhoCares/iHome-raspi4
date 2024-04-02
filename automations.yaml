@@ -391,22 +391,6 @@
     data:
       message: Looks like you are at home
   mode: single
-- id: '1695159432790'
-  alias: door_opened
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.mi_door_sensor_contact
-    to: 'on'
-  condition: []
-  action:
-  - service: light.turn_on
-    data:
-      brightness_pct: 100
-    target:
-      entity_id: light.yeelink_mono6_6fc9_light
-  mode: single
 - id: '1695468411896'
   alias: irrigation_counter
   description: Daily decreased counter and check if its time to refill water for plants

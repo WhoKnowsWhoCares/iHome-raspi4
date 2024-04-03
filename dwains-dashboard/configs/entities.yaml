@@ -463,3 +463,5 @@ switch.chuangmi_021a04_c49c_switch_status_2:
   hidden: true
 switch.chuangmi_021a04_c49c_motion_detection:
   hidden: true
+number.espresense_hall_espresense_hall_radar_timeout:
+  hidden: true

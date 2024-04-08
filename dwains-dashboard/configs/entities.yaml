@@ -465,3 +465,33 @@ switch.chuangmi_021a04_c49c_motion_detection:
   hidden: true
 number.espresense_hall_espresense_hall_radar_timeout:
   hidden: true
+sensor.asfrants_ihome_cloud_coverage:
+  hidden: true
+sensor.asfrants_ihome_condition:
+  hidden: true
+sensor.asfrants_ihome_humidity:
+  hidden: true
+sensor.asfrants_ihome_pressure_mmhg:
+  hidden: true
+sensor.asfrants_ihome_snow:
+  hidden: true
+sensor.asfrants_ihome_storm:
+  hidden: true
+sensor.asfrants_ihome_wind_speed:
+  hidden: true
+sensor.asfrants_ihome_wind_bearing:
+  hidden: true
+sensor.asfrants_ihome_water_temperature:
+  hidden: true
+sensor.asfrants_ihome_temperature_feels_like:
+  hidden: true
+weather.asfrants_ihome:
+  hidden: true
+sensor.asfrants_ihome_temperature:
+  hidden: true
+sensor.asfrants_ihome_rain:
+  hidden: true
+sensor.asfrants_ihome_pressure:
+  hidden: true
+sensor.asfrants_ihome_geomagnetic_field:
+  hidden: true

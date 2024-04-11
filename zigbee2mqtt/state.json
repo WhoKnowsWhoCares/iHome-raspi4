@@ -6,7 +6,7 @@
         "voltage": 3065,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 30,
+        "device_temperature": 31,
         "power_outage_count": 11,
         "linkquality": 80
     },
@@ -21,7 +21,7 @@
     "0x00158d00072b9520": {
         "linkquality": 80,
         "contact": true,
-        "voltage": 3025,
+        "voltage": 3035,
         "battery": 100,
         "power_outage_count": 66
     }

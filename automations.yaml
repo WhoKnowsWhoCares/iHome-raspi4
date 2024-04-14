@@ -412,3 +412,27 @@
       data:
         message: Похоже пора обновить воду для полива растений
   mode: single
+- id: '1713126709366'
+  alias: me_in_kitchen
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.linp_presense_distance
+    above: 5
+  condition:
+  - condition: state
+    entity_id: binary_sensor.mi_move_sensor_occupancy
+    state: 'off'
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: light.philips_bulb_0ba9_light
+      state: 'on'
+  action:
+  - service: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.philips_bulb_0ba9_light
+  mode: single

@@ -495,3 +495,5 @@ sensor.asfrants_ihome_pressure:
   hidden: true
 sensor.asfrants_ihome_geomagnetic_field:
   hidden: true
+media_player.vlc_telnet:
+  hidden: true

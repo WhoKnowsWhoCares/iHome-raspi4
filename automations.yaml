@@ -7,10 +7,15 @@
     offset: '-3:0:0'
     entity_id: calendar.as_frantsev_gmail_com
   condition:
-  - condition: state
-    entity_id: calendar.as_frantsev_gmail_com
-    attribute: description
-    state: sport
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: calendar.as_frantsev_gmail_com
+      attribute: description
+      state: sport
+    - condition: state
+      entity_id: input_select.home_come_leave
+      state: Home
   action:
   - service: media_player.play_media
     data:
@@ -91,9 +96,6 @@
     entity_id: sensor.processor_use_percent
     above: 90
   action:
-  - service: notify.telegram
-    data:
-      message: 'ALERT: Processor usage on raspi4 is high'
   - repeat:
       until:
       - condition: numeric_state
@@ -106,7 +108,7 @@
       - delay:
           hours: 0
           minutes: 0
-          seconds: 5
+          seconds: 10
           milliseconds: 0
 - id: Disk use High
   alias: disk_use_high
@@ -169,12 +171,17 @@
     offset: -0:30:0
     entity_id: calendar.as_frantsev_gmail_com
   condition:
-  - condition: not
+  - condition: and
     conditions:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: calendar.as_frantsev_gmail_com
+        attribute: description
+        state: sport
     - condition: state
-      entity_id: calendar.as_frantsev_gmail_com
-      attribute: description
-      state: sport
+      entity_id: input_select.home_come_leave
+      state: Home
   action:
   - service: media_player.play_media
     data:
@@ -389,7 +396,7 @@
       entity_id: input_select.home_come_leave
   - service: notify.telegram
     data:
-      message: Looks like you are at home
+      message: Looks like you are at Home
   mode: single
 - id: '1695468411896'
   alias: irrigation_counter
@@ -413,22 +420,49 @@
         message: Похоже пора обновить воду для полива растений
   mode: single
 - id: '1713126709366'
-  alias: me_in_kitchen
+  alias: light_room_noone_there
   description: ''
   trigger:
   - platform: numeric_state
     entity_id:
     - sensor.linp_presense_distance
     above: 5
+  - platform: state
+    entity_id:
+    - binary_sensor.mi_move_sensor_occupancy
+    to: 'off'
+    from: 'on'
   condition:
-  - condition: state
-    entity_id: binary_sensor.mi_move_sensor_occupancy
-    state: 'off'
   - condition: and
     conditions:
     - condition: state
       entity_id: light.philips_bulb_0ba9_light
       state: 'on'
+    - condition: state
+      entity_id: binary_sensor.mi_move_sensor_occupancy
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.linp_presense_distance
+      above: 5
+  action:
+  - service: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.philips_bulb_0ba9_light
+  mode: single
+- id: '1714680766786'
+  alias: light_room_main
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.mi_move_sensor_illuminance_lux
+    above: 45
+  condition:
+  - condition: state
+    entity_id: light.philips_bulb_0ba9_light
+    state: 'on'
   action:
   - service: light.turn_off
     metadata: {}

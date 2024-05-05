@@ -470,3 +470,37 @@
     target:
       entity_id: light.philips_bulb_0ba9_light
   mode: single
+- id: '1714902754376'
+  alias: no_motion_room
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: a08e57ad1fb6119da084c6a8845e1989
+    entity_id: 8ae666df7ba68d0251859db1b102893b
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: light.philips_bulb_0ba9_light
+      state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.day_part
+        state: Evening
+      - condition: state
+        entity_id: input_select.day_part
+        state: Night
+  action:
+  - service: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.philips_bulb_0ba9_light
+  mode: single

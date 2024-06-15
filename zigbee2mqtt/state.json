@@ -12,7 +12,7 @@
     },
     "0x5c0272fffe03c72e": {
         "linkquality": 40,
-        "state_l2": "ON",
+        "state_l2": "OFF",
         "state_l3": "ON",
         "state_l1": "OFF",
         "state_l4": "ON",

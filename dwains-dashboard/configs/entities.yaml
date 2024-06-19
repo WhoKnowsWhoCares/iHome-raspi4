@@ -497,3 +497,11 @@ sensor.asfrants_ihome_geomagnetic_field:
   hidden: true
 media_player.vlc_telnet:
   hidden: true
+sensor.lumi_aq2_3026_no_motion_duration:
+  hidden: true
+binary_sensor.lumi_aq2_3026_motion_sensor:
+  hidden: true
+sensor.lumi_aq2_3026_illumination:
+  hidden: true
+binary_sensor.lumi_v2_9520_magnet_sensor:
+  hidden: true

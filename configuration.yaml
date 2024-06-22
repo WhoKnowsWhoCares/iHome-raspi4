@@ -9,7 +9,9 @@ homeassistant:
   external_url: https://ihome.frants.site
   internal_url: http://192.168.1.75:8123
   packages: !include_dir_merge_named includes/packages
-  # customize: !include includes/customize.yaml
+  media_dirs:
+    local: /media
+    # media_nas: /media/alexander/ASFrantsHard/NAS
 
 logger:
   default: warning
@@ -27,10 +29,6 @@ yandex_station:
     media_player.yandex_station_ff98f0294a56d19578794aff:
       host: !secret yandex_mini_ip
       name: Alice
-  # intents:
-  #   Какая температура в комнате: сейчас посмотрю
-  # recognition_lang: ru-RU
-  # tts_service_name: alice_say
 
 # https://github.com/AlexxIT/YandexDialogs#настройка-интентов-в-яндексдиалогах
 # yandex_dialogs:
@@ -74,38 +72,6 @@ frontend:
 #     name: MopidyRaspi4
 #     host: !secret local_ip
 #     port: 6600
-
-# ble_monitor:
-#   bt_auto_restart: True
-#   active_scan: True
-#   discovery: False
-#   devices:
-#     - mac: "E8:5C:87:78:6F:EB"
-#       name: "MiBand"
-#       track_device: True
-#       tracker_scan_interval: 20
-#       consider_home: 120
-#     - mac: "5C:CA:D3:D7:D8:FB"
-#       name: "MiScale"
-
-# xiaomi_miot:
-#   username: !secret xiaomi_miot_login
-#   password: !secret xiaomi_miot_pwd
-#   server_country: ru
-#   device_customizes:
-#     chuangmi.camera.012a04:
-# video_attribute: 2
-# motion_stream_slice: -1
-# keep_streaming: true
-# miot_local: true
-# miot_cloud_action: true
-# use_rtsp_stream: true
-# use_motion_stream: true
-# sub_motion_stream: true
-# exclude_state_attributes:
-#   - miot_type
-#   - stream_address
-#   - motion_video_latest
 
 input_boolean: !include includes/input/input_boolean.yaml
 input_number: !include includes/input/input_number.yaml

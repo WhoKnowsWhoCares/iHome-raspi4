@@ -471,7 +471,7 @@
       entity_id: light.philips_bulb_0ba9_light
   mode: single
 - id: '1714902754376'
-  alias: no_motion_room
+  alias: light_room_no_motion
   description: ''
   trigger:
   - type: no_motion

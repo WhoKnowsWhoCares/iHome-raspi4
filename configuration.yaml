@@ -73,6 +73,12 @@ frontend:
 #     host: !secret local_ip
 #     port: 6600
 
+# Example configuration.yaml entry
+media_player:
+  - platform: vlc
+    name: speaker_vlc
+    arguments: "--alsa-audio-device=hw:1,0"
+
 input_boolean: !include includes/input/input_boolean.yaml
 input_number: !include includes/input/input_number.yaml
 input_select: !include includes/input/input_select.yaml

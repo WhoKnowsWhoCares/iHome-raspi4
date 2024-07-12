@@ -9,8 +9,8 @@ homeassistant:
   external_url: https://ihome.frants.site
   internal_url: http://192.168.1.75:8123
   packages: !include_dir_merge_named includes/packages
-  media_dirs:
-    local: /media
+  # media_dirs:
+  #   local: /media
     # media_nas: /media/alexander/ASFrantsHard/NAS
 
 logger:
@@ -74,10 +74,10 @@ frontend:
 #     port: 6600
 
 # Example configuration.yaml entry
-media_player:
-  - platform: vlc
-    name: speaker_vlc
-    arguments: "--alsa-audio-device=hw:1,0"
+# media_player:
+#   - platform: vlc
+#     name: speaker_vlc
+#     arguments: "--alsa-audio-device=hw:1,0"
 
 input_boolean: !include includes/input/input_boolean.yaml
 input_number: !include includes/input/input_number.yaml

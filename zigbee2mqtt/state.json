@@ -1,17 +1,17 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 3,
-        "illuminance_lux": 3,
+        "illuminance": 73,
+        "illuminance_lux": 73,
         "voltage": 3075,
         "battery": 100,
         "temperature": 28,
         "device_temperature": 33,
         "power_outage_count": 13,
-        "linkquality": 51
+        "linkquality": 72
     },
     "0x5c0272fffe03c72e": {
-        "linkquality": 32,
+        "linkquality": 58,
         "state_l2": "OFF",
         "state_l3": "OFF",
         "state_l1": "OFF",
@@ -19,21 +19,22 @@
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {
-        "linkquality": 91,
+        "linkquality": 109,
         "contact": true,
         "voltage": 3035,
         "battery": 100,
         "power_outage_count": 67
     },
     "0x0ceff6fffe68a266": {
-        "occupancy": false,
+        "occupancy": true,
         "illumination": "bright",
-        "occupancy_sensitivity": "medium",
+        "occupancy_sensitivity": "low",
         "occupancy_timeout": 15,
         "update": {
             "state": "idle",
             "installed_version": 4102,
             "latest_version": 4102
-        }
+        },
+        "linkquality": 109
     }
 }

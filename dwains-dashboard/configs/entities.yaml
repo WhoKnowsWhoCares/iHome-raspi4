@@ -126,7 +126,7 @@ sensor.mi_move_sensor_in_hall_illuminance:
   sort_order: 1
   hidden: true
 switch.socket_coffee:
-  hidden: false
+  hidden: true
   excluded: false
   disabled: false
   friendly_name: ''
@@ -504,4 +504,14 @@ binary_sensor.lumi_aq2_3026_motion_sensor:
 sensor.lumi_aq2_3026_illumination:
   hidden: true
 binary_sensor.lumi_v2_9520_magnet_sensor:
+  hidden: true
+update.presence_sonoff:
+  hidden: true
+sensor.presence_sonoff_illumination:
+  hidden: true
+select.presence_sonoff_occupancy_sensitivity:
+  hidden: true
+number.presence_sonoff_occupancy_timeout:
+  hidden: true
+binary_sensor.presence_sonoff_occupancy:
   hidden: true

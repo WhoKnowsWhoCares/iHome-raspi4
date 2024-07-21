@@ -115,7 +115,7 @@ yandex_tts_coming:
         media_content_id: '{{["Свозвращением!","Добро пожаловать!"]|random }} '
         media_content_type: text
         extra:
-          volume_level: 0.3
+          volume_level: 0.5
   mode: single
 
 yandex_tts_evening_coming:
@@ -180,16 +180,16 @@ yandex_tts_alarm_warning:
           volume_level: 0.6
   mode: single
 
-yandex_tts_other_voice:
-  alias: yandex_tts_test
-  sequence:
-    - service: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff # замените на вашу колонку
-      data:
-        media_content_id: <speaker voice="madirus"> ЧЁ!?
-        media_content_type: text # работает только на локальной колонке
-        extra:
-          volume_level: 0.3
+# yandex_tts_other_voice:
+#   alias: yandex_tts_test
+#   sequence:
+#     - service: media_player.play_media
+#       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff # замените на вашу колонку
+#       data:
+#         media_content_id: <speaker voice="madirus"> ЧЁ!?
+#         media_content_type: text # работает только на локальной колонке
+#         extra:
+#           volume_level: 0.3
 # alice_morning_dialog:
 #   sequence:
 # - service: media_player.volume_set

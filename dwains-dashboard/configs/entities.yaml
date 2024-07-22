@@ -515,3 +515,16 @@ number.presence_sonoff_occupancy_timeout:
   hidden: true
 binary_sensor.presence_sonoff_occupancy:
   hidden: true
+switch.socket_light:
+  hidden: false
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '1'
+  row_span: '1'
+  col_span_lg: '1'
+  row_span_lg: '1'
+  col_span_xl: '1'
+  row_span_xl: '1'
+  custom_card: true
+  custom_popup: false

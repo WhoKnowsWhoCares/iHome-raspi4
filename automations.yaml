@@ -471,3 +471,156 @@
     target:
       entity_id: light.philips_bulb_0ba9_light
   mode: single
+- id: '1722094593989'
+  alias: light_kitchen_presence
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.presence_tuya_target_distance
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    below: 1.5
+    above: 0.5
+  - platform: numeric_state
+    entity_id:
+    - sensor.presence_tuya_target_distance
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    above: 1.5
+    below: 4
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_target_distance
+          below: 1.5
+          above: 0.5
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_illuminance_lux
+          below: 25
+      sequence:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.socket_light
+        data: {}
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_target_distance
+          above: 1.5
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_illuminance_lux
+          above: 80
+      sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.socket_light
+        data: {}
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.presence_tuya_presence
+          state: 'off'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 5
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_illuminance_lux
+          above: 80
+      sequence:
+      - service: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_light
+  mode: single
+- id: '1722106754657'
+  alias: light_kitchen_presence
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.presence_tuya_target_distance
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    below: 1.2
+    above: 0.2
+  - platform: numeric_state
+    entity_id:
+    - sensor.presence_tuya_target_distance
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    above: 1.5
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_target_distance
+          below: 1.2
+          above: 0.2
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_illuminance_lux
+          below: 25
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.socket_switch
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: switch.socket_switch
+          state: 'on'
+        - condition: or
+          conditions:
+          - condition: numeric_state
+            entity_id: sensor.presence_tuya_target_distance
+            above: 1.5
+            below: 4
+          - condition: state
+            entity_id: binary_sensor.presence_tuya_presence
+            state: 'off'
+            for:
+              hours: 0
+              minutes: 0
+              seconds: 5
+      sequence:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.socket_switch
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_target_distance
+          above: 1.5
+        - condition: numeric_state
+          entity_id: sensor.presence_tuya_illuminance_lux
+          below: 10
+      sequence:
+      - service: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_switch
+  mode: single

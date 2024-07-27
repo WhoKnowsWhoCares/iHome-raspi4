@@ -8,3 +8,5 @@
   friendly_name: zigbee_switch
 '0x00158d00072b9520':
   friendly_name: mi_door_sensor
+'0xa4c1382fdd1fa5a5':
+  friendly_name: presence_tuya

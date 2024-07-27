@@ -516,7 +516,7 @@ number.presence_sonoff_occupancy_timeout:
 binary_sensor.presence_sonoff_occupancy:
   hidden: true
 switch.socket_light:
-  hidden: false
+  hidden: true
   excluded: false
   disabled: false
   friendly_name: ''

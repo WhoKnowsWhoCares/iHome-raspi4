@@ -482,7 +482,7 @@
       hours: 0
       minutes: 0
       seconds: 0
-    below: 4
+    below: 3.5
     above: 0.5
   - platform: state
     entity_id:
@@ -501,38 +501,72 @@
         conditions:
         - condition: numeric_state
           entity_id: sensor.presence_tuya_target_distance
-          below: 4
+          below: 3.5
           above: 0.5
+      sequence:
+      - if:
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance_lux
           below: 5
         - condition: state
           entity_id: switch.socket_switch
           state: 'off'
-      sequence:
-      - service: switch.turn_on
-        data: {}
-        target:
-          entity_id: switch.socket_switch
+        then:
+        - service: switch.turn_on
+          data: {}
+          target:
+            entity_id: switch.socket_switch
+      - if:
+        - condition: state
+          entity_id: light.philips_bulb_0ba9_light
+          state: 'on'
+        then:
+        - service: light.turn_off
+          metadata: {}
+          data: {}
+          target:
+            entity_id: light.philips_bulb_0ba9_light
+      - if:
+        - condition: state
+          entity_id: switch.zigbee_switch_l1
+          state: 'on'
+        then:
+        - service: switch.turn_off
+          metadata: {}
+          data: {}
+          target:
+            entity_id: switch.zigbee_switch_l1
+      - if:
+        - condition: state
+          entity_id: switch.zigbee_switch_l2
+          state: 'on'
+        then:
+        - service: switch.turn_off
+          metadata: {}
+          data: {}
+          target:
+            entity_id: switch.zigbee_switch_l2
     - conditions:
       - condition: and
         conditions:
         - condition: numeric_state
           entity_id: sensor.presence_tuya_target_distance
           above: 0.5
-          below: 4
+          below: 3.5
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance_lux
           above: 10
+      sequence:
+      - if:
         - condition: state
           entity_id: switch.socket_switch
           state: 'on'
-      sequence:
-      - service: switch.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.socket_switch
+        then:
+        - service: switch.turn_off
+          metadata: {}
+          data: {}
+          target:
+            entity_id: switch.socket_switch
     - conditions:
       - condition: and
         conditions:
@@ -542,12 +576,14 @@
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance_lux
           above: 5
+      sequence:
+      - if:
         - condition: state
           entity_id: switch.socket_switch
           state: 'on'
-      sequence:
-      - service: switch.turn_off
-        data: {}
-        target:
-          entity_id: switch.socket_switch
+        then:
+        - service: switch.turn_off
+          data: {}
+          target:
+            entity_id: switch.socket_switch
   mode: single

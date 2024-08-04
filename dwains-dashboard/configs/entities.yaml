@@ -15,7 +15,7 @@ weather.yandex_weather:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '2'
   row_span_lg: '1'
@@ -23,6 +23,7 @@ weather.yandex_weather:
   row_span_xl: '1'
   custom_popup: true
   devices_grouped_sort_order: 1
+  sort_order: 3
 media_player.yandex_station_ff98f0294a56d19578794aff:
   hidden: false
   excluded: false
@@ -152,7 +153,19 @@ person.alexander:
   custom_card: true
   custom_popup: true
 calendar.as_frantsev_gmail_com:
-  hidden: true
+  hidden: false
+  sort_order: 4
+  custom_card: true
+  excluded: false
+  disabled: false
+  friendly_name: ''
+  col_span: '2'
+  row_span: '1'
+  col_span_lg: '2'
+  row_span_lg: '1'
+  col_span_xl: '2'
+  row_span_xl: '1'
+  custom_popup: false
 sensor.yandex_weather_condition_yandex:
   hidden: true
 sensor.yandex_weather_pressure_mmhg:
@@ -172,6 +185,7 @@ alarm_control_panel.alarmo:
   row_span_xl: '1'
   custom_card: true
   custom_popup: true
+  sort_order: 2
 script.alarm_light_flash:
   hidden: true
 sensor.mi_door_sensor_battery:

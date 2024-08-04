@@ -16,7 +16,7 @@ entities:
   name: Socket
 - entity: switch.zigbee_switch_l5
   name: USB charger
-position: bottom
+position: top
 row_span: '2'
 row_span_lg: '2'
 row_span_xl: '2'

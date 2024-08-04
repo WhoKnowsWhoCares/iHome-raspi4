@@ -26,14 +26,14 @@
         "power_outage_count": 67
     },
     "0xa4c1382fdd1fa5a5": {
-        "target_distance": 1.43,
+        "target_distance": 1.57,
         "maximum_range": 6,
         "radar_sensitivity": 9,
         "minimum_range": 0.3,
         "detection_delay": 0.1,
         "fading_time": 5,
         "presence": true,
-        "illuminance_lux": 415,
+        "illuminance_lux": 438,
         "linkquality": 255
     }
 }

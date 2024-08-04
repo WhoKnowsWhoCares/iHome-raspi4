@@ -90,3 +90,25 @@ turn_off_everything:
           - switch.socket_coffee
   mode: single
   icon: mdi:light-switch-off
+
+turn_off_room:
+  alias: turn_off_room
+  sequence:
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id:
+          - light.philips_bulb_0ba9_light
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id:
+          - switch.zigbee_switch_l1
+          - switch.zigbee_switch_l2
+    - service: media_player.media_stop
+      data: {}
+      target:
+        entity_id:
+          - media_player.yandex_station_ff98f0294a56d19578794aff
+  mode: single
+  icon: mdi:light-switch-off

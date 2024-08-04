@@ -1,8 +1,8 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 33,
-        "illuminance_lux": 33,
+        "illuminance": 3,
+        "illuminance_lux": 3,
         "voltage": 3065,
         "battery": 100,
         "temperature": 28,
@@ -26,14 +26,14 @@
         "power_outage_count": 67
     },
     "0xa4c1382fdd1fa5a5": {
-        "target_distance": 1.57,
+        "target_distance": 0,
         "maximum_range": 6,
         "radar_sensitivity": 9,
         "minimum_range": 0.3,
         "detection_delay": 0.1,
         "fading_time": 5,
-        "presence": true,
-        "illuminance_lux": 438,
+        "presence": false,
+        "illuminance_lux": 3,
         "linkquality": 255
     }
 }

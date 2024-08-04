@@ -520,32 +520,13 @@
         - condition: state
           entity_id: light.philips_bulb_0ba9_light
           state: 'on'
-        then:
-        - service: light.turn_off
-          metadata: {}
-          data: {}
-          target:
-            entity_id: light.philips_bulb_0ba9_light
-      - if:
         - condition: state
-          entity_id: switch.zigbee_switch_l1
-          state: 'on'
+          entity_id: binary_sensor.mi_move_sensor_occupancy
+          state: 'off'
         then:
-        - service: switch.turn_off
+        - service: script.turn_off_room
           metadata: {}
           data: {}
-          target:
-            entity_id: switch.zigbee_switch_l1
-      - if:
-        - condition: state
-          entity_id: switch.zigbee_switch_l2
-          state: 'on'
-        then:
-        - service: switch.turn_off
-          metadata: {}
-          data: {}
-          target:
-            entity_id: switch.zigbee_switch_l2
     - conditions:
       - condition: and
         conditions:
@@ -555,7 +536,7 @@
           below: 3.5
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance_lux
-          above: 10
+          above: 7.5
       sequence:
       - if:
         - condition: state

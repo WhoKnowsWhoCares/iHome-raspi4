@@ -527,6 +527,7 @@
         - service: script.turn_off_room
           metadata: {}
           data: {}
+        enabled: false
     - conditions:
       - condition: and
         conditions:

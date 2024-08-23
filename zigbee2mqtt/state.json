@@ -1,8 +1,8 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 7,
-        "illuminance_lux": 7,
+        "illuminance": 4,
+        "illuminance_lux": 4,
         "voltage": 3065,
         "battery": 100,
         "temperature": 28,
@@ -21,7 +21,7 @@
     "0x00158d00072b9520": {
         "linkquality": 98,
         "contact": true,
-        "voltage": 3035,
+        "voltage": 3025,
         "battery": 100,
         "power_outage_count": 67
     },
@@ -33,7 +33,7 @@
         "detection_delay": 0.1,
         "fading_time": 5,
         "presence": false,
-        "illuminance_lux": 3,
+        "illuminance_lux": 5,
         "linkquality": 255
     }
 }

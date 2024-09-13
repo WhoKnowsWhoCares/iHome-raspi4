@@ -500,15 +500,15 @@
       - if:
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance_lux
-          below: 5
+          below: 7
         - condition: state
           entity_id: switch.socket_switch
           state: 'off'
         then:
-        - service: switch.turn_on
-          data: {}
+        - data: {}
           target:
             entity_id: switch.socket_switch
+          action: switch.turn_on
       - if:
         - condition: state
           entity_id: light.philips_bulb_0ba9_light
@@ -517,9 +517,9 @@
           entity_id: binary_sensor.mi_move_sensor_occupancy
           state: 'off'
         then:
-        - service: script.turn_off_room
-          metadata: {}
+        - metadata: {}
           data: {}
+          action: script.turn_off_room
         enabled: false
     - conditions:
       - condition: and
@@ -537,11 +537,11 @@
           entity_id: switch.socket_switch
           state: 'on'
         then:
-        - service: switch.turn_off
-          metadata: {}
+        - metadata: {}
           data: {}
           target:
             entity_id: switch.socket_switch
+          action: switch.turn_off
     - conditions:
       - condition: and
         conditions:
@@ -557,8 +557,75 @@
           entity_id: switch.socket_switch
           state: 'on'
         then:
-        - service: switch.turn_off
-          data: {}
+        - data: {}
           target:
             entity_id: switch.socket_switch
+          action: switch.turn_off
+  mode: single
+- id: '1726249827513'
+  alias: light_kitchen_main
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - light.tuya_kitchen_bulb
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: switch.socket_switch
+    state: 'on'
+  action:
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.socket_switch
+  mode: single
+- id: '1726252259566'
+  alias: light_kitchen_close_range
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.presence_tuya_target_distance
+    above: 0.2
+    below: 1
+  - platform: numeric_state
+    entity_id:
+    - sensor.presence_tuya_target_distance
+    above: 2
+    below: 3.5
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.presence_tuya_target_distance
+        below: 1.5
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_switch
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.presence_tuya_target_distance
+        above: 2
+      - condition: state
+        entity_id: light.tuya_kitchen_bulb
+        state: 'on'
+      - condition: state
+        entity_id: switch.socket_switch
+        state: 'on'
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_switch
   mode: single

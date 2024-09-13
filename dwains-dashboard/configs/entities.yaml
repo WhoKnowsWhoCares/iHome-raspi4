@@ -542,3 +542,7 @@ switch.socket_light:
   row_span_xl: '1'
   custom_card: true
   custom_popup: false
+light.tuya_kitchen_bulb:
+  custom_card: true
+switch.socket_switch:
+  custom_card: true

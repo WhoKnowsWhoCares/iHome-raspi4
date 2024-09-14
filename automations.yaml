@@ -606,6 +606,9 @@
       - condition: numeric_state
         entity_id: sensor.presence_tuya_target_distance
         below: 1.5
+      - condition: numeric_state
+        entity_id: sensor.presence_tuya_illuminance_lux
+        below: 20
       sequence:
       - action: switch.turn_on
         metadata: {}

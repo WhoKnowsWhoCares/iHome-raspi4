@@ -33,7 +33,7 @@
         "detection_delay": 0.1,
         "fading_time": 5,
         "presence": false,
-        "illuminance_lux": 5,
+        "illuminance_lux": 4,
         "linkquality": 98
     }
 }

@@ -21,11 +21,11 @@ yandex_smart_home:
       skill_id: !secret yandex_skill_id
       user_id: !secret yandex_user_id
 
-yandex_station:
-  devices:
-    media_player.yandex_station_ff98f0294a56d19578794aff:
-      host: !secret yandex_mini_ip
-      name: Alice
+# yandex_station:
+#   devices:
+#     media_player.yandex_station_ff98f0294a56d19578794aff:
+#       host: !secret yandex_mini_ip
+#       name: Alice-mini-room
 
 # https://github.com/AlexxIT/YandexDialogs#настройка-интентов-в-яндексдиалогах
 # yandex_dialogs:

@@ -21,12 +21,6 @@ yandex_smart_home:
       skill_id: !secret yandex_skill_id
       user_id: !secret yandex_user_id
 
-# yandex_station:
-#   devices:
-#     media_player.yandex_station_ff98f0294a56d19578794aff:
-#       host: !secret yandex_mini_ip
-#       name: Alice-mini-room
-
 # https://github.com/AlexxIT/YandexDialogs#настройка-интентов-в-яндексдиалогах
 # yandex_dialogs:
 
@@ -63,18 +57,6 @@ notify:
 
 frontend:
   themes: !include_dir_merge_named themes
-
-# media_player:
-#   - platform: mpd
-#     name: MopidyRaspi4
-#     host: !secret local_ip
-#     port: 6600
-
-# Example configuration.yaml entry
-# media_player:
-#   - platform: vlc
-#     name: speaker_vlc
-#     arguments: "--alsa-audio-device=hw:1,0"
 
 input_boolean: !include includes/input/input_boolean.yaml
 input_number: !include includes/input/input_number.yaml

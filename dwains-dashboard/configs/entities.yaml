@@ -577,3 +577,29 @@ media_player.alice_mini_room_ff98f0294a56d19578794aff:
   row_span_xl: '1'
   custom_popup: true
   sort_order: 4
+switch.adguard_home_query_log:
+  hidden: true
+switch.adguard_home_filtering:
+  hidden: true
+switch.adguard_home_safe_browsing:
+  hidden: true
+sensor.adguard_home_average_processing_speed:
+  hidden: true
+switch.adguard_home_protection:
+  hidden: true
+switch.adguard_home_safe_search:
+  disabled: true
+switch.adguard_home_parental_control:
+  hidden: true
+sensor.adguard_home_safe_searches_enforced:
+  hidden: true
+sensor.adguard_home_parental_control_blocked:
+  hidden: true
+sensor.adguard_home_dns_queries_blocked_ratio:
+  hidden: true
+sensor.adguard_home_dns_queries_blocked:
+  hidden: true
+sensor.adguard_home_safe_browsing_blocked:
+  hidden: true
+sensor.adguard_home_dns_queries:
+  hidden: true

@@ -43,6 +43,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - !secret ip_proxy
+    - !secret cloudflare_proxy
 
 telegram_bot:
   - platform: polling

@@ -371,16 +371,20 @@ switch.assist_microphone_mute:
   hidden: true
 sensor.disk_use_percent:
   custom_card: true
+  sort_order: 2
 sensor.memory_use_percent:
   custom_card: true
+  sort_order: 3
 sensor.system_monitor_memory_use:
   hidden: true
 sensor.processor_use_percent:
   hidden: false
   custom_card: true
+  sort_order: 1
 sensor.processor_temperature:
   excluded: true
   custom_card: true
+  sort_order: 4
 sensor.last_boot:
   hidden: true
 sensor.system_monitor_disk_use:
@@ -603,3 +607,11 @@ sensor.adguard_home_safe_browsing_blocked:
   hidden: true
 sensor.adguard_home_dns_queries:
   hidden: true
+binary_sensor.uptimekuma_ping_hetzner:
+  hidden: true
+binary_sensor.uptimekuma_ping_pc:
+  hidden: true
+sensor.uptimekuma_ping_hetzner:
+  sort_order: 5
+sensor.uptimekuma_ping_pc:
+  sort_order: 6

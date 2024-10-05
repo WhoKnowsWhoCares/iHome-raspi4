@@ -15,11 +15,11 @@ weather.yandex_weather:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '2'
+  col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: true
   devices_grouped_sort_order: 1
@@ -159,14 +159,15 @@ calendar.as_frantsev_gmail_com:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '2'
+  col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: true
   favorite: true
+  favorite_sort_order: 3
 sensor.yandex_weather_condition_yandex:
   hidden: true
 sensor.yandex_weather_pressure_mmhg:
@@ -178,11 +179,11 @@ alarm_control_panel.alarmo:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_card: true
   custom_popup: true
@@ -415,11 +416,11 @@ light.philips_bulb_0ba9_light:
   friendly_name: ''
   col_span: '2'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
-  custom_popup: false
+  custom_popup: true
 binary_sensor.ble_weight_removed_mi_scale:
   hidden: true
 sensor.ble_impedance_mi_scale:
@@ -558,14 +559,15 @@ media_player.yandex_station_m00tvb710hyxfg:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '2'
+  col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: true
   sort_order: 3
+  favorite_sort_order: 1
 media_player.alice_mini_room_ff98f0294a56d19578794aff:
   custom_card: true
   favorite: true
@@ -573,14 +575,15 @@ media_player.alice_mini_room_ff98f0294a56d19578794aff:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '2'
+  col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: true
   sort_order: 4
+  favorite_sort_order: 2
 switch.adguard_home_query_log:
   hidden: true
 switch.adguard_home_filtering:

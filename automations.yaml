@@ -588,47 +588,73 @@
 - id: '1726252259566'
   alias: light_kitchen_close_range
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
+  triggers:
+  - entity_id:
     - sensor.presence_tuya_target_distance
     above: 0.2
-    below: 1
-  - platform: numeric_state
-    entity_id:
+    below: 1.3
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    trigger: numeric_state
+    enabled: true
+  - entity_id:
     - sensor.presence_tuya_target_distance
     above: 2
     below: 3.5
-  condition: []
-  action:
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 2
+    trigger: numeric_state
+    enabled: true
+  - entity_id:
+    - sensor.presence_tuya_target_distance
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    below: 0.1
+    trigger: numeric_state
+  - entity_id:
+    - sensor.presence_tuya_target_distance
+    above: 0.2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 2
+    trigger: numeric_state
+    enabled: false
+  conditions: []
+  actions:
   - choose:
     - conditions:
       - condition: numeric_state
         entity_id: sensor.presence_tuya_target_distance
-        below: 1.5
-      - condition: numeric_state
-        entity_id: sensor.presence_tuya_illuminance_lux
-        below: 20
-      sequence:
-      - action: switch.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.socket_switch
-    - conditions:
-      - condition: numeric_state
-        entity_id: sensor.presence_tuya_target_distance
-        above: 2
-      - condition: state
-        entity_id: light.tuya_kitchen_bulb
-        state: 'on'
-      - condition: state
-        entity_id: switch.socket_switch
-        state: 'on'
+        below: 0.1
       sequence:
       - action: switch.turn_off
         metadata: {}
         data: {}
         target:
           entity_id: switch.socket_switch
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.tuya_kitchen_bulb
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.presence_tuya_target_distance
+        below: 2
+        above: 1
+      - condition: numeric_state
+        entity_id: sensor.presence_tuya_illuminance_lux
+        below: 25
+      sequence:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.socket_switch
+        data: {}
   mode: single

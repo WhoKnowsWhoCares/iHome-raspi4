@@ -1,6 +1,8 @@
 disable_clock: true
 am_pm_clock: false
 disable_welcome_message: true
-v2_mode: false
+v2_mode: true
 weather_entity: weather.yandex_weather
 alarm_entity: alarm_control_panel.alarmo
+disable_sensor_graph: false
+invert_cover: false

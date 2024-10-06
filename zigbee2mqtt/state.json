@@ -1,8 +1,8 @@
 {
     "0x00158d00067c3026": {
-        "occupancy": true,
-        "illuminance": 6,
-        "illuminance_lux": 6,
+        "occupancy": false,
+        "illuminance": 3,
+        "illuminance_lux": 3,
         "voltage": 3055,
         "battery": 100,
         "temperature": 28,
@@ -12,9 +12,9 @@
     },
     "0x5c0272fffe03c72e": {
         "linkquality": 54,
-        "state_l2": "ON",
+        "state_l2": "OFF",
         "state_l3": "OFF",
-        "state_l1": "ON",
+        "state_l1": "OFF",
         "state_l4": "ON",
         "state_l5": "ON"
     },
@@ -33,7 +33,7 @@
         "detection_delay": 0.1,
         "fading_time": 5,
         "presence": false,
-        "illuminance_lux": 126,
+        "illuminance_lux": 3,
         "linkquality": 94
     }
 }

@@ -13,7 +13,6 @@ telegramm:
               {{"\U0001F50C"}} Переключателей в комнате on/all - {{ states('sensor.switch_room') }} 
               {{"\U0001F50C"}} Переключателей на кухне on/all - {{ states('sensor.switch_kitchen') }}
               {{"\U0001F567"}} Таймер наполнения автополива - {{ states('input_number.irrigation_timer') }}
-              # {{"\U0001F4AC"}} Новых обновлений - {{ states('sensor.hacs') }}
 
   automation:
     - id: Отчет при запуске системы

@@ -603,7 +603,7 @@
     - sensor.presence_tuya_target_distance
     for:
       hours: 0
-      minutes: 1
+      minutes: 2
       seconds: 0
     below: 0.1
     trigger: numeric_state

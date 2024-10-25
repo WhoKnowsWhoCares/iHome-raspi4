@@ -625,6 +625,7 @@
         data: {}
         target:
           entity_id: light.tuya_kitchen_bulb
+        enabled: false
     - conditions:
       - condition: numeric_state
         entity_id: sensor.presence_tuya_target_distance

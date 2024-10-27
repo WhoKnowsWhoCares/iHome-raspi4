@@ -7,9 +7,9 @@ color_thresholds:
   value: 40
 entities:
 - sensor.espresense_room_humidity
-hours_to_show: 1
+hours_to_show: 24
 name: Humidity
-points_per_hour: 30
+points_per_hour: 6
 show:
   labels: true
 type: custom:mini-graph-card

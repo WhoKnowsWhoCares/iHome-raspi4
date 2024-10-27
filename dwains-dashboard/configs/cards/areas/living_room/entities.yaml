@@ -1,25 +1,22 @@
 col_span: '2'
-col_span_lg: '2'
-col_span_xl: '2'
+col_span_lg: '1'
+col_span_xl: '1'
 entities:
 - entity: switch.zigbee_switch_l1
-  icon: mdi:coach-lamp
-  name: Bed Light
+  name: Bed Lamp
 - entity: switch.zigbee_switch_l2
-  icon: mdi:string-lights
   name: Lights
 - entity: switch.zigbee_switch_l3
-  icon: mdi:power-socket-de
-  name: Socket
+  icon: mdi:power-socket-eu
+  name: Socket 1
 - entity: switch.zigbee_switch_l4
-  icon: mdi:power-socket-de
-  name: Socket
+  icon: mdi:power-socket-eu
+  name: Socket 2
 - entity: switch.zigbee_switch_l5
-  name: USB charger
+  name: Usb
 position: top
-row_span: '2'
-row_span_lg: '2'
+row_span: '1'
+row_span_lg: '1'
 row_span_xl: '2'
 state_color: true
-title: Switch
 type: entities

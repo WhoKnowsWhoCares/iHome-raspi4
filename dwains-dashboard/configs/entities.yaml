@@ -196,7 +196,7 @@ binary_sensor.mi_door_sensor_contact:
   custom_popup: true
   hidden: true
 cover.curtain:
-  hidden: false
+  hidden: true
   sort_order: 4
   custom_card: true
   excluded: false
@@ -247,9 +247,9 @@ sensor.dht11esp8266_room_humidity:
   friendly_name: ''
   col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: false
 sensor.dht11esp8266_room_temperature:
@@ -261,9 +261,9 @@ sensor.dht11esp8266_room_temperature:
   friendly_name: ''
   col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: false
 sensor.mi_body_composition_scale_d8fb_mass_non_stabilized:
@@ -318,9 +318,9 @@ sensor.espresense_room_temperature:
   friendly_name: ''
   col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: false
   sort_order: 1
@@ -332,9 +332,9 @@ sensor.espresense_room_humidity:
   friendly_name: ''
   col_span: '1'
   row_span: '1'
-  col_span_lg: '2'
+  col_span_lg: '1'
   row_span_lg: '1'
-  col_span_xl: '2'
+  col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: false
   sort_order: 2
@@ -410,7 +410,7 @@ light.yeelink_mono6_6fc9_light:
   hidden: true
 light.philips_bulb_0ba9_light:
   custom_card: true
-  hidden: false
+  hidden: true
   excluded: false
   disabled: false
   friendly_name: ''
@@ -618,3 +618,11 @@ sensor.uptimekuma_ping_hetzner:
   sort_order: 5
 sensor.uptimekuma_ping_pc:
   sort_order: 6
+sensor.linp_hb01_4ee8_illumination:
+  hidden: true
+switch.humidifier:
+  hidden: true
+light.kitchen_bulb:
+  hidden: true
+switch.tuya_socket:
+  hidden: true

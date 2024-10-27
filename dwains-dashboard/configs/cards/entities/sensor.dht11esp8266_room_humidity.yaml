@@ -9,9 +9,9 @@ color_thresholds:
   value: 30
 entities:
 - sensor.dht11esp8266_room_humidity
-hours_to_show: 1
+hours_to_show: 12
 name: Humidity
-points_per_hour: 30
+points_per_hour: 12
 show:
   labels: true
 type: custom:mini-graph-card

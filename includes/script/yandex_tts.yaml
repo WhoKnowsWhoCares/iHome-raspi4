@@ -1,11 +1,11 @@
 yandex_tts_morning_hello:
   alias: yandex_tts_morning_hello
   sequence:
-    - service: media_player.volume_set
+    - action: media_player.volume_set
       data:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
         volume_level: 0.3
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Доброе утро! Пора вставать!","Пора вставать! Дела сами себя не сделают!"]|random }} '
@@ -14,7 +14,7 @@ yandex_tts_morning_hello:
 yandex_tts_today_events:
   alias: yandex_tts_today_events
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: " Сегодня по планам:
@@ -28,11 +28,11 @@ yandex_tts_today_events:
 yandex_tts_morning_alarm:
   alias: yandex_tts_morning_alarm
   sequence:
-    - service: media_player.volume_set
+    - action: media_player.volume_set
       data:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
         volume_level: 0.3
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: "https://music.yandex.ru/album/27705008/track/118122082"
@@ -69,7 +69,7 @@ yandex_tts_morning_alarm:
 yandex_tts_podcast:
   alias: yandex_tts_podcast
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: 'https://music.yandex.ru/album/9286142/track/{{ [
@@ -84,11 +84,11 @@ yandex_tts_podcast:
 yandex_tts_start_show:
   alias: yandex_tts_start_show
   sequence:
-    - service: media_player.volume_set
+    - action: media_player.volume_set
       data:
         entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
         volume_level: 0.3
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: шоу
@@ -98,7 +98,7 @@ yandex_tts_start_show:
 yandex_tts_coffee_ready:
   alias: yandex_tts_coffee_ready
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Кофе готов! Пейте, пока горячий!
@@ -109,7 +109,7 @@ yandex_tts_coffee_ready:
 
 yandex_tts_coming:
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Свозвращением!","Добро пожаловать!"]|random }} '
@@ -120,7 +120,7 @@ yandex_tts_coming:
 
 yandex_tts_evening_coming:
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: я дома
@@ -128,7 +128,7 @@ yandex_tts_evening_coming:
 
 yandex_turn_off_all:
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: отключение всего
@@ -136,12 +136,12 @@ yandex_turn_off_all:
 
 yandex_tts_weather:
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Прогноз погоды
         media_content_type: text
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: погода
@@ -149,12 +149,12 @@ yandex_tts_weather:
 
 yandex_tts_news:
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Новости
         media_content_type: text
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: новости
@@ -162,7 +162,7 @@ yandex_tts_news:
 
 yandex_tts_lowder:
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: громче
@@ -171,7 +171,7 @@ yandex_tts_lowder:
 yandex_tts_alarm_warning:
   alias: yandex_tts_alarm_warning
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
       data:
         media_content_id: Внимание! Постороннее присутствие! Ваше фото отправлено владельцам!

@@ -559,7 +559,7 @@ media_player.yandex_station_m00tvb710hyxfg:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '1'
   row_span_lg: '1'
@@ -575,7 +575,7 @@ media_player.alice_mini_room_ff98f0294a56d19578794aff:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '1'
   row_span_lg: '1'

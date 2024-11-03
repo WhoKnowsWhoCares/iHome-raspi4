@@ -626,3 +626,11 @@ light.kitchen_bulb:
   hidden: true
 switch.tuya_socket:
   hidden: true
+select.curtain_motor_mode:
+  hidden: true
+cover.curtain_curtain:
+  hidden: true
+humidifier.humidifier:
+  hidden: true
+switch.socket_switch_socket_1:
+  hidden: true

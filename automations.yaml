@@ -643,6 +643,15 @@
   - trigger: state
     entity_id:
     - binary_sensor.mi_move_sensor_occupancy
+    to: 'on'
+  - trigger: state
+    entity_id:
+    - binary_sensor.mi_move_sensor_occupancy
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
   conditions: []
   actions:
   - choose:
@@ -661,6 +670,9 @@
           - condition: numeric_state
             entity_id: sensor.mi_move_sensor_illuminance_lux
             below: 20
+          - condition: state
+            entity_id: light.kitchen_bulb_local
+            state: 'off'
           sequence:
           - action: switch.turn_on
             metadata: {}
@@ -671,6 +683,10 @@
       - condition: state
         entity_id: binary_sensor.mi_move_sensor_occupancy
         state: 'off'
+        for:
+          hours: 0
+          minutes: 0
+          seconds: 0
       sequence:
       - action: counter.increment
         metadata: {}
@@ -681,7 +697,7 @@
         - conditions:
           - condition: numeric_state
             entity_id: counter.kitchen_absence_counter
-            above: 3
+            above: 1
           sequence:
           - if:
             - condition: state

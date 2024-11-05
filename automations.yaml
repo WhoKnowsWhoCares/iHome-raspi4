@@ -644,14 +644,6 @@
     entity_id:
     - binary_sensor.mi_move_sensor_occupancy
     to: 'on'
-  - trigger: state
-    entity_id:
-    - binary_sensor.mi_move_sensor_occupancy
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 3
-      seconds: 0
   conditions: []
   actions:
   - choose:
@@ -665,68 +657,5 @@
           entity_id:
           - counter.kitchen_absence_counter
         data: {}
-      - choose:
-        - conditions:
-          - condition: numeric_state
-            entity_id: sensor.mi_move_sensor_illuminance_lux
-            below: 20
-          - condition: state
-            entity_id: light.kitchen_bulb_local
-            state: 'off'
-          sequence:
-          - action: switch.turn_on
-            metadata: {}
-            data: {}
-            target:
-              entity_id: switch.socket_switch_socket_1
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.mi_move_sensor_occupancy
-        state: 'off'
-        for:
-          hours: 0
-          minutes: 0
-          seconds: 0
-      sequence:
-      - action: counter.increment
-        metadata: {}
-        data: {}
-        target:
-          entity_id: counter.kitchen_absence_counter
-      - choose:
-        - conditions:
-          - condition: numeric_state
-            entity_id: counter.kitchen_absence_counter
-            above: 1
-          sequence:
-          - if:
-            - condition: state
-              entity_id: light.kitchen_bulb
-              state: 'on'
-            then:
-            - action: light.turn_off
-              metadata: {}
-              data: {}
-              target:
-                entity_id: light.kitchen_bulb
-          - if:
-            - condition: state
-              entity_id: switch.tuya_socket
-              state: 'on'
-            then:
-            - action: switch.turn_off
-              metadata: {}
-              data: {}
-              target:
-                entity_id: switch.socket_switch_socket_1
-          - if:
-            - condition: state
-              entity_id: media_player.yandex_station_m00tvb710hyxfg
-              state: playing
-            then:
-            - action: media_player.media_pause
-              target:
-                entity_id:
-                - media_player.yandex_station_m00tvb710hyxfg
-              data: {}
+      - choose: []
   mode: single

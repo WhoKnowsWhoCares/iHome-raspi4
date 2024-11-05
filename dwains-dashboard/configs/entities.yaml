@@ -15,7 +15,7 @@ weather.yandex_weather:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '1'
   row_span_lg: '1'
@@ -159,14 +159,14 @@ calendar.as_frantsev_gmail_com:
   excluded: false
   disabled: false
   friendly_name: ''
-  col_span: '1'
+  col_span: '2'
   row_span: '1'
   col_span_lg: '1'
   row_span_lg: '1'
   col_span_xl: '1'
   row_span_xl: '1'
   custom_popup: true
-  favorite: true
+  favorite: false
   favorite_sort_order: 3
 sensor.yandex_weather_condition_yandex:
   hidden: true

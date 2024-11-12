@@ -91,25 +91,25 @@
   mode: single
 - id: Process use High
   alias: process_use_high
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.processor_use_percent
+  triggers:
+  - entity_id:
+    - sensor.processor_use_percent
     above: 90
-  action:
+    trigger: numeric_state
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 5
+  actions:
   - repeat:
-      until:
+      sequence:
+      - data:
+          message: 'ALERT: Processor usage on raspi4 is high: {{states(''sensor.processor_use_percent'')|int}}%'
+        action: notify.telegram
+      while:
       - condition: numeric_state
         entity_id: sensor.processor_use_percent
-        below: 80
-      sequence:
-      - service: notify.telegram
-        data:
-          message: 'ALERT: Processor usage on raspi4 is high: {{states(''sensor.processor_use_percent'')|int}}%'
-      - delay:
-          hours: 0
-          minutes: 0
-          seconds: 10
-          milliseconds: 0
+        above: 90
 - id: Disk use High
   alias: disk_use_high
   trigger:

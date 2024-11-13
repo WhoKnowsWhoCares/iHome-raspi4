@@ -634,3 +634,19 @@ humidifier.humidifier:
   hidden: true
 switch.socket_switch_socket_1:
   hidden: true
+sensor.cgllc_cgd1st_ca53_voltage:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_charging_state:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_pm10_density:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_co2_density:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_temperature:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_environment:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_battery_level:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_pm25_density:
+  hidden: true

@@ -650,3 +650,5 @@ sensor.cgllc_cgd1st_ca53_battery_level:
   hidden: true
 sensor.cgllc_cgd1st_ca53_pm25_density:
   hidden: true
+cover.curtain_local:
+  hidden: true

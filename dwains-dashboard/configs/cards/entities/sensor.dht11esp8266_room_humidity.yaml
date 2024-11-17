@@ -8,7 +8,7 @@ color_thresholds:
 - color: '#F10026'
   value: 30
 entities:
-- sensor.dht11esp8266_room_humidity
+- sensor.cgllc_cgd1st_ca53_environment
 hours_to_show: 12
 name: Humidity
 points_per_hour: 12

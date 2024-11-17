@@ -8,7 +8,7 @@ color_thresholds:
 - color: '#F10026'
   value: 40
 entities:
-- sensor.dht11esp8266_room_temperature
+- sensor.cgllc_cgd1st_ca53_temperature
 hours_to_show: 12
 name: Temperature
 points_per_hour: 12

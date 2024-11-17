@@ -634,21 +634,45 @@ humidifier.humidifier:
   hidden: true
 switch.socket_switch_socket_1:
   hidden: true
-sensor.cgllc_cgd1st_ca53_voltage:
+binary_sensor.tuya_balcon_contact:
   hidden: true
-sensor.cgllc_cgd1st_ca53_charging_state:
+binary_sensor.tuya_balcon_tamper:
   hidden: true
-sensor.cgllc_cgd1st_ca53_pm10_density:
-  hidden: true
-sensor.cgllc_cgd1st_ca53_co2_density:
-  hidden: true
-sensor.cgllc_cgd1st_ca53_temperature:
+sensor.tuya_balcon_battery:
   hidden: true
 sensor.cgllc_cgd1st_ca53_environment:
   hidden: true
-sensor.cgllc_cgd1st_ca53_battery_level:
-  hidden: true
 sensor.cgllc_cgd1st_ca53_pm25_density:
   hidden: true
+sensor.cgllc_cgd1st_ca53_voltage:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_battery_level:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_co2_density:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_pm10_density:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_temperature:
+  hidden: true
+sensor.cgllc_cgd1st_ca53_charging_state:
+  hidden: true
 cover.curtain_local:
+  hidden: true
+switch.humidifier_local:
+  hidden: true
+binary_sensor.presence_tuya_presence:
+  hidden: true
+number.presence_tuya_radar_sensitivity:
+  hidden: true
+switch.socket_switch_local:
+  hidden: true
+number.presence_tuya_detection_delay:
+  hidden: true
+number.presence_tuya_maximum_range:
+  hidden: true
+number.presence_tuya_minimum_range:
+  hidden: true
+light.kitchen_bulb_local:
+  hidden: true
+number.presence_tuya_fading_time:
   hidden: true

@@ -655,3 +655,35 @@
     target:
       entity_id: switch.socket_switch_local
   mode: single
+- id: '1731842225627'
+  alias: balcone_door_open_close
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.tuya_balcon_contact
+    to:
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.tuya_balcon_contact
+        state: 'off'
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.humidifier_local
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.tuya_balcon_contact
+        state: 'on'
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.humidifier_local
+  mode: single

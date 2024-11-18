@@ -311,7 +311,7 @@ button.espresense_room_update:
 button.espresense_room_enroll:
   hidden: true
 sensor.espresense_room_temperature:
-  hidden: false
+  hidden: true
   custom_card: true
   excluded: false
   disabled: false
@@ -325,7 +325,7 @@ sensor.espresense_room_temperature:
   custom_popup: false
   sort_order: 1
 sensor.espresense_room_humidity:
-  hidden: false
+  hidden: true
   custom_card: true
   excluded: false
   disabled: false

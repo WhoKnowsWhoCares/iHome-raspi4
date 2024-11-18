@@ -11,7 +11,7 @@
         "linkquality": 76
     },
     "0x5c0272fffe03c72e": {
-        "linkquality": 54,
+        "linkquality": 76,
         "state_l2": "OFF",
         "state_l3": "ON",
         "state_l1": "OFF",
@@ -19,7 +19,7 @@
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {
-        "linkquality": 83,
+        "linkquality": 87,
         "contact": true,
         "voltage": 3025,
         "battery": 100,
@@ -34,13 +34,14 @@
         "fading_time": 2,
         "presence": false,
         "illuminance_lux": 7,
-        "linkquality": 87
+        "linkquality": 69
     },
     "0xa4c13889ff22b15b": {
         "voltage": 3000,
         "battery": 100,
         "contact": true,
         "tamper": false,
-        "battery_low": false
+        "battery_low": false,
+        "linkquality": 72
     }
 }

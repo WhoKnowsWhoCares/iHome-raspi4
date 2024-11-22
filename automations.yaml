@@ -683,17 +683,49 @@
   - trigger: state
     entity_id:
     - binary_sensor.mi_move_sensor_occupancy
-    to: 'on'
-  conditions:
-  - condition: numeric_state
-    entity_id: sensor.mi_move_sensor_illuminance_lux
-    below: 20
+    to:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.avg_presence_tuya
+    below: 0.1
+  conditions: []
   actions:
-  - action: switch.turn_on
-    metadata: {}
-    data: {}
-    target:
-      entity_id: switch.socket_switch_local
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.mi_move_sensor_illuminance_lux
+          below: 20
+        - condition: state
+          entity_id: binary_sensor.mi_move_sensor_occupancy
+          state: 'on'
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_switch_local
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.avg_presence_tuya
+          below: 0.1
+        - condition: state
+          entity_id: binary_sensor.mi_move_sensor_occupancy
+          state: 'off'
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_switch_local
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.kitchen_bulb_local
   mode: single
 - id: '1731842225627'
   alias: balcone_door_open_close

@@ -676,3 +676,9 @@ light.kitchen_bulb_local:
   hidden: true
 number.presence_tuya_fading_time:
   hidden: true
+sensor.avg_presence_tuya:
+  hidden: true
+sensor.presence_tuya_target_distance:
+  hidden: true
+sensor.presence_tuya_illuminance_lux:
+  hidden: true

@@ -682,3 +682,11 @@ sensor.presence_tuya_target_distance:
   hidden: true
 sensor.presence_tuya_illuminance_lux:
   hidden: true
+button.cgllc_cgd1st_ca53_info:
+  hidden: true
+button.philips_bulb_0ba9_info:
+  hidden: true
+button.linp_hb01_4ee8_info:
+  hidden: true
+button.yeelink_mono6_6fc9_info:
+  hidden: true

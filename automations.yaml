@@ -33,7 +33,9 @@
       media_content_id: Через три часа запланирован спорт, не забудьте поесть
       enqueue: play
     target:
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id:
+      - media_player.yandex_station_m00tvb710hyxfg
+      - media_player.alice_mini_room_ff98f0294a56d19578794aff
     action: media_player.play_media
   mode: single
 - id: GitHub push updates
@@ -206,14 +208,16 @@
         state: Evening
   actions:
   - data:
-      cache: false
-      media_player_entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      message: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
+      media_content_type: text
+      media_content_id: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
         ,'all_day') == false %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
-        }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %}   "
+        }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %} "
+      enqueue: play
     target:
-      entity_id: tts.piper
-    action: tts.speak
+      entity_id:
+      - media_player.yandex_station_m00tvb710hyxfg
+      - media_player.alice_mini_room_ff98f0294a56d19578794aff
+    action: media_player.play_media
   mode: single
 - id: '1688286258125'
   alias: zone_gym_coming
@@ -782,31 +786,21 @@
     entity_id:
     - sensor.cgllc_cgd1st_ca53_co2_density
     above: 800
-  conditions: []
+  conditions:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.day_part
+      state: Morning
+    - condition: state
+      entity_id: input_select.day_part
+      state: Day
+    - condition: state
+      entity_id: input_select.day_part
+      state: Evening
   actions:
   - action: notify.telegram
     metadata: {}
     data:
       message: Time to open window
-  - if:
-    - condition: or
-      conditions:
-      - condition: state
-        entity_id: input_select.day_part
-        state: Morning
-      - condition: state
-        entity_id: input_select.day_part
-        state: Day
-      - condition: state
-        entity_id: input_select.day_part
-        state: Evening
-    then:
-    - action: tts.speak
-      metadata: {}
-      data:
-        cache: false
-        media_player_entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
-        message: Необходимо проветрить комнату
-      target:
-        entity_id: tts.piper
   mode: single

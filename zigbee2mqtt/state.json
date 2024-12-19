@@ -6,7 +6,7 @@
         "voltage": 3055,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 27,
+        "device_temperature": 25,
         "power_outage_count": 16,
         "linkquality": 72
     },

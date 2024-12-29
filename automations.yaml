@@ -725,11 +725,6 @@
         data: {}
         target:
           entity_id: switch.socket_switch_local
-      - action: light.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.kitchen_bulb_local
   mode: single
 - id: '1731842225627'
   alias: balcone_door_open_close

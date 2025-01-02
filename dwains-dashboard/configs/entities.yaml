@@ -690,3 +690,5 @@ button.linp_hb01_4ee8_info:
   hidden: true
 button.yeelink_mono6_6fc9_info:
   hidden: true
+button.yeelink_mono6_6fc9_toggle:
+  hidden: true

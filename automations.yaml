@@ -688,22 +688,42 @@
     entity_id:
     - binary_sensor.mi_move_sensor_occupancy
     to:
+    enabled: false
   - trigger: numeric_state
     entity_id:
     - sensor.avg_presence_tuya
     below: 0.1
+    enabled: false
+  - trigger: state
+    entity_id:
+    - binary_sensor.presence_tuya_presence
+    to: 'on'
+    id: presence_detected
+  - trigger: state
+    entity_id:
+    - binary_sensor.presence_tuya_presence
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
+    id: presence_clear
   conditions: []
   actions:
   - choose:
     - conditions:
       - condition: and
         conditions:
-        - condition: numeric_state
-          entity_id: sensor.mi_move_sensor_illuminance_lux
-          below: 20
         - condition: state
           entity_id: binary_sensor.mi_move_sensor_occupancy
           state: 'on'
+          enabled: false
+        - condition: trigger
+          id:
+          - presence_detected
+        - condition: numeric_state
+          entity_id: sensor.mi_move_sensor_illuminance_lux
+          below: 20
       sequence:
       - action: switch.turn_on
         metadata: {}
@@ -716,9 +736,14 @@
         - condition: numeric_state
           entity_id: sensor.avg_presence_tuya
           below: 0.1
+          enabled: false
         - condition: state
           entity_id: binary_sensor.mi_move_sensor_occupancy
           state: 'off'
+          enabled: false
+        - condition: trigger
+          id:
+          - presence_clear
       sequence:
       - action: switch.turn_off
         metadata: {}
@@ -733,14 +758,20 @@
   - trigger: state
     entity_id:
     - binary_sensor.tuya_balcon_contact
-    to:
+    to: 'on'
+    id: open
+  - trigger: state
+    entity_id:
+    - binary_sensor.tuya_balcon_contact
+    to: 'off'
+    id: close
   conditions: []
   actions:
   - choose:
     - conditions:
-      - condition: state
-        entity_id: binary_sensor.tuya_balcon_contact
-        state: 'off'
+      - condition: trigger
+        id:
+        - close
       sequence:
       - action: switch.turn_on
         metadata: {}
@@ -748,9 +779,9 @@
         target:
           entity_id: switch.humidifier_local
     - conditions:
-      - condition: state
-        entity_id: binary_sensor.tuya_balcon_contact
-        state: 'on'
+      - condition: trigger
+        id:
+        - open
       sequence:
       - action: switch.turn_off
         metadata: {}
@@ -798,4 +829,68 @@
     metadata: {}
     data:
       message: Time to open window
+  mode: single
+- id: '1735906041235'
+  alias: time_period_change
+  description: ''
+  triggers:
+  - trigger: time
+    at: 06:00:00
+    id: morning
+  - trigger: time
+    at: '12:00:00'
+    id: day
+  - trigger: time
+    at: '19:00:00'
+    id: evening
+  - trigger: time
+    at: 00:00:00
+    id: night
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - morning
+      sequence:
+      - action: input_select.select_option
+        metadata: {}
+        data:
+          option: Morning
+        target:
+          entity_id: input_select.day_part
+    - conditions:
+      - condition: trigger
+        id:
+        - day
+      sequence:
+      - action: input_select.select_option
+        metadata: {}
+        data:
+          option: Day
+        target:
+          entity_id: input_select.day_part
+    - conditions:
+      - condition: trigger
+        id:
+        - evening
+      sequence:
+      - action: input_select.select_option
+        metadata: {}
+        data:
+          option: Evening
+        target:
+          entity_id: input_select.day_part
+    - conditions:
+      - condition: trigger
+        id:
+        - night
+      sequence:
+      - action: input_select.select_option
+        metadata: {}
+        data:
+          option: Night
+        target:
+          entity_id: input_select.day_part
   mode: single

@@ -750,6 +750,11 @@
         data: {}
         target:
           entity_id: switch.socket_switch_local
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.kitchen_bulb_local
   mode: single
 - id: '1731842225627'
   alias: balcone_door_open_close
@@ -829,13 +834,30 @@
     metadata: {}
     data:
       message: Time to open window
+  - if:
+    - condition: state
+      entity_id: input_select.day_part
+      state: Evening
+    - condition: state
+      entity_id: input_select.home_come_leave
+      state: Home
+    then:
+    - action: media_player.play_media
+      metadata: {}
+      data:
+        media_content_type: text
+        media_content_id: Необходимо проветрить в комнате
+      target:
+        entity_id:
+        - media_player.yandex_station_m00tvb710hyxfg
+        - media_player.alice_mini_room_ff98f0294a56d19578794aff
   mode: single
 - id: '1735906041235'
   alias: time_period_change
   description: ''
   triggers:
   - trigger: time
-    at: 06:00:00
+    at: 08:00:00
     id: morning
   - trigger: time
     at: '12:00:00'

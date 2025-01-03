@@ -3,10 +3,10 @@ yandex_tts_morning_hello:
   sequence:
     - action: media_player.volume_set
       data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
         volume_level: 0.3
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Доброе утро! Пора вставать!","Пора вставать! Дела сами себя не сделают!"]|random }} '
         media_content_type: text
@@ -15,7 +15,7 @@ yandex_tts_today_events:
   alias: yandex_tts_today_events
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: " Сегодня по планам:
           {% if states('sensor.today_events') == '' %}
@@ -30,10 +30,10 @@ yandex_tts_morning_alarm:
   sequence:
     - action: media_player.volume_set
       data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
         volume_level: 0.3
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: "https://music.yandex.ru/album/27705008/track/118122082"
         # media_content_id: "https://music.yandex.ru/album/18318485/track/91784168"
@@ -70,7 +70,7 @@ yandex_tts_podcast:
   alias: yandex_tts_podcast
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: 'https://music.yandex.ru/album/9286142/track/{{ [
           "112942478","112787580","112606263","112431108","112244116","112059101",
@@ -86,31 +86,31 @@ yandex_tts_start_show:
   sequence:
     - action: media_player.volume_set
       data:
-        entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+        entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
         volume_level: 0.3
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: шоу
         media_content_type: command
   mode: single
 
-yandex_tts_coffee_ready:
-  alias: yandex_tts_coffee_ready
-  sequence:
-    - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      data:
-        media_content_id: Кофе готов! Пейте, пока горячий!
-        media_content_type: text
-        extra:
-          volume_level: 0.3
-  mode: single
+# yandex_tts_coffee_ready:
+#   alias: yandex_tts_coffee_ready
+#   sequence:
+#     - action: media_player.play_media
+#       entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
+#       data:
+#         media_content_id: Кофе готов! Пейте, пока горячий!
+#         media_content_type: text
+#         extra:
+#           volume_level: 0.3
+#   mode: single
 
 yandex_tts_coming:
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: '{{["Свозвращением!","Добро пожаловать!"]|random }} '
         media_content_type: text
@@ -121,7 +121,7 @@ yandex_tts_coming:
 yandex_tts_evening_coming:
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: я дома
         media_content_type: command
@@ -129,7 +129,7 @@ yandex_tts_evening_coming:
 yandex_turn_off_all:
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: отключение всего
         media_content_type: command
@@ -137,12 +137,12 @@ yandex_turn_off_all:
 yandex_tts_weather:
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: Прогноз погоды
         media_content_type: text
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: погода
         media_content_type: command
@@ -150,29 +150,29 @@ yandex_tts_weather:
 yandex_tts_news:
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: Новости
         media_content_type: text
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: новости
         media_content_type: command
 
-yandex_tts_lowder:
-  sequence:
-    - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
-      data:
-        media_content_id: громче
-        media_content_type: command
+# yandex_tts_lowder:
+#   sequence:
+#     - action: media_player.play_media
+#       entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
+#       data:
+#         media_content_id: громче
+#         media_content_type: command
 
 yandex_tts_alarm_warning:
   alias: yandex_tts_alarm_warning
   sequence:
     - action: media_player.play_media
-      entity_id: media_player.yandex_station_ff98f0294a56d19578794aff
+      entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
       data:
         media_content_id: Внимание! Постороннее присутствие! Ваше фото отправлено владельцам!
         media_content_type: text

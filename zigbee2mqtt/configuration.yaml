@@ -1,10 +1,9 @@
-external_converters: []
 devices:
   - devices.yaml
 groups:
   - groups.yaml
-homeassistant: true
-permit_join: false
+homeassistant:
+  enabled: true
 mqtt:
   base_topic: zigbee2mqtt
   user: addons
@@ -36,17 +35,13 @@ advanced:
     - 10
     - 12
     - 13
-  availability_blocklist: []
-  availability_passlist: []
-  homeassistant_legacy_entity_attributes: false
-  legacy_api: false
-  legacy_availability_payload: false
-device_options:
-  legacy: false
+device_options: {}
 blocklist: []
 passlist: []
 queue: {}
 frontend:
+  enabled: true
   port: 8099
-experimental: {}
-availability: false
+availability:
+  enabled: false
+version: 4

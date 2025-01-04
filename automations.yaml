@@ -687,8 +687,9 @@
   - trigger: state
     entity_id:
     - binary_sensor.mi_move_sensor_occupancy
-    to:
-    enabled: false
+    to: 'on'
+    enabled: true
+    id: presence_detected
   - trigger: numeric_state
     entity_id:
     - sensor.avg_presence_tuya
@@ -699,6 +700,7 @@
     - binary_sensor.presence_tuya_presence
     to: 'on'
     id: presence_detected
+    enabled: false
   - trigger: state
     entity_id:
     - binary_sensor.presence_tuya_presence

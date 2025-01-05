@@ -698,12 +698,6 @@
   - trigger: state
     entity_id:
     - binary_sensor.presence_tuya_presence
-    to: 'on'
-    id: presence_detected
-    enabled: false
-  - trigger: state
-    entity_id:
-    - binary_sensor.presence_tuya_presence
     to: 'off'
     for:
       hours: 0
@@ -716,15 +710,11 @@
     - conditions:
       - condition: and
         conditions:
-        - condition: state
-          entity_id: binary_sensor.mi_move_sensor_occupancy
-          state: 'on'
-          enabled: false
         - condition: trigger
           id:
           - presence_detected
         - condition: numeric_state
-          entity_id: sensor.mi_move_sensor_illuminance_lux
+          entity_id: sensor.presence_tuya_illuminance
           below: 20
       sequence:
       - action: switch.turn_on
@@ -735,14 +725,6 @@
     - conditions:
       - condition: and
         conditions:
-        - condition: numeric_state
-          entity_id: sensor.avg_presence_tuya
-          below: 0.1
-          enabled: false
-        - condition: state
-          entity_id: binary_sensor.mi_move_sensor_occupancy
-          state: 'off'
-          enabled: false
         - condition: trigger
           id:
           - presence_clear

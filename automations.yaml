@@ -363,6 +363,11 @@
     action: input_select.set_options
   - data: {}
     action: script.turn_off_everything
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.humidifier_local
   - data:
       message: Looks like you left Home
     action: notify.telegram

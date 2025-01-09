@@ -12,3 +12,5 @@
   friendly_name: presence_tuya
 '0xa4c13889ff22b15b':
   friendly_name: tuya_balcon
+'0x54ef441000c6a4b2':
+  friendly_name: move_sensor_p1

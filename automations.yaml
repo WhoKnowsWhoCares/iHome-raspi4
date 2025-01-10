@@ -497,17 +497,20 @@
 - id: '1714680766786'
   alias: light_room_main
   description: ''
-  trigger:
-  - platform: numeric_state
+  triggers:
+  - trigger: state
     entity_id:
-    - sensor.mi_move_sensor_illuminance_lux
-    above: 45
-  condition:
+    - binary_sensor.move_sensor_p1_occupancy
+    to: 'on'
+  conditions:
   - condition: state
     entity_id: light.philips_bulb_0ba9_light
-    state: 'on'
-  action:
-  - service: light.turn_off
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.move_sensor_p1_illuminance
+    below: 45
+  actions:
+  - action: light.turn_on
     metadata: {}
     data: {}
     target:

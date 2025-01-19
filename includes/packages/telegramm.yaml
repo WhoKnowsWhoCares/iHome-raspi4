@@ -8,10 +8,14 @@ telegramm:
             message: |
               {{"\U0001F6C0"}} Состояние системы
               {{"\U0001F567"}} Отчет на {{ states('sensor.time_date') }}
-              {{"\U0001F4A1"}} Светильники в комнате on/all - {{ states('sensor.lights_room') }} 
+
               {{"\U0001F4A1"}} Светильники в прихожей on/all - {{ states('sensor.lights_hall') }} 
+              {{"\U0001F4A1"}} Светильники в комнате on/all - {{ states('sensor.lights_room') }} 
+              {{"\U0001F4A1"}} Светильники на кухне on/all - {{ states('sensor.lights_kitchen') }}
+              
               {{"\U0001F50C"}} Переключателей в комнате on/all - {{ states('sensor.switch_room') }} 
               {{"\U0001F50C"}} Переключателей на кухне on/all - {{ states('sensor.switch_kitchen') }}
+              
               {{"\U0001F567"}} Таймер наполнения автополива - {{ states('input_number.irrigation_timer') }}
 
   automation:

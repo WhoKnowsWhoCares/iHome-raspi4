@@ -4,3 +4,10 @@
   state_topic: "espresense/devices/known:e85c87786feb"
   timeout: 10
   away_timeout: 120
+
+- platform: template
+  sensors:
+    miband7_distance:
+      friendly_name: "MiBand7 distance"
+      value_template: "{{ state_attr('sensor.miband7' ,'distance') | round(2) }}"
+      icon_template: mdi:map-marker-distance

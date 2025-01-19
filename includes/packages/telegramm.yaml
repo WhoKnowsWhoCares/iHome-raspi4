@@ -9,13 +9,17 @@ telegramm:
               {{"\U0001F6C0"}} Состояние системы
               {{"\U0001F567"}} Отчет на {{ states('sensor.time_date') }}
 
-              {{"\U0001F4A1"}} Светильники в прихожей on/all - {{ states('sensor.lights_hall') }} 
-              {{"\U0001F4A1"}} Светильники в комнате on/all - {{ states('sensor.lights_room') }} 
-              {{"\U0001F4A1"}} Светильники на кухне on/all - {{ states('sensor.lights_kitchen') }}
+              Прихожая
+              {{"\U0001F4A1"}} Свет - {{ states('light.yeelink_mono6_6fc9_light') }} 
+              {{"\U0001f6aa"}} Дверь - {{ states('binary_sensor.mi_door_sensor_contact') }}
+
+              Комната
+              {{"\U0001F4A1"}} Свет bulb/bed/string - {{ states('light.philips_bulb_0ba9_light') }}/{{ states('switch.zigbee_switch_l1') }}/{{ states('switch.zigbee_switch_l2') }} 
+              {{"\U0001f327\uFE0F"}} Увлажнитель - {{ states('switch.humidifier_local') }} 
+              {{"\U0001f6aa"}} Дверь - {{ states('binary_sensor.tuya_balcon_contact') }}
               
-              {{"\U0001F50C"}} Переключателей в комнате on/all - {{ states('sensor.switch_room') }} 
-              {{"\U0001F50C"}} Переключателей на кухне on/all - {{ states('sensor.switch_kitchen') }}
-              
+              Кухня
+              {{"\U0001F4A1"}} Свет main/sub - {{ states('light.kitchen_bulb_local') }}/{{ states('switch.socket_switch_local') }}
               {{"\U0001F567"}} Таймер наполнения автополива - {{ states('input_number.irrigation_timer') }}
 
   automation:

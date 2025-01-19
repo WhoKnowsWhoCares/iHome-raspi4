@@ -7,6 +7,15 @@ home_come_leave:
     - Away
   icon: mdi:home
 
+my_place:
+  name: My place
+  options:
+    - Hall
+    - Room
+    - Kitchen
+    - None
+  icon: mdi:map-marker
+
 day_part:
   name: Day part
   options:

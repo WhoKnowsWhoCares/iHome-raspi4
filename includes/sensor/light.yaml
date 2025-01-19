@@ -26,6 +26,19 @@
         | list | length}}"
       icon_template: mdi:counter
 
+    lights_kitchen:
+      friendly_name: "Всего светильников на кухне on/all: "
+      value_template: "{{ expand(states.light)
+        |selectattr('state', 'eq', 'on')
+        |selectattr('entity_id', 'in', area_entities('Kitchen'))
+        |map(attribute='entity_id')
+        | list | length}} /
+        {{ expand(states.light)
+        |selectattr('entity_id', 'in', area_entities('Kitchen'))
+        |map(attribute='entity_id')
+        | list | length}}"
+      icon_template: mdi:counter
+
     switch_kitchen:
       friendly_name: "Всего доступных переключателей на кухне on/all "
       value_template: "{{ expand(states.switch)

@@ -264,77 +264,6 @@
     target:
       entity_id: input_boolean.dark_outside
   mode: single
-- id: '1693426907453'
-  alias: dark_outside
-  description: when the sun is falling
-  trigger:
-  - platform: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
-    below: 5
-  condition: []
-  action:
-  - service: input_boolean.turn_on
-    data: {}
-    target:
-      entity_id: input_boolean.dark_outside
-  mode: single
-- id: '1693473630257'
-  alias: time_period_night
-  description: ''
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      option: Night
-    target:
-      entity_id: input_select.day_part
-  mode: single
-- id: '1693473743664'
-  alias: time_period_morning
-  description: ''
-  trigger:
-  - platform: time
-    at: 06:00:00
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      option: Morning
-    target:
-      entity_id: input_select.day_part
-  mode: single
-- id: '1693473844722'
-  alias: time_period_day
-  description: ''
-  trigger:
-  - platform: time
-    at: '12:00:00'
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      option: Day
-    target:
-      entity_id: input_select.day_part
-  mode: single
-- id: '1693473941059'
-  alias: time_period_evening
-  description: ''
-  trigger:
-  - platform: time
-    at: '19:00:00'
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      option: Evening
-    target:
-      entity_id: input_select.day_part
-  mode: single
 - id: '1694814595846'
   alias: home_leave
   description: ''
@@ -389,6 +318,12 @@
       metadata: {}
       data:
         message: Balcon door opened!
+  - action: input_select.select_option
+    metadata: {}
+    data:
+      option: None
+    target:
+      entity_id: input_select.my_place
   mode: single
 - id: '1695065460408'
   alias: home_come
@@ -502,117 +437,27 @@
     entity_id:
     - binary_sensor.move_sensor_p1_occupancy
     to: 'on'
-  conditions:
-  - condition: state
-    entity_id: light.philips_bulb_0ba9_light
-    state: 'off'
-  - condition: numeric_state
-    entity_id: sensor.move_sensor_p1_illuminance
-    below: 45
+  conditions: []
   actions:
-  - action: light.turn_on
-    metadata: {}
-    data: {}
-    target:
+  - if:
+    - condition: state
       entity_id: light.philips_bulb_0ba9_light
-  mode: single
-- id: '1722094593989'
-  alias: light_kitchen_presence
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.presence_tuya_target_distance
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    below: 3.5
-    above: 0.5
-  - platform: state
-    entity_id:
-    - binary_sensor.presence_tuya_presence
-    from: 'on'
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 3
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: and
-        conditions:
-        - condition: numeric_state
-          entity_id: sensor.presence_tuya_target_distance
-          below: 3.5
-          above: 0.5
-      sequence:
-      - if:
-        - condition: numeric_state
-          entity_id: sensor.presence_tuya_illuminance_lux
-          below: 7
-        - condition: state
-          entity_id: switch.socket_switch
-          state: 'off'
-        then:
-        - data: {}
-          target:
-            entity_id: switch.socket_switch
-          action: switch.turn_on
-      - if:
-        - condition: state
-          entity_id: light.philips_bulb_0ba9_light
-          state: 'on'
-        - condition: state
-          entity_id: binary_sensor.mi_move_sensor_occupancy
-          state: 'off'
-        then:
-        - metadata: {}
-          data: {}
-          action: script.turn_off_room
-        enabled: false
-    - conditions:
-      - condition: and
-        conditions:
-        - condition: numeric_state
-          entity_id: sensor.presence_tuya_target_distance
-          above: 0.5
-          below: 3.5
-        - condition: numeric_state
-          entity_id: sensor.presence_tuya_illuminance_lux
-          above: 7.5
-      sequence:
-      - if:
-        - condition: state
-          entity_id: switch.socket_switch
-          state: 'on'
-        then:
-        - metadata: {}
-          data: {}
-          target:
-            entity_id: switch.socket_switch
-          action: switch.turn_off
-    - conditions:
-      - condition: and
-        conditions:
-        - condition: numeric_state
-          entity_id: sensor.presence_tuya_target_distance
-          below: 0
-        - condition: numeric_state
-          entity_id: sensor.presence_tuya_illuminance_lux
-          above: 5
-      sequence:
-      - if:
-        - condition: state
-          entity_id: switch.socket_switch
-          state: 'on'
-        then:
-        - data: {}
-          target:
-            entity_id: switch.socket_switch
-          action: switch.turn_off
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.move_sensor_p1_illuminance
+      below: 45
+    then:
+    - action: light.turn_on
+      metadata: {}
+      data: {}
+      target:
+        entity_id: light.philips_bulb_0ba9_light
+  - action: input_select.select_option
+    metadata: {}
+    data:
+      option: Room
+    target:
+      entity_id: input_select.my_place
   mode: single
 - id: '1726249827513'
   alias: light_kitchen_main
@@ -622,16 +467,28 @@
     entity_id:
     - light.kitchen_bulb_local
     to: 'on'
-  conditions:
-  - condition: state
-    entity_id: switch.socket_switch_local
-    state: 'on'
+  conditions: []
   actions:
-  - action: switch.turn_off
-    metadata: {}
-    data: {}
-    target:
+  - if:
+    - condition: state
       entity_id: switch.socket_switch_local
+      state: 'on'
+    then:
+    - action: switch.turn_off
+      metadata: {}
+      data: {}
+      target:
+        entity_id: switch.socket_switch_local
+  - if:
+    - condition: state
+      entity_id: light.philips_bulb_0ba9_light
+      state: 'on'
+    then:
+    - action: light.turn_off
+      metadata: {}
+      data: {}
+      target:
+        entity_id: light.philips_bulb_0ba9_light
   mode: single
 - id: '1726252259566'
   alias: light_kitchen_close_range
@@ -698,11 +555,6 @@
     to: 'on'
     enabled: true
     id: presence_detected
-  - trigger: numeric_state
-    entity_id:
-    - sensor.avg_presence_tuya
-    below: 0.1
-    enabled: false
   - trigger: state
     entity_id:
     - binary_sensor.presence_tuya_presence
@@ -712,24 +564,39 @@
       minutes: 3
       seconds: 0
     id: presence_clear
+  - trigger: state
+    entity_id:
+    - binary_sensor.presence_tuya_presence
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
+    id: presence_kitchen
   conditions: []
   actions:
   - choose:
     - conditions:
-      - condition: and
-        conditions:
-        - condition: trigger
-          id:
-          - presence_detected
+      - condition: trigger
+        id:
+        - presence_detected
+      sequence:
+      - if:
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance
           below: 20
-      sequence:
-      - action: switch.turn_on
+        then:
+        - action: switch.turn_on
+          metadata: {}
+          data: {}
+          target:
+            entity_id: switch.socket_switch_local
+      - action: input_select.select_option
         metadata: {}
-        data: {}
+        data:
+          option: Kitchen
         target:
-          entity_id: switch.socket_switch_local
+          entity_id: input_select.my_place
     - conditions:
       - condition: and
         conditions:
@@ -747,6 +614,38 @@
         data: {}
         target:
           entity_id: light.kitchen_bulb_local
+      - action: media_player.media_pause
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.yandex_station_m00tvb710hyxfg
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id:
+          - presence_kitchen
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.philips_bulb_0ba9_light
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.zigbee_switch_l1
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.zigbee_switch_l2
+      - action: media_player.media_pause
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
   mode: single
 - id: '1731842225627'
   alias: balcone_door_open_close
@@ -785,21 +684,6 @@
         data: {}
         target:
           entity_id: switch.humidifier_local
-  mode: single
-- id: '1732166145474'
-  alias: test
-  description: ''
-  triggers: []
-  conditions: []
-  actions:
-  - action: tts.speak
-    metadata: {}
-    data:
-      cache: false
-      media_player_entity_id: media_player.yandex_station_m00tvb710hyxfg
-      message: Hello
-    target:
-      entity_id: tts.piper
   mode: single
 - id: '1732220405685'
   alias: high_co2
@@ -841,7 +725,6 @@
         media_content_id: Необходимо проветрить в комнате
       target:
         entity_id:
-        - media_player.yandex_station_m00tvb710hyxfg
         - media_player.alice_mini_room_ff98f0294a56d19578794aff
   mode: single
 - id: '1735906041235'

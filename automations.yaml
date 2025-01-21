@@ -219,51 +219,6 @@
       - media_player.alice_mini_room_ff98f0294a56d19578794aff
     action: media_player.play_media
   mode: single
-- id: '1688286258125'
-  alias: zone_gym_coming
-  description: ''
-  trigger:
-  - platform: zone
-    entity_id: person.alexander
-    zone: zone.gym
-    event: enter
-  condition: []
-  action:
-  - service: notify.telegram
-    data:
-      message: Looks like you are almost at Gym
-    enabled: false
-  mode: single
-- id: '1688286484143'
-  alias: zone_gym_leaving
-  description: ''
-  trigger:
-  - platform: zone
-    entity_id: person.alexander
-    zone: zone.gym
-    event: leave
-  condition: []
-  action:
-  - service: notify.telegram
-    data:
-      message: Looks like you are leaving Gym
-    enabled: false
-  mode: single
-- id: '1693426774882'
-  alias: light_outside
-  description: when the sun is rising
-  trigger:
-  - platform: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
-    above: 5
-  condition: []
-  action:
-  - service: input_boolean.turn_off
-    data: {}
-    target:
-      entity_id: input_boolean.dark_outside
-  mode: single
 - id: '1694814595846'
   alias: home_leave
   description: ''
@@ -396,39 +351,6 @@
       data:
         message: Похоже пора обновить воду для полива растений
   mode: single
-- id: '1713126709366'
-  alias: light_room_noone_there
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.mi_move_sensor_occupancy
-    to: 'off'
-    from: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.presence_sonoff_occupancy
-    from: 'off'
-    to: 'on'
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: light.philips_bulb_0ba9_light
-      state: 'on'
-    - condition: state
-      entity_id: binary_sensor.mi_move_sensor_occupancy
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.presence_sonoff_occupancy
-      state: 'on'
-  action:
-  - service: light.turn_off
-    metadata: {}
-    data: {}
-    target:
-      entity_id: light.philips_bulb_0ba9_light
-  mode: single
 - id: '1714680766786'
   alias: light_room_main
   description: ''
@@ -446,6 +368,9 @@
     - condition: numeric_state
       entity_id: sensor.move_sensor_p1_illuminance
       below: 45
+    - condition: state
+      entity_id: input_select.home_come_leave
+      state: Home
     then:
     - action: light.turn_on
       metadata: {}
@@ -489,61 +414,6 @@
       data: {}
       target:
         entity_id: light.philips_bulb_0ba9_light
-  mode: single
-- id: '1726252259566'
-  alias: light_kitchen_close_range
-  description: ''
-  triggers:
-  - entity_id:
-    - sensor.presence_tuya_target_distance
-    above: 0.5
-    below: 3
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    trigger: numeric_state
-    enabled: true
-  - entity_id:
-    - sensor.presence_tuya_target_distance
-    for:
-      hours: 0
-      minutes: 2
-      seconds: 0
-    below: 0.1
-    trigger: numeric_state
-  conditions: []
-  actions:
-  - choose:
-    - conditions:
-      - condition: numeric_state
-        entity_id: sensor.presence_tuya_target_distance
-        below: 0.1
-      sequence:
-      - action: switch.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.socket_switch
-      - action: light.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.tuya_kitchen_bulb
-        enabled: false
-    - conditions:
-      - condition: numeric_state
-        entity_id: sensor.presence_tuya_target_distance
-        below: 2.5
-        above: 0.5
-      - condition: numeric_state
-        entity_id: sensor.presence_tuya_illuminance_lux
-        below: 25
-      sequence:
-      - action: switch.turn_on
-        target:
-          entity_id: switch.socket_switch
-        data: {}
   mode: single
 - id: '1730621676810'
   alias: kitchen_presence
@@ -790,4 +660,64 @@
           option: Night
         target:
           entity_id: input_select.day_part
+  mode: single
+- id: '1737493121571'
+  alias: Travel
+  description: ''
+  triggers:
+  - trigger: time
+    at: '10:00:00'
+    id: morning
+  - trigger: time
+    at: '19:00:00'
+    id: evening
+  - trigger: time
+    at: '20:00:00'
+    id: evening_light_on
+  - trigger: time
+    at: '22:00:00'
+    id: evening_light_off
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - morning
+      sequence:
+      - action: cover.open_cover
+        metadata: {}
+        data: {}
+        target:
+          entity_id: cover.curtain_local
+    - conditions:
+      - condition: trigger
+        id:
+        - evening
+      sequence:
+      - action: cover.close_cover
+        metadata: {}
+        data: {}
+        target:
+          entity_id: cover.curtain_local
+    - conditions:
+      - condition: trigger
+        id:
+        - evening_light_on
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_switch_local
+    - conditions:
+      - condition: trigger
+        id:
+        - evening_light_off
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.socket_switch_local
   mode: single

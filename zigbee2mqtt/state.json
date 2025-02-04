@@ -44,7 +44,7 @@
         "linkquality": 134
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3115,
+        "voltage": 3113,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",

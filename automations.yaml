@@ -371,6 +371,9 @@
     - condition: state
       entity_id: input_select.home_come_leave
       state: Home
+    - condition: state
+      entity_id: input_select.day_part
+      state: Evening
     then:
     - action: light.turn_on
       metadata: {}

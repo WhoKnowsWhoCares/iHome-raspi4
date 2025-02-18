@@ -367,13 +367,10 @@
       state: 'off'
     - condition: numeric_state
       entity_id: sensor.move_sensor_p1_illuminance
-      below: 45
+      below: 20
     - condition: state
       entity_id: input_select.home_come_leave
       state: Home
-    - condition: state
-      entity_id: input_select.day_part
-      state: Evening
     then:
     - action: light.turn_on
       metadata: {}

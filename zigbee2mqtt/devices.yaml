@@ -14,3 +14,7 @@
   friendly_name: tuya_balcon
 '0x54ef441000c6a4b2':
   friendly_name: move_sensor_p1
+'0xa4c1387e5bb322c1':
+  friendly_name: water_sensor
+'0xa4c1383043929c95':
+  friendly_name: presence_tuya_v1

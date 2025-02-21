@@ -721,3 +721,19 @@
         target:
           entity_id: switch.socket_switch_local
   mode: single
+- id: '1740162178858'
+  alias: water_leak
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.water_sensor_water_leak
+    to: 'on'
+  conditions: []
+  actions:
+  - action: notify.telegram
+    metadata: {}
+    data:
+      message: 'ALARM: water leak in the bathroom'
+      title: ALARM
+  mode: single

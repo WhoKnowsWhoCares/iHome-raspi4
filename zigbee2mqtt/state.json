@@ -1,11 +1,11 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 8,
+        "illuminance": 7,
         "voltage": 3055,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 26,
+        "device_temperature": 27,
         "power_outage_count": 16,
         "linkquality": 54
     },
@@ -33,7 +33,7 @@
         "fading_time": 18.5,
         "presence": false,
         "linkquality": 120,
-        "illuminance": 8
+        "illuminance": 7
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2800,
@@ -50,8 +50,8 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 6,
-        "device_temperature": 24,
+        "illuminance": 5,
+        "device_temperature": 25,
         "power_outage_count": 0,
         "linkquality": 83
     },

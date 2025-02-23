@@ -392,6 +392,10 @@
     entity_id:
     - light.kitchen_bulb_local
     to: 'on'
+  - trigger: state
+    entity_id:
+    - light.kitchen_bulb
+    to: 'on'
   conditions: []
   actions:
   - if:
@@ -474,6 +478,11 @@
           id:
           - presence_clear
       sequence:
+      - action: media_player.media_pause
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.yandex_station_m00tvb710hyxfg
       - action: switch.turn_off
         metadata: {}
         data: {}
@@ -483,12 +492,13 @@
         metadata: {}
         data: {}
         target:
-          entity_id: light.kitchen_bulb_local
-      - action: media_player.media_pause
+          entity_id: light.kitchen_bulb
+      - action: light.turn_off
         metadata: {}
         data: {}
         target:
-          entity_id: media_player.yandex_station_m00tvb710hyxfg
+          entity_id: light.kitchen_bulb_local
+        enabled: false
     - conditions:
       - condition: and
         conditions:

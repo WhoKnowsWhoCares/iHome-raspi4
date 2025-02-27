@@ -33,7 +33,7 @@
         "fading_time": 18.5,
         "presence": false,
         "linkquality": 120,
-        "illuminance": 8
+        "illuminance": 3
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2800,

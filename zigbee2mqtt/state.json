@@ -38,20 +38,20 @@
     "0xa4c13889ff22b15b": {
         "voltage": 2800,
         "battery": 100,
-        "contact": false,
+        "contact": true,
         "tamper": false,
         "battery_low": false,
         "linkquality": 134
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3063,
+        "voltage": 3060,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 15,
-        "device_temperature": 27,
+        "illuminance": 5,
+        "device_temperature": 26,
         "power_outage_count": 0,
         "linkquality": 83
     },
@@ -63,10 +63,10 @@
         "battery_low": false
     },
     "0xa4c1383043929c95": {
-        "presence": true,
-        "motion_state": "small",
+        "presence": false,
+        "motion_state": "none",
         "fading_time": 10,
-        "illuminance": 873,
+        "illuminance": 0,
         "large_motion_detection_distance": 6,
         "medium_motion_detection_distance": 3,
         "large_motion_detection_sensitivity": 10,

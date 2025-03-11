@@ -472,11 +472,12 @@
         target:
           entity_id: input_select.my_place
     - conditions:
-      - condition: and
-        conditions:
-        - condition: trigger
-          id:
-          - presence_clear
+      - condition: trigger
+        id:
+        - presence_clear
+      - condition: state
+        entity_id: binary_sensor.presence_tuya_presence
+        state: 'off'
       sequence:
       - action: media_player.media_pause
         metadata: {}
@@ -500,11 +501,12 @@
           entity_id: light.kitchen_bulb_local
         enabled: false
     - conditions:
-      - condition: and
-        conditions:
-        - condition: trigger
-          id:
-          - presence_kitchen
+      - condition: trigger
+        id:
+        - presence_kitchen
+      - condition: state
+        entity_id: binary_sensor.presence_tuya_v1_presence
+        state: 'off'
       sequence:
       - action: light.turn_off
         metadata: {}

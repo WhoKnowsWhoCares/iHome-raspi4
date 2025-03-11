@@ -1,16 +1,16 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 8,
+        "illuminance": 7,
         "voltage": 3055,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 28,
+        "device_temperature": 29,
         "power_outage_count": 16,
-        "linkquality": 54
+        "linkquality": 69
     },
     "0x5c0272fffe03c72e": {
-        "linkquality": 40,
+        "linkquality": 72,
         "state_l2": "OFF",
         "state_l3": "ON",
         "state_l1": "OFF",
@@ -18,7 +18,7 @@
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {
-        "linkquality": 98,
+        "linkquality": 102,
         "contact": true,
         "voltage": 3025,
         "battery": 100,
@@ -32,7 +32,7 @@
         "detection_delay": 0.1,
         "fading_time": 18.5,
         "presence": false,
-        "linkquality": 120,
+        "linkquality": 123,
         "illuminance": 3
     },
     "0xa4c13889ff22b15b": {
@@ -41,38 +41,40 @@
         "contact": true,
         "tamper": false,
         "battery_low": false,
-        "linkquality": 134
+        "linkquality": 127
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3060,
+        "voltage": 3059,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 5,
-        "device_temperature": 26,
+        "illuminance": 0,
+        "device_temperature": 27,
         "power_outage_count": 0,
-        "linkquality": 83
+        "linkquality": 123
     },
     "0xa4c1387e5bb322c1": {
         "battery": 100,
         "voltage": 2900,
         "water_leak": false,
         "tamper": false,
-        "battery_low": false
+        "battery_low": false,
+        "linkquality": 123
     },
     "0xa4c1383043929c95": {
         "presence": false,
         "motion_state": "none",
-        "fading_time": 10,
+        "fading_time": 2,
         "illuminance": 0,
-        "large_motion_detection_distance": 6,
-        "medium_motion_detection_distance": 3,
-        "large_motion_detection_sensitivity": 10,
+        "large_motion_detection_distance": 0,
+        "medium_motion_detection_distance": 4,
+        "large_motion_detection_sensitivity": 0,
         "medium_motion_detection_sensitivity": 10,
         "indicator": "OFF",
         "small_detection_distance": 1.5,
-        "small_detection_sensitivity": 10
+        "small_detection_sensitivity": 10,
+        "linkquality": 83
     }
 }

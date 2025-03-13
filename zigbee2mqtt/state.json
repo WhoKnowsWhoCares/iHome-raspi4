@@ -1,13 +1,13 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 7,
+        "illuminance": 8,
         "voltage": 3055,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 28,
+        "device_temperature": 29,
         "power_outage_count": 16,
-        "linkquality": 69
+        "linkquality": 76
     },
     "0x5c0272fffe03c72e": {
         "linkquality": 72,
@@ -18,7 +18,7 @@
         "state_l5": "ON"
     },
     "0x00158d00072b9520": {
-        "linkquality": 102,
+        "linkquality": 98,
         "contact": true,
         "voltage": 3025,
         "battery": 100,
@@ -41,7 +41,7 @@
         "contact": true,
         "tamper": false,
         "battery_low": false,
-        "linkquality": 127
+        "linkquality": 123
     },
     "0x54ef441000c6a4b2": {
         "voltage": 3059,
@@ -50,10 +50,10 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 0,
+        "illuminance": 5,
         "device_temperature": 27,
         "power_outage_count": 0,
-        "linkquality": 123
+        "linkquality": 131
     },
     "0xa4c1387e5bb322c1": {
         "battery": 100,
@@ -61,20 +61,20 @@
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
-        "linkquality": 123
+        "linkquality": 127
     },
     "0xa4c1383043929c95": {
         "presence": false,
         "motion_state": "none",
         "fading_time": 2,
         "illuminance": 0,
-        "large_motion_detection_distance": 0,
+        "large_motion_detection_distance": 6,
         "medium_motion_detection_distance": 4,
-        "large_motion_detection_sensitivity": 0,
-        "medium_motion_detection_sensitivity": 10,
+        "large_motion_detection_sensitivity": 6,
+        "medium_motion_detection_sensitivity": 6,
         "indicator": "OFF",
         "small_detection_distance": 1.5,
-        "small_detection_sensitivity": 10,
+        "small_detection_sensitivity": 6,
         "linkquality": 83
     }
 }

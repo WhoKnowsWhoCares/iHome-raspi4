@@ -479,11 +479,6 @@
         entity_id: binary_sensor.presence_tuya_presence
         state: 'off'
       sequence:
-      - action: media_player.media_pause
-        metadata: {}
-        data: {}
-        target:
-          entity_id: media_player.yandex_station_m00tvb710hyxfg
       - action: switch.turn_off
         metadata: {}
         data: {}
@@ -500,13 +495,18 @@
         target:
           entity_id: light.kitchen_bulb_local
         enabled: false
+      - action: media_player.media_pause
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.yandex_station_m00tvb710hyxfg
     - conditions:
       - condition: trigger
         id:
         - presence_kitchen
       - condition: state
-        entity_id: binary_sensor.presence_tuya_v1_presence
-        state: 'off'
+        entity_id: binary_sensor.presence_tuya_presence
+        state: 'on'
       sequence:
       - action: light.turn_off
         metadata: {}

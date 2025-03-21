@@ -513,21 +513,25 @@
         data: {}
         target:
           entity_id: light.philips_bulb_0ba9_light
+        enabled: false
       - action: switch.turn_off
         metadata: {}
         data: {}
         target:
           entity_id: switch.zigbee_switch_l1
+        enabled: false
       - action: switch.turn_off
         metadata: {}
         data: {}
         target:
           entity_id: switch.zigbee_switch_l2
+        enabled: false
       - action: media_player.media_pause
         metadata: {}
         data: {}
         target:
           entity_id: media_player.alice_mini_room_ff98f0294a56d19578794aff
+        enabled: false
   mode: single
 - id: '1731842225627'
   alias: balcone_door_open_close

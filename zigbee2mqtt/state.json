@@ -51,7 +51,7 @@
         "trigger_indicator": false,
         "occupancy": false,
         "illuminance": 0,
-        "device_temperature": 26,
+        "device_temperature": 25,
         "power_outage_count": 0,
         "linkquality": 120
     },

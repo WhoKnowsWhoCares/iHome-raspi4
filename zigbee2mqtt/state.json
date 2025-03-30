@@ -38,13 +38,13 @@
     "0xa4c13889ff22b15b": {
         "voltage": 2800,
         "battery": 100,
-        "contact": true,
+        "contact": false,
         "tamper": false,
         "battery_low": false,
         "linkquality": 105
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3049,
+        "voltage": 3050,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",

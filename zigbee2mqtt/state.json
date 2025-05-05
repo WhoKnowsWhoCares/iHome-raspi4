@@ -38,20 +38,20 @@
     "0xa4c13889ff22b15b": {
         "voltage": 2800,
         "battery": 100,
-        "contact": true,
+        "contact": false,
         "tamper": false,
         "battery_low": false,
         "linkquality": 105
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3056,
+        "voltage": 3057,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
         "illuminance": 0,
-        "device_temperature": 29,
+        "device_temperature": 28,
         "power_outage_count": 0,
         "linkquality": 109
     },

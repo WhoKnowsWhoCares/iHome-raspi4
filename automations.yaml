@@ -753,3 +753,30 @@
       message: 'ALARM: water leak in the bathroom'
       title: ALARM
   mode: single
+- id: '1746594980128'
+  alias: morning_alarm
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.morning_alarm_state
+    to: 'on'
+  conditions:
+  - condition: state
+    entity_id: input_select.home_come_leave
+    state: Home
+  - condition: state
+    entity_id: input_boolean.morning_alarm
+    state: 'on'
+  actions:
+  - action: input_boolean.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: input_boolean.morning_alarm
+  - action: script.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: script.yandex_tts_start_show
+  mode: single

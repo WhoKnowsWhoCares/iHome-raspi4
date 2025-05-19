@@ -33,7 +33,7 @@
         "fading_time": 18.5,
         "presence": false,
         "linkquality": 54,
-        "illuminance": 7
+        "illuminance": 3
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2800,
@@ -44,14 +44,14 @@
         "linkquality": 72
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3028,
+        "voltage": 3031,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
         "illuminance": 0,
-        "device_temperature": 25,
+        "device_temperature": 24,
         "power_outage_count": 0,
         "linkquality": 61
     },

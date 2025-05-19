@@ -618,7 +618,7 @@
   description: ''
   triggers:
   - trigger: time
-    at: 08:00:00
+    at: 06:00:00
     id: morning
   - trigger: time
     at: '12:00:00'
@@ -643,6 +643,11 @@
           option: Morning
         target:
           entity_id: input_select.day_part
+      - action: input_boolean.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: input_boolean.morning_alarm
     - conditions:
       - condition: trigger
         id:
@@ -757,10 +762,8 @@
   alias: morning_alarm
   description: ''
   triggers:
-  - trigger: state
-    entity_id:
-    - sensor.morning_alarm_state
-    to: 'on'
+  - trigger: time
+    at: input_datetime.morning_alarm_time
   conditions:
   - condition: state
     entity_id: input_select.home_come_leave
@@ -774,14 +777,66 @@
     data: {}
     target:
       entity_id: input_boolean.morning_alarm
-  - action: script.turn_on
-    metadata: {}
-    data: {}
-    target:
-      entity_id: script.yandex_tts_start_show
   - action: cover.open_cover
     metadata: {}
     data: {}
     target:
       entity_id: cover.curtain_curtain
+  - action: script.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: script.yandex_tts_start_show
+  mode: single
+- id: '1747686192023'
+  alias: front_door_opened
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.mi_door_sensor_contact
+    to: 'on'
+  conditions:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.home_come_leave
+      state: Home
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_select.day_part
+        state: Evening
+      sequence:
+      - action: script.yandex_tts_evening_coming
+        metadata: {}
+        data: {}
+    - conditions:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: input_select.day_part
+          state: Evening
+      sequence:
+      - action: script.yandex_tts_coming
+        metadata: {}
+        data: {}
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - if:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: input_select.home_come_leave
+        state: Home
+    then:
+    - action: notify.telegram
+      metadata: {}
+      data:
+        message: 'ALARM: front door opened'
+        title: ALARM
   mode: single

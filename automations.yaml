@@ -89,19 +89,6 @@
   - service: input_boolean.turn_off
     target:
       entity_id: input_boolean.morning_alarm
-- id: NFC PhoneCharge
-  alias: nfc_phone_charge_scanned
-  description: ''
-  trigger:
-  - platform: tag
-    tag_id: 28a20900-9be1-4e79-9b67-7a36c4dd3f21
-  condition: []
-  action:
-  - type: turn_on
-    device_id: 77e1896af65516a68096c8cc777f8bea
-    entity_id: 133c7fc6edf8770c9c265fc8f51e7484
-    domain: switch
-  mode: single
 - id: Process use High
   alias: process_use_high
   triggers:
@@ -399,15 +386,22 @@
   conditions: []
   actions:
   - if:
-    - condition: state
-      entity_id: switch.socket_switch_local
-      state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: switch.socket_switch_local
+        state: 'on'
+      - condition: state
+        entity_id: switch.socket_switch_socket_1
+        state: 'on'
     then:
     - action: switch.turn_off
       metadata: {}
       data: {}
       target:
-        entity_id: switch.socket_switch_local
+        entity_id:
+        - switch.socket_switch_socket_1
+        - switch.socket_switch_local
   - if:
     - condition: state
       entity_id: light.philips_bulb_0ba9_light
@@ -459,12 +453,17 @@
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance
           below: 20
+        - condition: state
+          entity_id: light.kitchen_bulb
+          state: 'off'
         then:
         - action: switch.turn_on
           metadata: {}
           data: {}
           target:
-            entity_id: switch.socket_switch_local
+            entity_id:
+            - switch.socket_switch_socket_1
+            - switch.socket_switch_local
       - action: input_select.select_option
         metadata: {}
         data:
@@ -483,18 +482,16 @@
         metadata: {}
         data: {}
         target:
-          entity_id: switch.socket_switch_local
+          entity_id:
+          - switch.socket_switch_socket_1
+          - switch.socket_switch_local
       - action: light.turn_off
         metadata: {}
         data: {}
         target:
-          entity_id: light.kitchen_bulb
-      - action: light.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.kitchen_bulb_local
-        enabled: false
+          entity_id:
+          - light.kitchen_bulb
+          - light.kitchen_bulb_local
       - action: media_player.media_pause
         metadata: {}
         data: {}
@@ -659,6 +656,11 @@
           option: Day
         target:
           entity_id: input_select.day_part
+      - action: input_boolean.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: input_boolean.morning_alarm
     - conditions:
       - condition: trigger
         id:
@@ -710,7 +712,9 @@
         metadata: {}
         data: {}
         target:
-          entity_id: cover.curtain_local
+          entity_id:
+          - cover.curtain_local
+          - cover.curtain_curtain
     - conditions:
       - condition: trigger
         id:
@@ -720,7 +724,9 @@
         metadata: {}
         data: {}
         target:
-          entity_id: cover.curtain_local
+          entity_id:
+          - cover.curtain_local
+          - cover.curtain_curtain
     - conditions:
       - condition: trigger
         id:
@@ -730,7 +736,9 @@
         metadata: {}
         data: {}
         target:
-          entity_id: switch.socket_switch_local
+          entity_id:
+          - switch.socket_switch_local
+          - switch.socket_switch_socket_1
     - conditions:
       - condition: trigger
         id:
@@ -740,7 +748,9 @@
         metadata: {}
         data: {}
         target:
-          entity_id: switch.socket_switch_local
+          entity_id:
+          - switch.socket_switch_local
+          - switch.socket_switch_socket_1
   mode: single
 - id: '1740162178858'
   alias: water_leak
@@ -839,4 +849,8 @@
       data:
         message: 'ALARM: front door opened'
         title: ALARM
+    - action: script.yandex_tts_alarm_warning
+      metadata: {}
+      data: {}
+      enabled: false
   mode: single

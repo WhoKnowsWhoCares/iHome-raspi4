@@ -50,8 +50,8 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 0,
-        "device_temperature": 28,
+        "illuminance": 5,
+        "device_temperature": 27,
         "power_outage_count": 0,
         "linkquality": 87
     },

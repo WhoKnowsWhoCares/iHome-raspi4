@@ -813,6 +813,11 @@
       entity_id: input_select.home_come_leave
       state: Home
   actions:
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.yeelink_mono6_6fc9_light
   - choose:
     - conditions:
       - condition: state

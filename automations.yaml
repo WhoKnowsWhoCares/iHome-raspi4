@@ -238,7 +238,21 @@
     metadata: {}
     data: {}
     target:
-      entity_id: switch.humidifier_local
+      entity_id:
+      - switch.humidifier_local
+      - switch.socket_switch_local
+      - switch.socket_switch_socket_1
+      - switch.zigbee_switch_l2
+      - switch.zigbee_switch_l1
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - light.kitchen_bulb
+      - light.kitchen_bulb_local
+      - light.philips_bulb_0ba9_light
+      - light.yeelink_mono6_6fc9_light
   - data:
       message: Looks like you left Home
     action: notify.telegram

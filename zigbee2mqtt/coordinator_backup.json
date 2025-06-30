@@ -4,7 +4,7 @@
     "version": 1,
     "source": "zigbee-herdsman@4.1.0",
     "internal": {
-      "date": "2025-06-26T20:21:41.054Z",
+      "date": "2025-06-30T19:53:13.810Z",
       "znpVersion": 1
     }
   },
@@ -25,7 +25,7 @@
   "network_key": {
     "key": "01030507090b0d0f00020406080a0c0d",
     "sequence_number": 0,
-    "frame_counter": 28340689
+    "frame_counter": 28631223
   },
   "devices": [
     {
@@ -35,7 +35,7 @@
       "link_key": {
         "key": "df3df03fcd8e94c8db39081d6fbb9e43",
         "rx_counter": 0,
-        "tx_counter": 484
+        "tx_counter": 539
       }
     },
     {
@@ -45,7 +45,7 @@
       "link_key": {
         "key": "b6f9e019f177e6c114ccea92f5731ee3",
         "rx_counter": 0,
-        "tx_counter": 2024
+        "tx_counter": 2079
       }
     },
     {
@@ -55,7 +55,7 @@
       "link_key": {
         "key": "1269bd93f5731ee3b05cb718f177e6c1",
         "rx_counter": 0,
-        "tx_counter": 2024
+        "tx_counter": 2079
       }
     },
     {
@@ -65,7 +65,7 @@
       "link_key": {
         "key": "95635a0269621af26d41f83763e91ef6",
         "rx_counter": 0,
-        "tx_counter": 396
+        "tx_counter": 451
       }
     },
     {
@@ -75,7 +75,7 @@
       "link_key": {
         "key": "56642d21b9ac345aae468f14b327305e",
         "rx_counter": 0,
-        "tx_counter": 396
+        "tx_counter": 451
       }
     },
     {
@@ -85,7 +85,7 @@
       "link_key": {
         "key": "ae4f291c19f15dbbaa4bd13ebbc45730",
         "rx_counter": 0,
-        "tx_counter": 220
+        "tx_counter": 275
       }
     },
     {
@@ -95,7 +95,7 @@
       "link_key": {
         "key": "ad553cf3d17613c22651380bf3d426c8",
         "rx_counter": 0,
-        "tx_counter": 77
+        "tx_counter": 132
       }
     },
     {
@@ -105,7 +105,7 @@
       "link_key": {
         "key": "30d8409a4cc4573034dcb8b8eef15dbb",
         "rx_counter": 0,
-        "tx_counter": 66
+        "tx_counter": 121
       }
     },
     {
@@ -115,7 +115,7 @@
       "link_key": {
         "key": "030867bd3bdb516d098363b9c3f9f358",
         "rx_counter": 0,
-        "tx_counter": 66
+        "tx_counter": 121
       }
     }
   ]

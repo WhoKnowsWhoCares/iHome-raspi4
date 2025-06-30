@@ -33,25 +33,25 @@
         "fading_time": 18.5,
         "presence": false,
         "linkquality": 109,
-        "illuminance": 3
+        "illuminance": 8
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2800,
         "battery": 100,
-        "contact": false,
+        "contact": true,
         "tamper": false,
         "battery_low": false,
         "linkquality": 94
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3015,
+        "voltage": 3014,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 5,
-        "device_temperature": 27,
+        "illuminance": 0,
+        "device_temperature": 26,
         "power_outage_count": 0,
         "linkquality": 105
     },

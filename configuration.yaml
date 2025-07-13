@@ -46,15 +46,13 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - !secret ip_proxy
-    - !secret cloudflare_proxy
-    - 198.41.200.0/24
-    - 198.41.192.0/24
+    - !secret yandex_proxy
 
-telegram_bot:
-  - platform: polling
-    api_key: !secret tg_api_key_bot
-    allowed_chat_ids:
-      - !secret tg_user_id
+# telegram_bot:
+#   - platform: polling
+#     api_key: !secret tg_api_key_bot
+#     allowed_chat_ids:
+#       - !secret tg_user_id
 
 notify:
   - name: telegram

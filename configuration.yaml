@@ -47,6 +47,7 @@ http:
   trusted_proxies:
     - !secret ip_proxy
     - !secret yandex_proxy
+    - !secret vpn_proxy
 
 # telegram_bot:
 #   - platform: polling

@@ -44,13 +44,13 @@
         "linkquality": 94
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3037,
+        "voltage": 3039,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 10,
+        "illuminance": 0,
         "device_temperature": 27,
         "power_outage_count": 0,
         "linkquality": 105

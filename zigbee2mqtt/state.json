@@ -20,7 +20,7 @@
     "0x00158d00072b9520": {
         "linkquality": 72,
         "contact": true,
-        "voltage": 3025,
+        "voltage": 3035,
         "battery": 100,
         "power_outage_count": 67
     },
@@ -44,20 +44,20 @@
         "linkquality": 94
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3028,
+        "voltage": 3027,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
         "illuminance": 0,
-        "device_temperature": 27,
+        "device_temperature": 28,
         "power_outage_count": 0,
         "linkquality": 105
     },
     "0xa4c1387e5bb322c1": {
         "battery": 100,
-        "voltage": 2500,
+        "voltage": 2400,
         "water_leak": false,
         "tamper": false,
         "battery_low": false,

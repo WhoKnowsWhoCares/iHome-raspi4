@@ -1,7 +1,7 @@
 {
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 7,
+        "illuminance": 8,
         "voltage": 3065,
         "battery": 100,
         "temperature": 28,
@@ -50,7 +50,7 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 0,
+        "illuminance": 8,
         "device_temperature": 27,
         "power_outage_count": 0,
         "linkquality": 105

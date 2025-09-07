@@ -511,6 +511,7 @@
         data: {}
         target:
           entity_id: media_player.yandex_station_m00tvb710hyxfg
+        enabled: false
     - conditions:
       - condition: trigger
         id:
@@ -623,6 +624,7 @@
       target:
         entity_id:
         - media_player.alice_mini_room_ff98f0294a56d19578794aff
+        - media_player.yandex_station_m00tvb710hyxfg
   mode: single
 - id: '1735906041235'
   alias: time_period_change

@@ -5,7 +5,7 @@
         "voltage": 3065,
         "battery": 100,
         "temperature": 28,
-        "device_temperature": 28,
+        "device_temperature": 27,
         "power_outage_count": 20,
         "linkquality": 65
     },
@@ -51,7 +51,7 @@
         "trigger_indicator": false,
         "occupancy": false,
         "illuminance": 5,
-        "device_temperature": 26,
+        "device_temperature": 27,
         "power_outage_count": 0,
         "linkquality": 98
     },

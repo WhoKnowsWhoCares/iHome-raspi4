@@ -33,12 +33,12 @@
         "fading_time": 18.5,
         "presence": false,
         "linkquality": 105,
-        "illuminance": 3
+        "illuminance": 5
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2700,
         "battery": 98,
-        "contact": false,
+        "contact": true,
         "tamper": false,
         "battery_low": false,
         "linkquality": 94
@@ -56,8 +56,8 @@
         "linkquality": 98
     },
     "0xa4c1387e5bb322c1": {
-        "battery": 100,
-        "voltage": 2300,
+        "battery": 50,
+        "voltage": 2400,
         "water_leak": false,
         "tamper": false,
         "battery_low": false,

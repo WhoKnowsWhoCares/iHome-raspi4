@@ -220,6 +220,7 @@
     - condition: state
       entity_id: input_select.home_come_leave
       state: Away
+      enabled: false
     - condition: state
       entity_id: sensor.one_plus_wifi_connection
       state: MGTS_GPON_6451
@@ -466,7 +467,7 @@
       - if:
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance
-          below: 20
+          below: 30
         - condition: state
           entity_id: light.kitchen_bulb
           state: 'off'

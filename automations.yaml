@@ -285,26 +285,26 @@
 - id: '1695065460408'
   alias: home_come
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - sensor.miband7
     to: hall
     for:
       hours: 0
       minutes: 1
       seconds: 0
-  - platform: state
-    entity_id:
+    trigger: state
+  - entity_id:
     - device_tracker.ble_tracker_miband
     to: home
     enabled: false
-  - platform: state
-    entity_id:
+    trigger: state
+  - entity_id:
     - device_tracker.asfrantsoneplus
     to: home
     enabled: false
-  condition:
+    trigger: state
+  conditions:
   - condition: state
     entity_id: sensor.miband7
     state: hall
@@ -322,15 +322,15 @@
     - condition: state
       entity_id: input_select.home_come_leave
       state: Home
-  action:
-  - service: input_select.set_options
-    data:
+  actions:
+  - data:
       options: Home
     target:
       entity_id: input_select.home_come_leave
-  - service: notify.telegram
-    data:
+    action: input_select.set_options
+  - data:
       message: Looks like you are at Home
+    action: notify.telegram
   mode: single
 - id: '1695468411896'
   alias: irrigation_counter
@@ -468,6 +468,7 @@
         - condition: numeric_state
           entity_id: sensor.presence_tuya_illuminance
           below: 30
+          enabled: true
         - condition: state
           entity_id: light.kitchen_bulb
           state: 'off'

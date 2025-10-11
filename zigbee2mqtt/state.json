@@ -17,15 +17,15 @@
         "power_outage_count": 67
     },
     "0xa4c1382fdd1fa5a5": {
-        "target_distance": 0,
+        "target_distance": 0.77,
         "maximum_range": 2.85,
         "radar_sensitivity": 9,
         "minimum_range": 0.15,
         "detection_delay": 0.1,
         "fading_time": 18.5,
-        "presence": false,
+        "presence": true,
         "linkquality": 131,
-        "illuminance": 8
+        "illuminance": 71
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2700,

@@ -214,6 +214,11 @@
     - sensor.miband7
     to: not_home
     trigger: state
+    from: hall
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
   conditions:
   - condition: not
     conditions:
@@ -235,6 +240,7 @@
     action: input_select.set_options
   - data: {}
     action: script.turn_off_everything
+    enabled: false
   - action: switch.turn_off
     metadata: {}
     data: {}
@@ -245,6 +251,7 @@
       - switch.socket_switch_socket_1
       - switch.zigbee_switch_l2
       - switch.zigbee_switch_l1
+    enabled: false
   - action: light.turn_off
     metadata: {}
     data: {}
@@ -254,6 +261,7 @@
       - light.kitchen_bulb_local
       - light.philips_bulb_0ba9_light
       - light.yeelink_mono6_6fc9_light
+    enabled: false
   - data:
       message: Looks like you left Home
     action: notify.telegram

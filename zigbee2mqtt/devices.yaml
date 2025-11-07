@@ -1,16 +1,16 @@
-'0x00158d00067c3026':
-  friendly_name: mi_move_sensor
-  occupancy_timeout: 60
-  no_occupancy_since:
-    - 30
-    - 0
 '0x5c0272fffe03c72e':
   friendly_name: zigbee_switch
 '0x00158d00072b9520':
-  friendly_name: mi_door_sensor
+  friendly_name: door_hall_xiaomi
 '0xa4c1382fdd1fa5a5':
   friendly_name: presence_tuya
 '0xa4c13889ff22b15b':
-  friendly_name: tuya_balcon
+  friendly_name: door_balcon_tuya
 '0x54ef441000c6a4b2':
-  friendly_name: move_sensor_p1
+  friendly_name: move_sensor_aqara_p1
+'0xa4c1387e5bb322c1':
+  friendly_name: bathroom_leak
+'0xa4c1383043929c95':
+  friendly_name: move_dist_sensor
+'0x00158d00067c3026':
+  friendly_name: move_sensor_aqara

@@ -16,7 +16,7 @@
         "tamper": false,
         "battery_low": false,
         "voltage": 3000,
-        "linkquality": 116
+        "linkquality": 58
     },
     "0xa4c1383043929c95": {
         "presence": false,
@@ -36,15 +36,19 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 36,
-        "linkquality": 65
+        "illuminance": 7,
+        "linkquality": 69,
+        "voltage": 3055,
+        "battery": 100,
+        "device_temperature": 25,
+        "power_outage_count": 49
     },
     "0x00158d00072b9520": {
         "voltage": 3025,
         "battery": 100,
         "power_outage_count": 71,
         "contact": true,
-        "linkquality": 102
+        "linkquality": 91
     },
     "0x5c0272fffe03c72e": {
         "state_l1": "OFF",
@@ -54,17 +58,17 @@
         "state_l3": "ON",
         "state_l4": "ON",
         "state_l5": "ON",
-        "linkquality": 94
+        "linkquality": 54
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3016,
+        "voltage": 3015,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 8,
-        "linkquality": 69,
+        "illuminance": 3,
+        "linkquality": 54,
         "device_temperature": 24,
         "power_outage_count": 0
     },
@@ -74,6 +78,6 @@
         "contact": false,
         "tamper": false,
         "battery_low": false,
-        "linkquality": 83
+        "linkquality": 65
     }
 }

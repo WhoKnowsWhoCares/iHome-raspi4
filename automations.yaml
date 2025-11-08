@@ -784,8 +784,9 @@
   triggers:
   - trigger: state
     entity_id:
-    - binary_sensor.water_sensor_water_leak
-    to: 'on'
+    - binary_sensor.bathroom_leak_water_leak
+    to:
+    - 'on'
   conditions: []
   actions:
   - action: notify.telegram

@@ -7,7 +7,7 @@ homeassistant:
   country: RU
   time_zone: Europe/Moscow
   external_url: https://ihome.frants.site
-  internal_url: http://192.168.1.75:8123
+  internal_url: http://192.168.1.202:8123
   packages: !include_dir_merge_named includes/packages
 
 logger:
@@ -48,12 +48,6 @@ http:
     - !secret ip_proxy
     - !secret yandex_proxy
     - !secret vpn_proxy
-
-# telegram_bot:
-#   - platform: polling
-#     api_key: !secret tg_api_key_bot
-#     allowed_chat_ids:
-#       - !secret tg_user_id
 
 notify:
   - name: telegram

@@ -11,15 +11,15 @@ telegramm:
 
               Прихожая
               {{"\U0001F4A1"}} Свет - {{ states('light.yeelink_mono6_6fc9_light') }} 
-              {{"\U0001f6aa"}} Дверь - {{ states('binary_sensor.mi_door_sensor_contact') }}
+              {{"\U0001f6aa"}} Дверь - {{ states('binary_sensor.door_hall_xiaomi_contact') }}
+              {{"💧"}} Протечка - {{ states('binary_sensor.bathroom_leak_water_leak') }}
 
               Комната
               {{"\U0001F4A1"}} Свет bulb/bed/string - {{ states('light.philips_bulb_0ba9_light') }}/{{ states('switch.zigbee_switch_l1') }}/{{ states('switch.zigbee_switch_l2') }} 
-              {{"\U0001f327\uFE0F"}} Увлажнитель - {{ states('switch.humidifier_local') }} 
-              {{"\U0001f6aa"}} Дверь - {{ states('binary_sensor.tuya_balcon_contact') }}
-              
+              {{"\U0001f6aa"}} Балкон - {{ states('binary_sensor.door_balcon_tuya_contact') }}
+
               Кухня
-              {{"\U0001F4A1"}} Свет main/sub - {{ states('light.kitchen_bulb_local') }}/{{ states('switch.socket_switch_local') }}
+              {{"\U0001F4A1"}} Свет main/sub - {{ states('light.kitchen_bulb') }}/{{ states('switch.socket_switch_socket_1') }}
               {{"\U0001F567"}} Таймер наполнения автополива - {{ states('input_number.irrigation_timer') }}
 
   automation:

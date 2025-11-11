@@ -212,7 +212,6 @@
   triggers:
   - entity_id:
     - sensor.miband7
-    to:
     for:
       hours: 0
       minutes: 1
@@ -221,6 +220,10 @@
     from:
     - not_home
     id: home
+    to:
+    - hall
+    - room
+    - kitchen
   - entity_id:
     - sensor.miband7
     enabled: true
@@ -249,6 +252,23 @@
       - data:
           message: Looks like you are at Home
         action: notify.telegram
+      - if:
+        - condition: state
+          entity_id: input_select.day_part
+          state:
+          - Evening
+        then:
+        - action: script.turn_on
+          metadata: {}
+          data: {}
+          target:
+            entity_id: script.yandex_tts_evening_coming
+        else:
+        - action: script.turn_on
+          metadata: {}
+          data: {}
+          target:
+            entity_id: script.yandex_tts_coming
     - conditions:
       - condition: trigger
         id:

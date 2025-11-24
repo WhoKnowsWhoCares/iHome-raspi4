@@ -40,7 +40,7 @@
         "linkquality": 91,
         "voltage": 3055,
         "battery": 100,
-        "device_temperature": 25,
+        "device_temperature": 26,
         "power_outage_count": 1019
     },
     "0x00158d00072b9520": {
@@ -67,9 +67,9 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 4,
+        "illuminance": 3,
         "linkquality": 72,
-        "device_temperature": 24,
+        "device_temperature": 25,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {

@@ -36,11 +36,11 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 0,
+        "illuminance": 7,
         "linkquality": 98,
         "voltage": 3055,
         "battery": 100,
-        "device_temperature": 25,
+        "device_temperature": 26,
         "power_outage_count": 1262
     },
     "0x00158d00072b9520": {
@@ -67,7 +67,7 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 4,
+        "illuminance": 8,
         "linkquality": 72,
         "device_temperature": 24,
         "power_outage_count": 0

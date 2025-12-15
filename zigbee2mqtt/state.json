@@ -31,17 +31,17 @@
         "small_detection_distance": 4.5,
         "small_detection_sensitivity": 5,
         "minimum_range": 0,
-        "target_distance": 1.23,
+        "target_distance": 0,
         "linkquality": 255
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 7,
+        "illuminance": 8,
         "linkquality": 98,
         "voltage": 3065,
         "battery": 100,
-        "device_temperature": 25,
-        "power_outage_count": 1303
+        "device_temperature": 26,
+        "power_outage_count": 1313
     },
     "0x00158d00072b9520": {
         "voltage": 3025,

@@ -40,7 +40,7 @@
         "linkquality": 98,
         "voltage": 3065,
         "battery": 100,
-        "device_temperature": 27,
+        "device_temperature": 28,
         "power_outage_count": 1336
     },
     "0x00158d00072b9520": {
@@ -61,7 +61,7 @@
         "linkquality": 76
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3027,
+        "voltage": 3026,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",

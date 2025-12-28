@@ -38,7 +38,7 @@
         "occupancy": false,
         "illuminance": 8,
         "linkquality": 98,
-        "voltage": 3065,
+        "voltage": 3055,
         "battery": 100,
         "device_temperature": 28,
         "power_outage_count": 1336

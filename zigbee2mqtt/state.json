@@ -41,7 +41,7 @@
         "voltage": 3065,
         "battery": 100,
         "device_temperature": 28,
-        "power_outage_count": 1336
+        "power_outage_count": 1337
     },
     "0x00158d00072b9520": {
         "voltage": 3025,
@@ -69,7 +69,7 @@
         "occupancy": false,
         "illuminance": 0,
         "linkquality": 72,
-        "device_temperature": 26,
+        "device_temperature": 27,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {

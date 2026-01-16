@@ -15,7 +15,7 @@
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 3000,
+        "voltage": 2900,
         "linkquality": 58
     },
     "0xa4c1383043929c95": {
@@ -61,7 +61,7 @@
         "linkquality": 76
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3033,
+        "voltage": 3034,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",

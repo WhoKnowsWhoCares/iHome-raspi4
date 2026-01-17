@@ -36,12 +36,12 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 8,
+        "illuminance": 7,
         "linkquality": 98,
         "voltage": 3065,
         "battery": 100,
-        "device_temperature": 28,
-        "power_outage_count": 1337
+        "device_temperature": 27,
+        "power_outage_count": 1338
     },
     "0x00158d00072b9520": {
         "voltage": 3025,
@@ -67,9 +67,9 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 0,
+        "illuminance": 4,
         "linkquality": 72,
-        "device_temperature": 27,
+        "device_temperature": 24,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {

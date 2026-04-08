@@ -35,3 +35,6 @@ zigbee2mqtt/database.db.backup
 .google.token 
 .shell_commands.yaml
 home-assistant.log
+.cache/
+.ha_run.lock
+homeassistant/

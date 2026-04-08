@@ -7,6 +7,7 @@ homeassistant:
   country: RU
   time_zone: Europe/Moscow
   external_url: https://ihome.frants.site
+  # external_url: https://ihomefrants.duckdns.org
   internal_url: http://192.168.1.202:8123
   packages: !include_dir_merge_named includes/packages
 
@@ -45,8 +46,8 @@ http:
   ssl_key: /ssl/privkey.pem
   use_x_forwarded_for: true
   trusted_proxies:
+    - 127.0.0.1
     - !secret ip_proxy
-    - !secret yandex_proxy
     - !secret vpn_proxy
 
 notify:

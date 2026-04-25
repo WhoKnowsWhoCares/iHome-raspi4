@@ -69,7 +69,7 @@
         "occupancy": false,
         "illuminance": 8,
         "linkquality": 72,
-        "device_temperature": 24,
+        "device_temperature": 25,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {

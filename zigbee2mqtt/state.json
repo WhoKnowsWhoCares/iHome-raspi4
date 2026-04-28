@@ -69,13 +69,13 @@
         "occupancy": false,
         "illuminance": 10,
         "linkquality": 72,
-        "device_temperature": 23,
+        "device_temperature": 24,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2500,
         "battery": 87,
-        "contact": true,
+        "contact": false,
         "tamper": false,
         "battery_low": false,
         "linkquality": 65

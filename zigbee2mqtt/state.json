@@ -19,8 +19,8 @@
         "linkquality": 193
     },
     "0xa4c1383043929c95": {
-        "presence": false,
-        "motion_state": "none",
+        "presence": true,
+        "motion_state": "near",
         "fading_time": 10,
         "illuminance": 0,
         "large_motion_detection_distance": 6,
@@ -31,7 +31,7 @@
         "small_detection_distance": 4.5,
         "small_detection_sensitivity": 5,
         "minimum_range": 0,
-        "target_distance": 0,
+        "target_distance": 4.4,
         "linkquality": 193
     },
     "0x00158d00067c3026": {
@@ -61,15 +61,15 @@
         "linkquality": 47
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3018,
+        "voltage": 3019,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
-        "occupancy": false,
+        "occupancy": true,
         "illuminance": 7,
         "linkquality": 43,
-        "device_temperature": 23,
+        "device_temperature": 25,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {

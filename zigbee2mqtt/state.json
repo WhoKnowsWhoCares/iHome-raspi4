@@ -15,7 +15,7 @@
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 3000,
+        "voltage": 2800,
         "linkquality": 193
     },
     "0xa4c1383043929c95": {
@@ -67,9 +67,9 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 10,
+        "illuminance": 4,
         "linkquality": 43,
-        "device_temperature": 26,
+        "device_temperature": 27,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {

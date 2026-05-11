@@ -67,15 +67,15 @@
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 0,
+        "illuminance": 10,
         "linkquality": 43,
-        "device_temperature": 28,
+        "device_temperature": 26,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2500,
         "battery": 87,
-        "contact": true,
+        "contact": false,
         "tamper": false,
         "battery_low": false,
         "linkquality": 54

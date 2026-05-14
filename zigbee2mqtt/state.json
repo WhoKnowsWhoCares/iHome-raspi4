@@ -22,7 +22,7 @@
         "presence": false,
         "motion_state": "none",
         "fading_time": 10,
-        "illuminance": 349,
+        "illuminance": 0,
         "large_motion_detection_distance": 6,
         "medium_motion_detection_distance": 6,
         "large_motion_detection_sensitivity": 3,
@@ -61,15 +61,15 @@
         "linkquality": 47
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3028,
+        "voltage": 3026,
         "battery": 100,
         "detection_interval": 30,
         "motion_sensitivity": "medium",
         "trigger_indicator": false,
         "occupancy": false,
-        "illuminance": 1,
+        "illuminance": 11,
         "linkquality": 43,
-        "device_temperature": 27,
+        "device_temperature": 28,
         "power_outage_count": 0
     },
     "0xa4c13889ff22b15b": {

@@ -364,8 +364,9 @@
   triggers:
   - trigger: state
     entity_id:
-    - light.kitchen_bulb
-    to: 'on'
+    - light.bulb_a60
+    to:
+    - 'on'
   conditions: []
   actions:
   - if:

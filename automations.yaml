@@ -195,15 +195,17 @@
         state: Evening
   actions:
   - data:
-      media_content_type: text
-      media_content_id: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
-        ,'all_day') == false %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
-        }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %} "
       enqueue: play
+      media:
+        media_content_id: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
+          ,'all_day') == false %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
+          }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %} "
+        media_content_type: text
+        metadata: {}
     target:
       entity_id:
       - media_player.yandex_station_m00tvb710hyxfg
-      - media_player.alice_mini_room_ff98f0294a56d19578794aff
+      - media_player.yandex_station_r10sjgq00a1h7k
     action: media_player.play_media
   mode: single
 - id: '1695065460408'
@@ -236,12 +238,35 @@
       hours: 0
       minutes: 1
       seconds: 0
+  - trigger: state
+    entity_id:
+    - person.alexander
+    to:
+    - home
+    from:
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    id: home_phone
+  - trigger: state
+    entity_id:
+    - person.alexander
+    from:
+    - home
+    - not_home
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    id: not_home_phone
   conditions: []
   actions:
   - choose:
     - conditions:
       - condition: trigger
         id:
+        - home_phone
         - home
       sequence:
       - data:
@@ -273,6 +298,7 @@
       - condition: trigger
         id:
         - not_home
+        - not_home_phone
       sequence:
       - data:
           options:
@@ -294,10 +320,10 @@
       - action: light.turn_off
         metadata: {}
         target:
-          entity_id:
-          - light.philips_bulb_0ba9_light
-          - light.yeelink_mono6_6fc9_light
-          - light.kitchen_bulb
+          device_id:
+          - ad6da4ba5e10f9c073f4f65b8968895f
+          - ee119ac735184ec90e8065b7d21a3d02
+          - 56f9c44e23bae09c31e5df1393b9001b
         data: {}
   mode: single
 - id: '1695468411896'
@@ -331,12 +357,10 @@
     to:
     - 'on'
   conditions:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.miband7
-      state:
-      - not_home
+  - condition: state
+    entity_id: input_select.home_come_leave
+    state:
+    - Home
   actions:
   - if:
     - condition: state
@@ -404,12 +428,10 @@
       seconds: 0
     id: presence_clear
   conditions:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.miband7
-      state:
-      - not_home
+  - condition: state
+    entity_id: input_select.home_come_leave
+    state:
+    - Home
   actions:
   - choose:
     - conditions:
@@ -520,12 +542,10 @@
     - sensor.cgllc_cgd1st_ca53_co2_density
     above: 800
   conditions:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.miband7
-      state:
-      - not_home
+  - condition: state
+    entity_id: input_select.home_come_leave
+    state:
+    - Home
   actions:
   - if:
     - condition: state

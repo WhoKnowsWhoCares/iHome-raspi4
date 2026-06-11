@@ -7,7 +7,6 @@ homeassistant:
   country: RU
   time_zone: Europe/Moscow
   external_url: https://ihome.frants.tech
-  # external_url: https://ihomefrants.duckdns.org
   internal_url: http://192.168.1.202:8123
   packages: !include_dir_merge_named includes/packages
 
@@ -58,20 +57,10 @@ notify:
 frontend:
   themes: !include_dir_merge_named themes
 
-input_boolean: !include includes/input/input_boolean.yaml
-input_number: !include includes/input/input_number.yaml
-input_select: !include includes/input/input_select.yaml
-input_datetime: !include includes/input/input_datetime.yaml
 shell_command: !include shell_commands.yaml
-
-group: !include includes/groups.yaml
-recorder: !include includes/recorder.yaml
-scene: !include includes/scenes.yaml
-alert: !include includes/alert.yaml
-
-# automation: !include_dir_merge_list includes/automation
 automation: !include automations.yaml
-light: !include_dir_merge_list includes/light
-sensor: !include_dir_merge_list includes/sensor
-switch: !include_dir_merge_list includes/switches
-script: !include_dir_merge_named includes/script
+group: !include groups.yaml
+recorder: !include recorders.yaml
+scene: !include scenes.yaml
+alert: !include alerts.yaml
+script: !include scripts.yaml

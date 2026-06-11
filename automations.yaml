@@ -29,48 +29,50 @@
         state: Evening
   actions:
   - data:
-      media_content_type: text
-      media_content_id: Через три часа запланирован спорт, не забудьте поесть
       enqueue: play
+      media:
+        media_content_id: Через три часа запланирован спорт, не забудьте поесть
+        media_content_type: text
+        metadata: {}
     target:
       entity_id:
       - media_player.yandex_station_m00tvb710hyxfg
-      - media_player.alice_mini_room_ff98f0294a56d19578794aff
+      - media_player.yandex_station_r10sjgq00a1h7k
     action: media_player.play_media
   mode: single
 - id: GitHub push updates
   alias: github_push_updates
   description: Push Updates
-  trigger:
-  - platform: time
-    at: 02:00:00
-  condition: []
-  action:
-  - service: shell_command.pushupdates_to_github
-    data: {}
+  triggers:
+  - at: 02:00:00
+    trigger: time
+  conditions: []
+  actions:
+  - data: {}
+    action: shell_command.pushupdates_to_github
   mode: single
 - id: Set theme
   alias: set_theme_at_startup
   description: ''
-  trigger:
-  - platform: homeassistant
-    event: start
-  action:
-  - service: frontend.set_theme
-    data:
+  triggers:
+  - event: start
+    trigger: homeassistant
+  actions:
+  - data:
       name: ios-dark-mode-blue-red
       mode: dark
+    action: frontend.set_theme
 - id: Database zip
   alias: database_zip
-  initial_state: true
-  trigger:
-  - platform: time
-    at: 01:00:00
-  action:
-  - service: recorder.purge
-    data:
+  triggers:
+  - at: 01:00:00
+    trigger: time
+  actions:
+  - data:
       keep_days: 3
       repack: true
+    action: recorder.purge
+  initial_state: true
 - id: Ok to Alarm
   alias: alarm_allowed
   trigger:
@@ -329,23 +331,23 @@
 - id: '1695468411896'
   alias: irrigation_counter
   description: Daily decreased counter and check if its time to refill water for plants
-  trigger:
-  - platform: time
-    at: '12:00:00'
-  condition: []
-  action:
-  - service: input_number.decrement
-    data: {}
+  triggers:
+  - at: '12:00:00'
+    trigger: time
+  conditions: []
+  actions:
+  - data: {}
     target:
       entity_id: input_number.irrigation_timer
+    action: input_number.decrement
   - if:
     - condition: numeric_state
       entity_id: input_number.irrigation_timer
       below: 10
     then:
-    - service: notify.telegram
-      data:
+    - data:
         message: Похоже пора обновить воду для полива растений
+      action: notify.telegram
   mode: single
 - id: '1714680766786'
   alias: light_room_main
@@ -636,7 +638,7 @@
           entity_id: input_select.day_part
   mode: single
 - id: '1737493121571'
-  alias: Travel
+  alias: Home_state_travel
   description: ''
   triggers:
   - trigger: time

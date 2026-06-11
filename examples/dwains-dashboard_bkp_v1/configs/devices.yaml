@@ -1,8 +1,0 @@
-binary_sensor:
-  hidden: true
-calendar:
-  hidden: true
-select:
-  hidden: true
-script:
-  hidden: true

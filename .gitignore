@@ -37,4 +37,5 @@ zigbee2mqtt/database.db.backup
 home-assistant.log
 .cache/
 .ha_run.lock
+secrets
 homeassistant/

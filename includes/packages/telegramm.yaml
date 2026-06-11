@@ -1,4 +1,11 @@
 telegramm:
+  input_number:
+    irrigation_timer:
+      name: Timer to refill water tank for plants
+      min: 0
+      max: 40
+      step: 1
+
   script:
     system_report:
       alias: Отправка отчета о состоянии системы
@@ -71,21 +78,21 @@ telegramm:
           data:
             message: "Автополив обновлен"
 
-    - id: Запуск сервера
-      alias: tg_switch_pc
-      initial_state: false
-      trigger:
-        - platform: event
-          event_type: telegram_command
-          event_data:
-            command: "/switch_pc"
-      action:
-        - service: switch.toggle
-          target:
-            entity_id: switch.remote_pc
-        - service: notify.telegram
-          data:
-            message: "Готово"
+    # - id: Запуск сервера
+    #   alias: tg_switch_pc
+    #   initial_state: false
+    #   trigger:
+    #     - platform: event
+    #       event_type: telegram_command
+    #       event_data:
+    #         command: "/switch_pc"
+    #   action:
+    #     - service: switch.toggle
+    #       target:
+    #         entity_id: switch.remote_pc
+    #     - service: notify.telegram
+    #       data:
+    #         message: "Готово"
 
     # - id: Светильник
     #   alias: toggle_light_room

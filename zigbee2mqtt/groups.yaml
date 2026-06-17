@@ -1,1 +1,6 @@
-{}
+'1':
+  friendly_name: kitchen
+'2':
+  friendly_name: room
+'3':
+  friendly_name: hall

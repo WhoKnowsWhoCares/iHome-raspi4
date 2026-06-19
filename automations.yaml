@@ -252,10 +252,7 @@
   triggers:
   - entity_id:
     - sensor.miband7
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
+    - sensor.miband10
     trigger: state
     from:
     - not_home
@@ -264,9 +261,15 @@
     - hall
     - room
     - kitchen
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    enabled: false
   - entity_id:
     - sensor.miband7
-    enabled: true
+    - sensor.miband10
+    enabled: false
     trigger: state
     to:
     - not_home
@@ -282,22 +285,48 @@
     to:
     - home
     from:
+    id: home_phone
     for:
       hours: 0
       minutes: 1
       seconds: 0
-    id: home_phone
   - trigger: state
     entity_id:
     - person.alexander
     from:
     - home
     - not_home
+    id: not_home_phone
     for:
       hours: 0
       minutes: 1
       seconds: 0
-    id: not_home_phone
+  - trigger: state
+    entity_id:
+    - sensor.xiaomi17_wi_fi_connection
+    from:
+    to:
+    - MGTS_GPON5_6451
+    - MGTS_GPON_6451
+    id: home_wifi
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    enabled: true
+  - trigger: state
+    entity_id:
+    - sensor.xiaomi17_wi_fi_connection
+    to:
+    from:
+    - MGTS_GPON5_6451
+    - MGTS_GPON_6451
+    id: not_home_wifi
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    enabled: true
   conditions: []
   actions:
   - choose:
@@ -306,6 +335,7 @@
         id:
         - home_phone
         - home
+        - home_wifi
       sequence:
       - data:
           options: Home
@@ -329,18 +359,17 @@
           data: {}
           target:
             entity_id: script.yandex_tts_coming
-      - data:
-          message: Looks like you are at Home
-        action: notify.telegram
       - action: notify.mobile_app_xiaomi17
         metadata: {}
         data:
           message: Looks like you are at Home
+          title: info
     - conditions:
       - condition: trigger
         id:
         - not_home
         - not_home_phone
+        - not_home_wifi
       sequence:
       - data:
           options:
@@ -371,6 +400,7 @@
         metadata: {}
         data:
           message: Looks like you are left Home
+          title: info
   mode: single
 - id: '1695468411896'
   alias: irrigation_counter
@@ -389,9 +419,14 @@
       entity_id: input_number.irrigation_timer
       below: 10
     then:
-    - data:
+    - action: notify.send_message
+      target:
+        entity_id:
+        - notify.mipad5
+        - notify.xiaomi17
+      data:
         message: Похоже пора обновить воду для полива растений
-      action: notify.telegram
+        title: Reminder
   mode: single
 - id: '1714680766786'
   alias: light_room_main
@@ -471,12 +506,6 @@
       minutes: 2
       seconds: 0
     id: presence_clear
-  - trigger: state
-    entity_id:
-    - binary_sensor.move_dist_sensor_presence
-    to:
-    - 'on'
-    id: presence_dist_detected
   conditions:
   - condition: state
     entity_id: input_select.home_come_leave
@@ -495,9 +524,6 @@
           entity_id: sensor.move_sensor_aqara_illuminance
           below: 30
           enabled: true
-        - condition: state
-          entity_id: light.kitchen_bulb
-          state: 'off'
         then:
         - action: switch.turn_on
           metadata: {}
@@ -513,10 +539,6 @@
         state:
         - 'off'
         entity_id: binary_sensor.move_sensor_aqara_occupancy
-      - condition: state
-        entity_id: binary_sensor.move_dist_sensor_presence
-        state:
-        - 'off'
       sequence:
       - action: switch.turn_off
         metadata: {}
@@ -765,12 +787,6 @@
     - 'on'
   conditions: []
   actions:
-  - action: notify.telegram
-    metadata: {}
-    data:
-      message: 'ALARM: water leaked in the bathroom'
-      title: ALARM
-    enabled: false
   - action: notify.send_message
     metadata: {}
     target:
@@ -821,13 +837,7 @@
     - binary_sensor.door_hall_xiaomi_contact
     to:
     - 'on'
-  conditions:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.miband7
-      state:
-      - not_home
+  conditions: []
   actions:
   - action: light.turn_on
     metadata: {}
@@ -860,17 +870,48 @@
       milliseconds: 0
   - if:
     - condition: state
-      entity_id: sensor.miband7
+      entity_id: input_select.home_come_leave
       state:
-      - not_home
+      - Away
     then:
-    - action: notify.telegram
-      metadata: {}
-      data:
-        message: 'ALARM: front door opened'
-        title: ALARM
     - action: script.yandex_tts_alarm_warning
       metadata: {}
       data: {}
       enabled: false
+    - action: notify.send_message
+      metadata: {}
+      target:
+        entity_id:
+        - notify.mipad5
+        - notify.xiaomi17
+      data:
+        message: Front door opened
+        title: ALARM
+  mode: single
+- id: '1781878872140'
+  alias: health_check_mqtt
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.zigbee2mqtt_bridge_connection_state
+    to:
+    - 'off'
+    - unavailable
+    - unknown
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  conditions: []
+  actions:
+  - action: notify.send_message
+    metadata: {}
+    target:
+      entity_id:
+      - notify.mipad5
+      - notify.xiaomi17
+    data:
+      message: MQTT not working
+      title: Warning
   mode: single

@@ -105,9 +105,19 @@
   actions:
   - repeat:
       sequence:
-      - data:
-          message: 'ALERT: Processor usage on raspi4 is high: {{states(''sensor.processor_use_percent'')|int}}%'
-        action: notify.telegram
+      - action: notify.send_message
+        target:
+          entity_id:
+          - notify.mipad5
+          - notify.xiaomi17
+        data:
+          message: 'Processor usage on raspi4 is high: {{states(''sensor.processor_use_percent'')|int}}%'
+          title: ALARM
+      - delay:
+          hours: 0
+          minutes: 1
+          seconds: 0
+          milliseconds: 0
       while:
       - condition: numeric_state
         entity_id: sensor.processor_use_percent
@@ -122,6 +132,7 @@
   - data:
       message: 'ALERT: Disk usage on raspi4 is high: {{states(''sensor.disk_use_percent'')|int}}%'
     action: notify.telegram
+    enabled: false
   - action: notify.send_message
     metadata: {}
     target:
@@ -130,47 +141,64 @@
       - notify.xiaomi17
     data:
       message: Disk usage on raspi4 is high
+      title: ALARM
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
 - id: Memory use High
   alias: memory_use_high
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.memory_use_percent
+  triggers:
+  - entity_id: sensor.memory_use_percent
     above: 90
-  action:
+    trigger: numeric_state
+    enabled: true
+  actions:
   - repeat:
       until:
       - condition: numeric_state
         entity_id: sensor.memory_use_percent
         below: 80
       sequence:
-      - service: notify.telegram
+      - action: notify.send_message
+        target:
+          entity_id:
+          - notify.mipad5
+          - notify.xiaomi17
         data:
-          message: 'ALERT: Memory usage on raspi4 is high: {{states(''sensor.memory_use_percent'')|int}}%'
+          message: 'Memory usage on raspi4 is high: {{states(''sensor.memory_use_percent'')|int}}'
+          title: ALARM
       - delay:
           hours: 0
-          minutes: 0
-          seconds: 10
+          minutes: 1
+          seconds: 0
           milliseconds: 0
 - id: Processor temperature High
   alias: processor_temp_high
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.processor_temperature
+  triggers:
+  - entity_id: sensor.processor_temperature
     above: 70
-  action:
+    trigger: numeric_state
+  actions:
   - repeat:
       until:
       - condition: numeric_state
         entity_id: sensor.processor_temperature
         below: 70
       sequence:
-      - service: notify.telegram
+      - action: notify.send_message
+        target:
+          entity_id:
+          - notify.mipad5
+          - notify.xiaomi17
         data:
-          message: 'ALERT: Processor temperature on raspi4 is high: {{states(''sensor.processor_temperature'')|int}}C'
+          message: 'Processor temperature on raspi4 is high: {{states(''sensor.processor_temperature'')|int}}C'
+          title: ALARM
       - delay:
           hours: 0
-          minutes: 0
-          seconds: 10
+          minutes: 1
+          seconds: 0
           milliseconds: 0
 - id: '1687085624939'
   alias: calendar_event
@@ -403,7 +431,11 @@
     - light.bulb_a60
     to:
     - 'on'
-  conditions: []
+  conditions:
+  - condition: state
+    entity_id: input_select.home_come_leave
+    state:
+    - Home
   actions:
   - if:
     - condition: state
@@ -738,6 +770,7 @@
     data:
       message: 'ALARM: water leaked in the bathroom'
       title: ALARM
+    enabled: false
   - action: notify.send_message
     metadata: {}
     target:
@@ -745,7 +778,13 @@
       - notify.mipad5
       - notify.xiaomi17
     data:
-      message: 'ALARM: water leaked in the bathroom'
+      message: Water leaked in the bathroom
+      title: ALARM
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
   mode: single
 - id: '1746594980128'
   alias: morning_alarm

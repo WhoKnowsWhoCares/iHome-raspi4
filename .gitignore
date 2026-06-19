@@ -10,6 +10,7 @@ deps/
 image/
 tts/
 dwains-dashboard_old_v1/
+homeassistant/
 *.db
 
 secrets.yaml
@@ -19,6 +20,7 @@ known_devices.yaml
 ssh/
 .storage/
 .cloud/
+.cache/
 
 home-assistant.log*
 home-assistant_v2.db*
@@ -27,7 +29,7 @@ ihome_github
 ihome_github.pub
 
 zigbee2mqtt/log/
-zigbee2mqtt/database.db.backup
+zigbee2mqtt/database.db.*
 
 # Ignore these files/folders
 .storage

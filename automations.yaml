@@ -807,7 +807,9 @@
   description: ''
   triggers:
   - trigger: time
-    at: sensor.xiaomi17_next_alarm
+    at:
+      entity_id: sensor.xiaomi17_next_alarm
+      offset: 03:00:00
   conditions:
   - condition: state
     entity_id: input_select.home_come_leave
@@ -827,6 +829,7 @@
     data: {}
     target:
       entity_id: script.yandex_tts_start_show
+    enabled: false
   mode: single
 - id: '1747686192023'
   alias: front_door_opened

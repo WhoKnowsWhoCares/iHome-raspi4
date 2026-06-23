@@ -73,24 +73,6 @@
       repack: true
     action: recorder.purge
   initial_state: true
-- id: Ok to Alarm
-  alias: alarm_allowed
-  trigger:
-  - platform: time
-    at: 05:00:00
-  action:
-  - service: input_boolean.turn_on
-    target:
-      entity_id: input_boolean.morning_alarm
-- id: Not ok to Alarm
-  alias: alarm_forbidden
-  trigger:
-  - platform: time
-    at: '12:00:00'
-  action:
-  - service: input_boolean.turn_off
-    target:
-      entity_id: input_boolean.morning_alarm
 - id: Process use High
   alias: process_use_high
   triggers:
@@ -317,7 +299,6 @@
   - trigger: state
     entity_id:
     - sensor.xiaomi17_wi_fi_connection
-    to:
     from:
     - MGTS_GPON5_6451
     - MGTS_GPON_6451
@@ -327,6 +308,8 @@
       minutes: 1
       seconds: 0
     enabled: true
+    to:
+    - <not connected>
   conditions: []
   actions:
   - choose:
@@ -336,6 +319,10 @@
         - home_phone
         - home
         - home_wifi
+      - condition: state
+        entity_id: input_select.home_come_leave
+        state:
+        - Away
       sequence:
       - data:
           options: Home
@@ -370,6 +357,18 @@
         - not_home
         - not_home_phone
         - not_home_wifi
+      - condition: state
+        entity_id: input_select.home_come_leave
+        state:
+        - Home
+      - condition: state
+        entity_id: sensor.xiaomi17_wi_fi_connection
+        state:
+        - <not connected>
+      - condition: state
+        entity_id: person.alexander
+        state:
+        - not_home
       sequence:
       - data:
           options:
@@ -809,7 +808,7 @@
   - trigger: time
     at:
       entity_id: sensor.xiaomi17_next_alarm
-      offset: 0:27:00
+      offset: 0:01:00
   conditions:
   - condition: state
     entity_id: input_select.home_come_leave

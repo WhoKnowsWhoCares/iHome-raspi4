@@ -428,7 +428,7 @@
         title: Reminder
   mode: single
 - id: '1714680766786'
-  alias: light_room_main
+  alias: room_presense
   description: ''
   triggers:
   - trigger: state
@@ -441,6 +441,7 @@
     entity_id: input_select.home_come_leave
     state:
     - Home
+    enabled: false
   actions:
   - if:
     - condition: state
@@ -455,6 +456,21 @@
       data: {}
       target:
         entity_id: light.philips_bulb_0ba9_light
+  - if:
+    - condition: state
+      entity_id: input_select.home_come_leave
+      state:
+      - Away
+    then:
+    - action: notify.send_message
+      metadata: {}
+      target:
+        entity_id:
+        - notify.mipad5
+        - notify.xiaomi17
+      data:
+        title: ALARM
+        message: Movement detected in the room
   mode: single
 - id: '1726249827513'
   alias: light_kitchen_main
@@ -462,7 +478,7 @@
   triggers:
   - trigger: state
     entity_id:
-    - light.bulb_a60
+    - light.kitchen_bulb_local
     to:
     - 'on'
   conditions:
@@ -470,10 +486,11 @@
     entity_id: input_select.home_come_leave
     state:
     - Home
+    enabled: false
   actions:
   - if:
     - condition: state
-      entity_id: switch.socket_switch_socket_1
+      entity_id: switch.kitchen_socket_switch_local
       state:
       - 'on'
     then:
@@ -481,8 +498,7 @@
       metadata: {}
       data: {}
       target:
-        entity_id:
-        - switch.socket_switch_socket_1
+        entity_id: switch.kitchen_socket_switch_local
   mode: single
 - id: '1730621676810'
   alias: kitchen_presense
@@ -510,6 +526,7 @@
     entity_id: input_select.home_come_leave
     state:
     - Home
+    enabled: false
   actions:
   - choose:
     - conditions:
@@ -528,8 +545,22 @@
           metadata: {}
           data: {}
           target:
+            entity_id: switch.kitchen_socket_switch_local
+      - if:
+        - condition: state
+          entity_id: input_select.home_come_leave
+          state:
+          - Away
+        then:
+        - action: notify.send_message
+          metadata: {}
+          target:
             entity_id:
-            - switch.socket_switch_socket_1
+            - notify.xiaomi17
+            - notify.mipad5
+          data:
+            title: ALARM
+            message: Movement detected in the kitchen
     - conditions:
       - condition: trigger
         id:
@@ -543,13 +574,12 @@
         metadata: {}
         data: {}
         target:
-          entity_id:
-          - switch.socket_switch_socket_1
+          entity_id: switch.kitchen_socket_switch_local
       - action: light.turn_off
         metadata: {}
         data: {}
         target:
-          entity_id: light.bulb_a60
+          entity_id: light.kitchen_bulb_local
       - action: media_player.media_pause
         metadata: {}
         data: {}
@@ -822,7 +852,7 @@
     metadata: {}
     data: {}
     target:
-      entity_id: cover.curtain_curtain
+      entity_id: cover.curtain_local
   - action: script.turn_on
     metadata: {}
     data: {}
@@ -865,21 +895,13 @@
       - action: script.yandex_tts_coming
         metadata: {}
         data: {}
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
+    enabled: false
   - if:
     - condition: state
       entity_id: input_select.home_come_leave
       state:
       - Away
     then:
-    - action: script.yandex_tts_alarm_warning
-      metadata: {}
-      data: {}
-      enabled: false
     - action: notify.send_message
       metadata: {}
       target:

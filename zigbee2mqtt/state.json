@@ -4,7 +4,7 @@
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 2700,
+        "voltage": 2600,
         "linkquality": 40
     },
     "0x00158d00072b9520": {
@@ -33,10 +33,10 @@
         "linkquality": 51
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3026,
+        "voltage": 3023,
         "battery": 100,
         "detection_interval": 30,
-        "device_temperature": 26,
+        "device_temperature": 27,
         "power_outage_count": 3,
         "illuminance": 12,
         "motion_sensitivity": "low",

@@ -501,7 +501,7 @@
         entity_id: switch.kitchen_socket_switch_local
   mode: single
 - id: '1730621676810'
-  alias: kitchen_presense
+  alias: kitchen_presence
   description: ''
   triggers:
   - trigger: state
@@ -509,8 +509,8 @@
     - binary_sensor.move_sensor_aqara_occupancy
     to:
     - 'on'
-    enabled: true
-    id: presence_detected
+    enabled: false
+    id: detected move_sensor
   - trigger: state
     entity_id:
     - binary_sensor.move_sensor_aqara_occupancy
@@ -518,9 +518,22 @@
     - 'off'
     for:
       hours: 0
-      minutes: 2
+      minutes: 1
       seconds: 0
-    id: presence_clear
+    id: clear move_sensor
+    enabled: false
+  - trigger: state
+    entity_id:
+    - sensor.linp_hb01_63e1_occupancy_sensor
+    to:
+    - has one
+    id: detected presence_sensor
+  - trigger: state
+    entity_id:
+    - sensor.linp_hb01_63e1_occupancy_sensor
+    to:
+    - no one
+    id: clear presence_sensor
   conditions:
   - condition: state
     entity_id: input_select.home_come_leave
@@ -532,14 +545,14 @@
     - conditions:
       - condition: trigger
         id:
-        - presence_detected
-        - presence_dist_detected
+        - detected move_sensor
+        - detected presence_sensor
       sequence:
       - if:
         - condition: numeric_state
           entity_id: sensor.move_sensor_aqara_illuminance
           below: 30
-          enabled: true
+          enabled: false
         then:
         - action: switch.turn_on
           metadata: {}
@@ -564,11 +577,13 @@
     - conditions:
       - condition: trigger
         id:
-        - presence_clear
+        - clear presence_sensor
+        - clear move_sensor
       - condition: state
         state:
         - 'off'
         entity_id: binary_sensor.move_sensor_aqara_occupancy
+        enabled: false
       sequence:
       - action: switch.turn_off
         metadata: {}

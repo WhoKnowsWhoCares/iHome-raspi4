@@ -428,7 +428,7 @@
         title: Reminder
   mode: single
 - id: '1714680766786'
-  alias: room_presense
+  alias: room_presence
   description: ''
   triggers:
   - trigger: state
@@ -481,12 +481,7 @@
     - light.kitchen_bulb_local
     to:
     - 'on'
-  conditions:
-  - condition: state
-    entity_id: input_select.home_come_leave
-    state:
-    - Home
-    enabled: false
+  conditions: []
   actions:
   - if:
     - condition: state
@@ -509,7 +504,7 @@
     - binary_sensor.move_sensor_aqara_occupancy
     to:
     - 'on'
-    enabled: false
+    enabled: true
     id: detected move_sensor
   - trigger: state
     entity_id:
@@ -528,18 +523,18 @@
     to:
     - has one
     id: detected presence_sensor
+    enabled: false
+    from:
+    - has one
   - trigger: state
     entity_id:
     - sensor.linp_hb01_63e1_occupancy_sensor
     to:
     - no one
     id: clear presence_sensor
-  conditions:
-  - condition: state
-    entity_id: input_select.home_come_leave
-    state:
-    - Home
-    enabled: false
+    from:
+    - has one
+  conditions: []
   actions:
   - choose:
     - conditions:
@@ -552,7 +547,7 @@
         - condition: numeric_state
           entity_id: sensor.move_sensor_aqara_illuminance
           below: 30
-          enabled: false
+          enabled: true
         then:
         - action: switch.turn_on
           metadata: {}
@@ -578,12 +573,11 @@
       - condition: trigger
         id:
         - clear presence_sensor
-        - clear move_sensor
       - condition: state
         state:
         - 'off'
         entity_id: binary_sensor.move_sensor_aqara_occupancy
-        enabled: false
+        enabled: true
       sequence:
       - action: switch.turn_off
         metadata: {}
@@ -600,7 +594,7 @@
         data: {}
         target:
           entity_id: media_player.yandex_station_m00tvb710hyxfg
-        enabled: false
+        enabled: true
   mode: single
 - id: '1731842225627'
   alias: balcone_door_open_close

@@ -577,7 +577,7 @@
         state:
         - 'off'
         entity_id: binary_sensor.move_sensor_aqara_occupancy
-        enabled: true
+        enabled: false
       sequence:
       - action: switch.turn_off
         metadata: {}

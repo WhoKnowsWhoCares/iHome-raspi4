@@ -31,9 +31,18 @@
   - data:
       enqueue: play
       media:
-        media_content_id: Через три часа запланирован спорт, не забудьте поесть
-        media_content_type: text
-        metadata: {}
+        media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
+        media_content_type: audio/mp3
+        metadata:
+          title: '"Через три часа запланирован спорт, не забудьте поесть"'
+          thumbnail: https://brands.home-assistant.io/_/tts/icon.png
+          media_class: app
+          children_media_class:
+          navigateIds:
+          - {}
+          - media_content_type: audio/mp3
+            media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
+          browse_entity_id: media_player.yandex_station_m00tvb710hyxfg
     target:
       entity_id:
       - media_player.yandex_station_m00tvb710hyxfg
@@ -658,9 +667,18 @@
     - action: media_player.play_media
       data:
         media:
-          media_content_id: Необходимо проветрить в комнате
-          media_content_type: text
-          metadata: {}
+          media_content_id: media-source://tts/747970653d74657874?message=%22%D0%9D%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D0%BE+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%82%D1%80%D0%B8%D1%82%D1%8C+%D0%B2+%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%B5%22
+          media_content_type: audio/mp3
+          metadata:
+            title: '"Необходимо проветрить в комнате"'
+            thumbnail: https://brands.home-assistant.io/_/tts/icon.png
+            media_class: app
+            children_media_class:
+            navigateIds:
+            - {}
+            - media_content_type: audio/mp3
+              media_content_id: media-source://tts/747970653d74657874?message=%22%D0%9D%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D0%BE+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%82%D1%80%D0%B8%D1%82%D1%8C+%D0%B2+%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%B5%22
+            browse_entity_id: media_player.yandex_station_r10sjgq00a1h7k
       target:
         entity_id: media_player.yandex_station_r10sjgq00a1h7k
     - action: notify.send_message
@@ -890,9 +908,15 @@
       - condition: state
         entity_id: input_select.day_part
         state: Evening
+      - condition: state
+        entity_id: input_select.home_come_leave
+        state:
+        - Away
       sequence:
-      - action: script.yandex_tts_evening_coming
+      - action: script.turn_on
         metadata: {}
+        target:
+          entity_id: script.yandex_tts_evening_coming
         data: {}
     - conditions:
       - condition: not
@@ -900,11 +924,22 @@
         - condition: state
           entity_id: input_select.day_part
           state: Evening
+      - condition: state
+        entity_id: input_select.home_come_leave
+        state:
+        - Away
       sequence:
-      - action: script.yandex_tts_coming
+      - action: script.turn_on
         metadata: {}
+        target:
+          entity_id: script.yandex_tts_coming
         data: {}
-    enabled: false
+    enabled: true
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
   - if:
     - condition: state
       entity_id: input_select.home_come_leave
@@ -920,6 +955,12 @@
       data:
         message: Front door opened
         title: ALARM
+    - action: script.turn_on
+      metadata: {}
+      target:
+        entity_id: script.yandex_tts_alarm_warning
+      data: {}
+      enabled: false
   mode: single
 - id: '1781878872140'
   alias: health_check_mqtt

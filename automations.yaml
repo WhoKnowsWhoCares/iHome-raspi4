@@ -566,7 +566,6 @@
       - condition: trigger
         id:
         - detected move_sensor
-        - detected presence_sensor
       sequence:
       - if:
         - condition: numeric_state
@@ -1015,7 +1014,6 @@
     from:
     - heating
     to:
-    - idle
   conditions: []
   actions:
   - if:

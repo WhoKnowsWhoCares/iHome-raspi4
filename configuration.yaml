@@ -41,13 +41,14 @@ default_config:
 
 http:
   # server_port: 443
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  #ssl_certificate: /ssl/fullchain.pem
+  #ssl_key: /ssl/privkey.pem
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
-    - !secret ip_proxy
-    - !secret vpn_proxy
+    - !secret local_proxy
+    - !secret wg_proxy
+    - !secret selectel_proxy
 
 notify:
   - name: telegram

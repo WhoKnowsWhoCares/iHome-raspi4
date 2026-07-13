@@ -541,7 +541,7 @@
       minutes: 1
       seconds: 0
     id: clear move_sensor
-    enabled: false
+    enabled: true
   - trigger: state
     entity_id:
     - sensor.linp_hb01_63e1_occupancy_sensor
@@ -602,6 +602,31 @@
       - condition: trigger
         id:
         - clear presence_sensor
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.kitchen_socket_switch_local
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.kitchen_bulb_local
+      - action: media_player.media_pause
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.yandex_station_m00tvb710hyxfg
+        enabled: true
+    - conditions:
+      - condition: trigger
+        id:
+        - clear move_sensor
+      - condition: state
+        entity_id: sensor.linp_hb01_63e1_occupancy_sensor
+        state:
+        - no one
       sequence:
       - action: switch.turn_off
         metadata: {}

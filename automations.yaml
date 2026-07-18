@@ -28,26 +28,56 @@
         entity_id: input_select.day_part
         state: Evening
   actions:
-  - data:
-      enqueue: play
-      media:
-        media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
-        media_content_type: audio/mp3
-        metadata:
-          title: '"Через три часа запланирован спорт, не забудьте поесть"'
-          thumbnail: https://brands.home-assistant.io/_/tts/icon.png
-          media_class: app
-          children_media_class:
-          navigateIds:
-          - {}
-          - media_content_type: audio/mp3
-            media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
-          browse_entity_id: media_player.yandex_station_m00tvb710hyxfg
-    target:
-      entity_id:
-      - media_player.yandex_station_m00tvb710hyxfg
-      - media_player.yandex_station_r10sjgq00a1h7k
-    action: media_player.play_media
+  - if:
+    - condition: state
+      entity_id: sensor.linp_hb01_1609_occupancy_sensor
+      state:
+      - has one
+    then:
+    - data:
+        enqueue: play
+        media:
+          media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
+          media_content_type: audio/mp3
+          metadata:
+            title: '"Через три часа запланирован спорт, не забудьте поесть"'
+            thumbnail: https://brands.home-assistant.io/_/tts/icon.png
+            media_class: app
+            children_media_class:
+            navigateIds:
+            - {}
+            - media_content_type: audio/mp3
+              media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
+            browse_entity_id: media_player.yandex_station_m00tvb710hyxfg
+      target:
+        entity_id:
+        - media_player.yandex_station_r10sjgq00a1h7k
+      action: media_player.play_media
+  - if:
+    - condition: state
+      entity_id: sensor.linp_hb01_63e1_occupancy_sensor
+      state:
+      - has one
+    then:
+    - data:
+        enqueue: play
+        media:
+          media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
+          media_content_type: audio/mp3
+          metadata:
+            title: '"Через три часа запланирован спорт, не забудьте поесть"'
+            thumbnail: https://brands.home-assistant.io/_/tts/icon.png
+            media_class: app
+            children_media_class:
+            navigateIds:
+            - {}
+            - media_content_type: audio/mp3
+              media_content_id: media-source://tts/747970653d74657874?message=%22%D0%A7%D0%B5%D1%80%D0%B5%D0%B7+%D1%82%D1%80%D0%B8+%D1%87%D0%B0%D1%81%D0%B0+%D0%B7%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD+%D1%81%D0%BF%D0%BE%D1%80%D1%82%2C+%D0%BD%D0%B5+%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D1%8C%D1%82%D0%B5+%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%22
+            browse_entity_id: media_player.yandex_station_m00tvb710hyxfg
+      target:
+        entity_id:
+        - media_player.yandex_station_m00tvb710hyxfg
+      action: media_player.play_media
   mode: single
 - id: GitHub push updates
   alias: github_push_updates
@@ -223,19 +253,42 @@
         entity_id: input_select.day_part
         state: Evening
   actions:
-  - data:
-      enqueue: play
-      media:
-        media_content_id: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
-          ,'all_day') == false %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
-          }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %} "
-        media_content_type: text
-        metadata: {}
-    target:
-      entity_id:
-      - media_player.yandex_station_m00tvb710hyxfg
-      - media_player.yandex_station_r10sjgq00a1h7k
-    action: media_player.play_media
+  - if:
+    - condition: state
+      entity_id: sensor.linp_hb01_1609_occupancy_sensor
+      state:
+      - has one
+    then:
+    - data:
+        enqueue: play
+        media:
+          media_content_id: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
+            ,'all_day') == false %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
+            }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %} "
+          media_content_type: text
+          metadata: {}
+      target:
+        entity_id:
+        - media_player.yandex_station_r10sjgq00a1h7k
+      action: media_player.play_media
+  - if:
+    - condition: state
+      entity_id: sensor.linp_hb01_63e1_occupancy_sensor
+      state:
+      - has one
+    then:
+    - data:
+        enqueue: play
+        media:
+          media_content_id: "Через полчаса начнется  {%  if state_attr('sensor.ical_mycalendar_event_0'
+            ,'all_day') == false %}\n  {{ state_attr(\"sensor.ical_mycalendar_event_0\",\"summary\")
+            }}\n{% else %}\n  событие. Проверьте календарь\n{% endif %} "
+          media_content_type: text
+          metadata: {}
+      target:
+        entity_id:
+        - media_player.yandex_station_m00tvb710hyxfg
+      action: media_player.play_media
   mode: single
 - id: '1695065460408'
   alias: home_come_leave
@@ -548,17 +601,21 @@
     to:
     - has one
     id: detected presence_sensor
-    enabled: false
-    from:
-    - has one
+    enabled: true
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
   - trigger: state
     entity_id:
     - sensor.linp_hb01_63e1_occupancy_sensor
     to:
     - no one
     id: clear presence_sensor
-    from:
-    - has one
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
   conditions: []
   actions:
   - choose:
@@ -567,17 +624,41 @@
         id:
         - detected move_sensor
       sequence:
-      - if:
-        - condition: numeric_state
-          entity_id: sensor.move_sensor_aqara_illuminance
-          below: 30
-          enabled: true
-        then:
-        - action: switch.turn_on
-          metadata: {}
-          data: {}
-          target:
-            entity_id: switch.kitchen_socket_switch_local
+      - choose:
+        - conditions:
+          - condition: numeric_state
+            entity_id: sensor.move_sensor_aqara_illuminance
+            below: 30
+            enabled: true
+          - condition: state
+            entity_id: input_boolean.restore_kitchen_state
+            state:
+            - 'on'
+          sequence:
+          - action: input_boolean.turn_off
+            metadata: {}
+            target:
+              entity_id: input_boolean.restore_kitchen_state
+            data: {}
+          - action: scene.turn_on
+            target:
+              entity_id: scene.kitchen_last_state
+            data: {}
+        - conditions:
+          - condition: numeric_state
+            entity_id: sensor.move_sensor_aqara_illuminance
+            below: 30
+            enabled: true
+          - condition: state
+            entity_id: input_boolean.restore_kitchen_state
+            state:
+            - 'off'
+          sequence:
+          - action: switch.turn_on
+            metadata: {}
+            data: {}
+            target:
+              entity_id: switch.kitchen_socket_switch_local
       - delay:
           hours: 0
           minutes: 2
@@ -601,33 +682,79 @@
     - conditions:
       - condition: trigger
         id:
-        - clear presence_sensor
+        - detected presence_sensor
       sequence:
-      - action: switch.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.kitchen_socket_switch_local
-      - action: light.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.kitchen_bulb_local
-      - action: media_player.media_pause
-        metadata: {}
-        data: {}
-        target:
-          entity_id: media_player.yandex_station_m00tvb710hyxfg
-        enabled: true
+      - choose:
+        - conditions:
+          - condition: numeric_state
+            entity_id: sensor.move_sensor_aqara_illuminance
+            below: 30
+            enabled: true
+          - condition: state
+            entity_id: input_boolean.restore_kitchen_state
+            state:
+            - 'on'
+          sequence:
+          - action: input_boolean.turn_off
+            metadata: {}
+            target:
+              entity_id: input_boolean.restore_kitchen_state
+            data: {}
+          - action: scene.turn_on
+            target:
+              entity_id: scene.kitchen_last_state
+            data: {}
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - if:
+        - condition: state
+          entity_id: input_select.home_come_leave
+          state:
+          - Away
+        then:
+        - action: notify.send_message
+          metadata: {}
+          target:
+            entity_id:
+            - notify.xiaomi17
+            - notify.mipad5
+          data:
+            title: ALARM
+            message: Movement detected in the kitchen
     - conditions:
       - condition: trigger
         id:
         - clear move_sensor
+        - clear presence_sensor
       - condition: state
         entity_id: sensor.linp_hb01_63e1_occupancy_sensor
         state:
         - no one
+      - condition: or
+        conditions:
+        - condition: switch.is_on
+          target:
+            entity_id: switch.kitchen_socket_switch_local
+          options:
+            behavior: any
+            for: 00:00:00
+        - condition: light.is_on
+          target:
+            entity_id: light.kitchen_bulb_local
+          options:
+            behavior: any
+            for: 00:00:00
       sequence:
+      - action: scene.create
+        metadata: {}
+        data:
+          scene_id: kitchen_last_state
+          snapshot_entities:
+          - switch.kitchen_socket_switch_local
+          - light.kitchen_bulb_local
       - action: switch.turn_off
         metadata: {}
         data: {}
@@ -643,7 +770,22 @@
         data: {}
         target:
           entity_id: media_player.yandex_station_m00tvb710hyxfg
-        enabled: true
+        enabled: false
+      - action: input_boolean.turn_on
+        metadata: {}
+        target:
+          entity_id: input_boolean.restore_kitchen_state
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 5
+          seconds: 0
+          milliseconds: 0
+      - action: input_boolean.turn_off
+        metadata: {}
+        target:
+          entity_id: input_boolean.restore_kitchen_state
+        data: {}
   mode: single
 - id: '1731842225627'
   alias: balcone_door_open_close
@@ -1039,7 +1181,11 @@
     from:
     - heating
     to:
-  conditions: []
+  conditions:
+  - condition: state
+    entity_id: sensor.linp_hb01_1609_occupancy_sensor
+    state:
+    - has one
   actions:
   - if:
     - condition: numeric_state

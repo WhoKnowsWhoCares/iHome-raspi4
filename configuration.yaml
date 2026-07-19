@@ -40,15 +40,16 @@ yandex_smart_home:
 default_config:
 
 http:
+  #server_host: 0.0.0.0
+  #server_port: 8123
   #server_port: 443
   ssl_certificate: /ssl/certificate.pem
   ssl_key: /ssl/privkey.pem
-  server_host: 0.0.0.0
-  server_port: 8123
   use_x_forwarded_for: true
   trusted_proxies:
+    - 0.0.0.0
     - 127.0.0.1
-    - 172.30.30.0/24
+    - 172.30.0.0/16
     - !secret local_proxy
     - !secret wg_proxy
     - !secret selectel_proxy

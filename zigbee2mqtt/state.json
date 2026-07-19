@@ -22,7 +22,7 @@
         "state_l3": "OFF",
         "state_l4": "ON",
         "state_l5": "ON",
-        "linkquality": 54
+        "linkquality": 87
     },
     "0xa4c13889ff22b15b": {
         "voltage": 2500,
@@ -41,13 +41,13 @@
         "illuminance": 12,
         "motion_sensitivity": "low",
         "trigger_indicator": false,
-        "occupancy": false,
+        "occupancy": true,
         "linkquality": 43
     },
     "0x00158d00067c3026": {
         "occupancy": false,
         "illuminance": 10,
-        "linkquality": 91,
+        "linkquality": 105,
         "voltage": 3185,
         "battery": 100,
         "device_temperature": 30,

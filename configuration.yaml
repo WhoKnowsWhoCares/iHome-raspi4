@@ -45,6 +45,8 @@ http:
   #server_port: 443
   ssl_certificate: /ssl/certificate.pem
   ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
   use_x_forwarded_for: true
   trusted_proxies:
     - 0.0.0.0

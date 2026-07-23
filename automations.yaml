@@ -577,6 +577,11 @@
       state:
       - 'on'
     then:
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
     - action: switch.turn_off
       metadata: {}
       data: {}

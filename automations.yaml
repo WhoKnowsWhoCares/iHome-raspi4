@@ -486,57 +486,113 @@
     - binary_sensor.move_sensor_aqara_p1_occupancy
     to:
     - 'on'
+    from:
+    - 'off'
+    id: detected move_sensor
+  - trigger: state
+    entity_id:
+    - binary_sensor.move_sensor_aqara_p1_occupancy
+    to:
+    - 'off'
+    from:
+    - 'on'
+    id: clear move_sensor
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  - trigger: state
+    entity_id:
+    - sensor.linp_hb01_1609_occupancy_sensor
+    from:
+    - has one
+    to:
+    - no one
+    id: clear presence_sensor
+  - trigger: state
+    entity_id:
+    - sensor.linp_hb01_1609_occupancy_sensor
+    from:
+    - no one
+    to:
+    - has one
+    id: detected presence_sensor
   conditions: []
   actions:
-  - if:
-    - condition: state
-      entity_id: light.philips_bulb_0ba9_light
-      state: 'off'
-    - condition: numeric_state
-      entity_id: sensor.move_sensor_aqara_p1_illuminance
-      below: 20
-    then:
-    - if:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - detected move_sensor
+      sequence:
+      - if:
+        - condition: state
+          entity_id: light.philips_bulb_0ba9_light
+          state: 'off'
+        - condition: numeric_state
+          entity_id: sensor.move_sensor_aqara_p1_illuminance
+          below: 25
+        then:
+        - if:
+          - condition: state
+            entity_id: input_select.day_part
+            state:
+            - Night
+          then:
+          - action: light.turn_on
+            metadata: {}
+            data:
+              color_temp_kelvin: 4009
+              brightness_pct: 50
+            target:
+              entity_id: light.philips_bulb_0ba9_light
+          else:
+          - action: light.turn_on
+            metadata: {}
+            data:
+              color_temp_kelvin: 6500
+              brightness_pct: 100
+            target:
+              entity_id: light.philips_bulb_0ba9_light
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - if:
+        - condition: state
+          entity_id: input_select.home_come_leave
+          state:
+          - Away
+        then:
+        - action: notify.send_message
+          metadata: {}
+          target:
+            entity_id:
+            - notify.mipad5
+            - notify.xiaomi17
+          data:
+            title: ALARM
+            message: Movement detected in the room
+    - conditions:
+      - condition: trigger
+        id:
+        - clear move_sensor
+        - clear presence_sensor
       - condition: state
-        entity_id: input_select.day_part
+        entity_id: binary_sensor.move_sensor_aqara_p1_occupancy
         state:
-        - Night
-      then:
-      - action: light.turn_on
+        - 'off'
+      - condition: state
+        entity_id: sensor.linp_hb01_1609_occupancy_sensor
+        state:
+        - no one
+      sequence:
+      - action: light.turn_off
         metadata: {}
-        data:
-          color_temp_kelvin: 4009
-          brightness_pct: 50
         target:
           entity_id: light.philips_bulb_0ba9_light
-      else:
-      - action: light.turn_on
-        metadata: {}
-        data:
-          color_temp_kelvin: 6500
-          brightness_pct: 100
-        target:
-          entity_id: light.philips_bulb_0ba9_light
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - if:
-    - condition: state
-      entity_id: input_select.home_come_leave
-      state:
-      - Away
-    then:
-    - action: notify.send_message
-      metadata: {}
-      target:
-        entity_id:
-        - notify.mipad5
-        - notify.xiaomi17
-      data:
-        title: ALARM
-        message: Movement detected in the room
+        data: {}
   mode: single
 - id: '1726249827513'
   alias: light_kitchen_main
@@ -577,6 +633,8 @@
     - 'on'
     enabled: true
     id: detected move_sensor
+    from:
+    - 'off'
   - trigger: state
     entity_id:
     - binary_sensor.move_sensor_aqara_occupancy
@@ -588,6 +646,8 @@
       seconds: 0
     id: clear move_sensor
     enabled: true
+    from:
+    - 'on'
   - trigger: state
     entity_id:
     - sensor.linp_hb01_63e1_occupancy_sensor

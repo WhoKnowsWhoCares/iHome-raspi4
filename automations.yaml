@@ -1151,6 +1151,11 @@
     data: {}
     target:
       entity_id: light.yeelink_mono6_6fc9_light
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
   - choose:
     - conditions:
       - condition: state

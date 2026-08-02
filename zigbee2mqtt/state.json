@@ -1,10 +1,10 @@
 {
     "0xa4c1387e5bb322c1": {
-        "battery": 50,
+        "battery": 100,
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 2400,
+        "voltage": 2500,
         "linkquality": 40
     },
     "0x00158d00072b9520": {
@@ -18,7 +18,7 @@
         "state_l1": "OFF",
         "power_outage_memory_l1": "restore",
         "child_lock": "UNLOCK",
-        "state_l2": "ON",
+        "state_l2": "OFF",
         "state_l3": "OFF",
         "state_l4": "ON",
         "state_l5": "ON",
@@ -33,12 +33,12 @@
         "linkquality": 51
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3011,
-        "battery": 100,
+        "voltage": 2990,
+        "battery": 93,
         "detection_interval": 30,
-        "device_temperature": 30,
+        "device_temperature": 31,
         "power_outage_count": 3,
-        "illuminance": 8,
+        "illuminance": 12,
         "motion_sensitivity": "low",
         "trigger_indicator": false,
         "occupancy": false,
@@ -46,11 +46,11 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 150,
+        "illuminance": 10,
         "linkquality": 105,
         "voltage": 3165,
         "battery": 100,
-        "device_temperature": 30,
+        "device_temperature": 32,
         "power_outage_count": 2114
     }
 }

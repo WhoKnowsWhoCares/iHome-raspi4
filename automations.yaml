@@ -531,7 +531,7 @@
           state: 'off'
         - condition: numeric_state
           entity_id: sensor.move_sensor_aqara_p1_illuminance
-          below: 25
+          below: 20
         then:
         - action: light.turn_on
           metadata: {}

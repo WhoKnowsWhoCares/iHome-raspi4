@@ -19,7 +19,7 @@
         "power_outage_memory_l1": "restore",
         "child_lock": "UNLOCK",
         "state_l2": "OFF",
-        "state_l3": "OFF",
+        "state_l3": "ON",
         "state_l4": "ON",
         "state_l5": "ON",
         "linkquality": 87
@@ -33,12 +33,12 @@
         "linkquality": 51
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 2991,
-        "battery": 94,
+        "voltage": 3031,
+        "battery": 100,
         "detection_interval": 30,
-        "device_temperature": 30,
+        "device_temperature": 32,
         "power_outage_count": 3,
-        "illuminance": 8,
+        "illuminance": 9,
         "motion_sensitivity": "low",
         "trigger_indicator": false,
         "occupancy": false,
@@ -46,11 +46,11 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 9,
+        "illuminance": 10,
         "linkquality": 105,
         "voltage": 3165,
         "battery": 100,
-        "device_temperature": 31,
+        "device_temperature": 32,
         "power_outage_count": 2114
     }
 }

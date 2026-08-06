@@ -574,6 +574,29 @@
         state:
         - no one
       sequence:
+      - if:
+        - condition: state
+          entity_id: sensor.linp_hb01_4ee8_occupancy_sensor
+          state:
+          - no one
+        - condition: state
+          entity_id: sensor.linp_hb01_1609_occupancy_sensor
+          state:
+          - no one
+        - condition: state
+          entity_id: sensor.linp_hb01_63e1_occupancy_sensor
+          state:
+          - no one
+        - condition: state
+          entity_id: input_select.day_part
+          state:
+          - Evening
+        then:
+        - action: switch.turn_on
+          metadata: {}
+          data: {}
+          target:
+            entity_id: switch.zigbee_switch_l1
       - action: light.turn_off
         metadata: {}
         target:
@@ -879,23 +902,29 @@
       - Day
       - Evening
     then:
-    - action: media_player.play_media
-      data:
-        media:
-          media_content_id: media-source://tts/747970653d74657874?message=%22%D0%9D%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D0%BE+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%82%D1%80%D0%B8%D1%82%D1%8C+%D0%B2+%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%B5%22
-          media_content_type: audio/mp3
-          metadata:
-            title: '"Необходимо проветрить в комнате"'
-            thumbnail: https://brands.home-assistant.io/_/tts/icon.png
-            media_class: app
-            children_media_class:
-            navigateIds:
-            - {}
-            - media_content_type: audio/mp3
-              media_content_id: media-source://tts/747970653d74657874?message=%22%D0%9D%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D0%BE+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%82%D1%80%D0%B8%D1%82%D1%8C+%D0%B2+%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%B5%22
-            browse_entity_id: media_player.yandex_station_r10sjgq00a1h7k
-      target:
-        entity_id: media_player.yandex_station_r10sjgq00a1h7k
+    - if:
+      - condition: state
+        entity_id: sensor.xiaomi17_do_not_disturb_sensor
+        state:
+        - 'off'
+      then:
+      - action: media_player.play_media
+        data:
+          media:
+            media_content_id: media-source://tts/747970653d74657874?message=%22%D0%9D%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D0%BE+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%82%D1%80%D0%B8%D1%82%D1%8C+%D0%B2+%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%B5%22
+            media_content_type: audio/mp3
+            metadata:
+              title: '"Необходимо проветрить в комнате"'
+              thumbnail: https://brands.home-assistant.io/_/tts/icon.png
+              media_class: app
+              children_media_class:
+              navigateIds:
+              - {}
+              - media_content_type: audio/mp3
+                media_content_id: media-source://tts/747970653d74657874?message=%22%D0%9D%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D0%BE+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%82%D1%80%D0%B8%D1%82%D1%8C+%D0%B2+%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%B5%22
+              browse_entity_id: media_player.yandex_station_r10sjgq00a1h7k
+        target:
+          entity_id: media_player.yandex_station_r10sjgq00a1h7k
     - action: notify.send_message
       metadata: {}
       target:
@@ -1325,4 +1354,69 @@
     target:
       entity_id: humidifier.humidifier_local
     data: {}
+  mode: single
+- id: '1786020484496'
+  alias: Evening notification
+  description: ''
+  triggers:
+  - trigger: time
+    at: '22:00:00'
+  conditions:
+  - condition: state
+    entity_id: input_select.home_come_leave
+    state:
+    - Home
+  - condition: state
+    entity_id: sensor.xiaomi17_do_not_disturb_sensor
+    state:
+    - 'off'
+  actions:
+  - if:
+    - condition: state
+      entity_id: sensor.linp_hb01_63e1_occupancy_sensor
+      state:
+      - has one
+    then:
+    - action: media_player.play_media
+      metadata: {}
+      target:
+        entity_id: media_player.yandex_station_m00tvb710hyxfg
+      data:
+        media:
+          media_content_id: media-source://tts/747970653d74657874?message=%D0%9D%D0%B5+%D0%BF%D0%BE%D1%80%D0%B0+%D0%BB%D0%B8++%D0%BE%D1%82%D0%BB%D0%BE%D0%B6%D0%B8%D1%82%D1%8C+%D0%B4%D0%B5%D0%BB%D0%B0+%D0%B8+%D0%BF%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C+%D0%BF%D0%B5%D1%80%D0%B5%D0%B4+%D1%81%D0%BD%D0%BE%D0%BC
+          media_content_type: audio/mp3
+          metadata:
+            title: Не пора ли  отложить дела и почитать перед сном
+            thumbnail: https://brands.home-assistant.io/_/tts/icon.png
+            media_class: app
+            children_media_class:
+            navigateIds:
+            - {}
+            - media_content_type: audio/mp3
+              media_content_id: media-source://tts/747970653d74657874?message=%D0%9D%D0%B5+%D0%BF%D0%BE%D1%80%D0%B0+%D0%BB%D0%B8++%D0%BE%D1%82%D0%BB%D0%BE%D0%B6%D0%B8%D1%82%D1%8C+%D0%B4%D0%B5%D0%BB%D0%B0+%D0%B8+%D0%BF%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C+%D0%BF%D0%B5%D1%80%D0%B5%D0%B4+%D1%81%D0%BD%D0%BE%D0%BC
+            browse_entity_id: media_player.yandex_station_m00tvb710hyxfg
+  - if:
+    - condition: state
+      entity_id: sensor.linp_hb01_1609_occupancy_sensor
+      state:
+      - has one
+    then:
+    - action: media_player.play_media
+      metadata: {}
+      data:
+        media:
+          media_content_id: media-source://tts/747970653d74657874?message=%D0%9D%D0%B5+%D0%BF%D0%BE%D1%80%D0%B0+%D0%BB%D0%B8++%D0%BE%D1%82%D0%BB%D0%BE%D0%B6%D0%B8%D1%82%D1%8C+%D0%B4%D0%B5%D0%BB%D0%B0+%D0%B8+%D0%BF%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C+%D0%BF%D0%B5%D1%80%D0%B5%D0%B4+%D1%81%D0%BD%D0%BE%D0%BC
+          media_content_type: audio/mp3
+          metadata:
+            title: Не пора ли  отложить дела и почитать перед сном
+            thumbnail: https://brands.home-assistant.io/_/tts/icon.png
+            media_class: app
+            children_media_class:
+            navigateIds:
+            - {}
+            - media_content_type: audio/mp3
+              media_content_id: media-source://tts/747970653d74657874?message=%D0%9D%D0%B5+%D0%BF%D0%BE%D1%80%D0%B0+%D0%BB%D0%B8++%D0%BE%D1%82%D0%BB%D0%BE%D0%B6%D0%B8%D1%82%D1%8C+%D0%B4%D0%B5%D0%BB%D0%B0+%D0%B8+%D0%BF%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C+%D0%BF%D0%B5%D1%80%D0%B5%D0%B4+%D1%81%D0%BD%D0%BE%D0%BC
+            browse_entity_id: media_player.yandex_station_m00tvb710hyxfg
+      target:
+        entity_id: media_player.yandex_station_r10sjgq00a1h7k
   mode: single

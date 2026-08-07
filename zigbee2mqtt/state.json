@@ -1,6 +1,6 @@
 {
     "0xa4c1387e5bb322c1": {
-        "battery": 50,
+        "battery": 100,
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
@@ -18,7 +18,7 @@
         "state_l1": "OFF",
         "power_outage_memory_l1": "restore",
         "child_lock": "UNLOCK",
-        "state_l2": "OFF",
+        "state_l2": "ON",
         "state_l3": "ON",
         "state_l4": "ON",
         "state_l5": "ON",
@@ -33,7 +33,7 @@
         "linkquality": 51
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3031,
+        "voltage": 3035,
         "battery": 100,
         "detection_interval": 30,
         "device_temperature": 32,
@@ -50,7 +50,7 @@
         "linkquality": 105,
         "voltage": 3165,
         "battery": 100,
-        "device_temperature": 32,
+        "device_temperature": 33,
         "power_outage_count": 2114
     }
 }

@@ -15,7 +15,7 @@
         "linkquality": 83
     },
     "0x5c0272fffe03c72e": {
-        "state_l1": "OFF",
+        "state_l1": "ON",
         "power_outage_memory_l1": "restore",
         "child_lock": "UNLOCK",
         "state_l2": "OFF",
@@ -33,7 +33,7 @@
         "linkquality": 47
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 3026,
+        "voltage": 3024,
         "battery": 100,
         "detection_interval": 30,
         "device_temperature": 27,

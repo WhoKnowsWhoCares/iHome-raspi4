@@ -573,30 +573,15 @@
         entity_id: sensor.linp_hb01_1609_occupancy_sensor
         state:
         - no one
+      - condition: state
+        entity_id: sensor.linp_hb01_63e1_occupancy_sensor
+        state:
+        - has one
+      - condition: state
+        entity_id: input_select.day_part
+        state:
+        - Evening
       sequence:
-      - if:
-        - condition: state
-          entity_id: sensor.linp_hb01_4ee8_occupancy_sensor
-          state:
-          - no one
-        - condition: state
-          entity_id: sensor.linp_hb01_1609_occupancy_sensor
-          state:
-          - no one
-        - condition: state
-          entity_id: sensor.linp_hb01_63e1_occupancy_sensor
-          state:
-          - no one
-        - condition: state
-          entity_id: input_select.day_part
-          state:
-          - Evening
-        then:
-        - action: switch.turn_on
-          metadata: {}
-          data: {}
-          target:
-            entity_id: switch.zigbee_switch_l1
       - action: light.turn_off
         metadata: {}
         target:
@@ -1419,4 +1404,16 @@
             browse_entity_id: media_player.yandex_station_m00tvb710hyxfg
       target:
         entity_id: media_player.yandex_station_r10sjgq00a1h7k
+  mode: single
+- id: '1786913200222'
+  alias: morning pc start
+  description: ''
+  triggers:
+  - trigger: time
+    at: 08:50:00
+  conditions: []
+  actions:
+  - action: shell_command.turn_on_remote_pc
+    metadata: {}
+    data: {}
   mode: single

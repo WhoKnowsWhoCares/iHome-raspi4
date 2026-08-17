@@ -18,7 +18,7 @@
         "state_l1": "OFF",
         "power_outage_memory_l1": "restore",
         "child_lock": "UNLOCK",
-        "state_l2": "ON",
+        "state_l2": "OFF",
         "state_l3": "OFF",
         "state_l4": "ON",
         "state_l5": "ON",
@@ -46,7 +46,7 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 9,
+        "illuminance": 6,
         "linkquality": 98,
         "voltage": 3145,
         "battery": 100,

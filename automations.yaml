@@ -1221,6 +1221,11 @@
             media_content_id: '{{["Свозвращением!","Добро пожаловать!"]|random }} '
             media_content_type: text
             metadata: {}
+      - action: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.room_morning
+        data: {}
     enabled: true
   - delay:
       hours: 0

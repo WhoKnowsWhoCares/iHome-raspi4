@@ -1,10 +1,10 @@
 {
     "0xa4c1387e5bb322c1": {
-        "battery": 5,
+        "battery": 100,
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 3000,
+        "voltage": 2200,
         "linkquality": 43
     },
     "0x00158d00072b9520": {
@@ -36,7 +36,7 @@
         "voltage": 3017,
         "battery": 100,
         "detection_interval": 30,
-        "device_temperature": 27,
+        "device_temperature": 26,
         "power_outage_count": 3,
         "illuminance": 0,
         "motion_sensitivity": "low",

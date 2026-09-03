@@ -1,6 +1,6 @@
 {
     "0xa4c1387e5bb322c1": {
-        "battery": 100,
+        "battery": 10,
         "water_leak": false,
         "tamper": false,
         "battery_low": false,
@@ -48,7 +48,7 @@
         "occupancy": false,
         "illuminance": 8,
         "linkquality": 102,
-        "voltage": 3125,
+        "voltage": 3115,
         "battery": 100,
         "device_temperature": 28,
         "power_outage_count": 2114

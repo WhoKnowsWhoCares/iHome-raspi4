@@ -1415,7 +1415,7 @@
   description: ''
   triggers:
   - trigger: time
-    at: 08:50:00
+    at: 06:50:00
   conditions: []
   actions:
   - action: shell_command.turn_on_remote_pc

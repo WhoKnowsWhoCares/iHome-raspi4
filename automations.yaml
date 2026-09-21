@@ -645,24 +645,20 @@
   - trigger: state
     entity_id:
     - sensor.linp_hb01_63e1_occupancy_sensor
-    to:
-    - has one
     id: detected presence_sensor
     enabled: true
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 15
+    to:
+    - has one
+    from:
+    - no one
   - trigger: state
     entity_id:
     - sensor.linp_hb01_63e1_occupancy_sensor
     to:
     - no one
     id: clear presence_sensor
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 15
+    from:
+    - has one
   conditions: []
   actions:
   - choose:
@@ -780,6 +776,7 @@
         entity_id: sensor.linp_hb01_63e1_occupancy_sensor
         state:
         - no one
+        enabled: true
       - condition: or
         conditions:
         - condition: switch.is_on

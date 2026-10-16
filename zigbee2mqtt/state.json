@@ -36,9 +36,9 @@
         "voltage": 3014,
         "battery": 100,
         "detection_interval": 30,
-        "device_temperature": 25,
+        "device_temperature": 24,
         "power_outage_count": 3,
-        "illuminance": 13,
+        "illuminance": 3,
         "motion_sensitivity": "low",
         "trigger_indicator": false,
         "occupancy": false,
@@ -46,9 +46,9 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 173,
+        "illuminance": 9,
         "linkquality": 80,
-        "voltage": 3085,
+        "voltage": 3095,
         "battery": 100,
         "device_temperature": 27,
         "power_outage_count": 2114

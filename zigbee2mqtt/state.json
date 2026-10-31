@@ -27,7 +27,7 @@
     "0xa4c13889ff22b15b": {
         "voltage": 2500,
         "battery": 87,
-        "contact": false,
+        "contact": true,
         "tamper": false,
         "battery_low": false,
         "linkquality": 58
@@ -36,9 +36,9 @@
         "voltage": 3002,
         "battery": 100,
         "detection_interval": 30,
-        "device_temperature": 24,
+        "device_temperature": 26,
         "power_outage_count": 3,
-        "illuminance": 0,
+        "illuminance": 5,
         "motion_sensitivity": "low",
         "trigger_indicator": false,
         "occupancy": false,
@@ -50,7 +50,7 @@
         "linkquality": 98,
         "voltage": 3085,
         "battery": 100,
-        "device_temperature": 26,
+        "device_temperature": 27,
         "power_outage_count": 2114
     }
 }

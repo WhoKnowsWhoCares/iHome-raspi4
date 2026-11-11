@@ -33,12 +33,12 @@
         "linkquality": 58
     },
     "0x54ef441000c6a4b2": {
-        "voltage": 2993,
-        "battery": 95,
+        "voltage": 2972,
+        "battery": 81,
         "detection_interval": 30,
         "device_temperature": 23,
         "power_outage_count": 4,
-        "illuminance": 4,
+        "illuminance": 0,
         "motion_sensitivity": "low",
         "trigger_indicator": false,
         "occupancy": false,
@@ -46,7 +46,7 @@
     },
     "0x00158d00067c3026": {
         "occupancy": false,
-        "illuminance": 8,
+        "illuminance": 6,
         "linkquality": 98,
         "voltage": 3085,
         "battery": 100,
